@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Российские железные дороги</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div th:insert="navbar :: navbar"></div>
+
+  <br>
+  <div class="container-fluid">
+    <h3>Задание для сайта РЖД</h3>
+    <br>
+    <h5>Создать в БД Postgres три таблицы:</h5>
+    <span>
+      1. Customers: id, фамилия пользователя, имя пользователя, пол, возраст;<br>
+      2. Products: id, название товара, стоимость товара;<br>
+      3. Orders: id, id пользователя, id товара, дата покупки, количество товара.<br><br>
+ 
+      Названия столбцов условные, можно использовать произвольные.<br>
+      Таблицы должны иметь отношения: [Orders.id пользователя] -> Customers.id, [Orders.id товара] -> Products.id.<br>
+    </span>
+    <br>
+    <h5>Создать приложение которое выполняло бы следующие функции, внесение данных в БД:</h5>
+    <span>
+      1. заполнение таблицы Customers из  заранее подготовленного файла;<br>
+      2. заполнение таблицы Products из  заранее подготовленного файла;<br>
+      3. заполнение таблицы Orders из  заранее подготовленного файла и с помощью пользовательского визуального интерфейса.<br>
+    <span>
+    <br>
+    <h5>Формирование визуального отчета:</h5>
+    <span>
+      1. интерфейс выбора пользователя и интервала дат;<br>
+      2. формирование в табличном виде строк с заказами выбранного пользователя за указанный интервал<br> 
+      (id заказа, дата заказа, название товара, кол-во штук товара, стоимость заказа);<br>
+      3. под списком итоговая строка (кол-во заказов, общая стоимость заказов).<br>
+    <span>
+    <br>
+    <h5>Результат должен быть выложен на GitHub и собираться через Maven в дистрибутив (без IDE).</h5>
+  </div>
+  
+</body>
+</html>

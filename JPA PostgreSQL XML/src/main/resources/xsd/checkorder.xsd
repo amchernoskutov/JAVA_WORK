@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="orders">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="10">
+
+        <xs:element name="order">
+          <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+
+              <xs:element name="count">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="130"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>              
+              <xs:element type="xs:date" name="purchasedate"/>
+              <xs:element name="product">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="1030"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>              
+              <xs:element name="customer">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="1030"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>              
+
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

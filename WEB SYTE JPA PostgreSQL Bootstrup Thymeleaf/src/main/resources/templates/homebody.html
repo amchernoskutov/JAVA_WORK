@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>BestCHAM Лучшие фильмы, сайты и YouTube каналы</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <style>
+    .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div th:fragment="film">
+  <div class="container jumbotron-fluid" style="margin-top:30px; margin-bottom:30px">
+    <div class="row">
+      <div class="col-sm-4">
+
+      <div class="container jumbotron-fluid">
+        <div class="jumbotron bg-dark">
+          <h3>Фильмы</h3>
+          <p>Выберите любимую категорию.</p>
+          <ul class="nav nav-pills flex-column">
+            <div th:each="categoryfilm : ${categoryfilms}">
+              <li class="nav-item">
+                <a th:class="'nav-link text-white ' + ${categoryfilm.active}" th:href="'/mfilm/' + ${categoryfilm.id} + '/page/' + ${numberpagefilm}" th:text="${categoryfilm.name}">Active</a>
+              </li>
+            </div> 
+          </ul>
+          <hr class="d-sm-none">
+        </div>
+      </div>
+      
+      </div>
+      <div class="col-sm-8  text-dark">
+        <div th:each="film : ${films}">
+          <div class="border" style="margin:1px">
+          <div style="margin:10px">
+          <h4><b><span th:text="${film.name} + '(' + ${film.yearofmanufacture} + ')'"></span></b></h4>
+
+          <div class="mt-2 form-group">
+            <div class="row">
+
+              <div class="col-sm-4">
+                <img th:src="'/imgfilm/'+${film.picture}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> 
+              </div>
+
+              <div class="col-sm" >
+                <h5><b>Оригинальное название: </b><small><span th:text="${film.originalfilmname}"></span></small></h5>
+                <h5><b>Жанр: </b><small><span th:text="${film.categoryfilms}"></span></small></h5>
+                <h5><b>Описание фильма:</b></h5>
+                <h5> <small> <span th:text="${film.description}"></span></small></h5>
+              </div>
+            </div>
+          </div>
+          
+          <h5><b>Продюсер: </b><small><span th:text="${film.producer}"></span></small></h5>
+          <h5><b>Актеры: </b><small><span th:text="${film.intotherole}"></span></small></h5>
+          <h5><b>Продолжительность: </b><small><span th:text="${film.durationminute}"></span> минут.</small></h5>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="container jumbotron-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      
+      <div class="col-sm-8">
+        <div class="container mt-2">
+    
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" th:href="'/mfilm/' + ${categoryfilmid} + '/page/' + ${numberpagefilm-1}">Предыдущая</a></li>
+            <li class="page-item active"><a class="page-link" th:href="'/mfilm/' + ${categoryfilmid} + '/page/' + ${numberpagefilm}" th:text="${numberpagefilm}">1</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/mfilm/' + ${categoryfilmid} + '/page/' + ${numberpagefilm+1}" th:text="${numberpagefilm+1}">2</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/mfilm/' + ${categoryfilmid} + '/page/' + ${numberpagefilm+2}" th:text="${numberpagefilm+2}">3</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/mfilm/' + ${categoryfilmid} + '/page/' + ${numberpagefilm+3}">Следующая</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="syte">
+  <div class="container jumbotron-fluid" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-4">
+
+      <div class="container jumbotron-fluid">
+        <div class="jumbotron bg-dark ">
+          <h3>Сайты</h3>
+          <p>Выберите любимую категорию.</p>
+          <ul class="nav nav-pills flex-column">
+            <div th:each="categorysyte : ${categorysytes}">
+              <li class="nav-item">
+                <a th:class="'nav-link text-white ' + ${categorysyte.active}" th:href="'/msyte/' + ${categorysyte.id} + '/page/' + ${numberpagesyte}" th:text="${categorysyte.name}">Active</a>
+              </li>
+            </div> 
+          </ul>
+          <hr class="d-sm-none">
+        </div>
+      </div>
+      </div>
+ 
+      <div class="col-sm-8  text-dark">
+        <div th:each="syte : ${sytes}">
+          <div class="border" style="margin:1px">
+          <div style="margin:10px">
+          <h4><b><span th:text="${syte.name}"></span></b></h4>
+
+          <div class="mt-2 form-group">
+            <div class="row">
+
+              <div class="col-sm-4">
+                <img th:src="'/imgsyte/'+${syte.picture}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> 
+              </div>
+
+              <div class="col-sm" >
+                <h5><b>Категория: </b><small><span th:text="${syte.categorysytes}"></span></small></h5>
+                <h5><b>Описание сайта:</b></h5>
+                <h5> <small> <span th:text="${syte.description}"></span></small></h5>
+              </div>
+            </div>
+          </div>
+          
+          <h5><b>URL: </b><small><span th:text="${syte.url}"></span></small></h5>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    <div class="container jumbotron-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      
+      <div class="col-sm-8 mt-2">
+        <div class="container">
+    
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" th:href="'/msyte/' + ${categorysyteid} + '/page/' + ${numberpagesyte-1}">Предыдущая</a></li>
+            <li class="page-item active"><a class="page-link" th:href="'/msyte/' + ${categorysyteid} + '/page/' + ${numberpagesyte}" th:text="${numberpagesyte}">1</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/msyte/' + ${categorysyteid} + '/page/' + ${numberpagesyte+1}" th:text="${numberpagesyte+1}">2</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/msyte/' + ${categorysyteid} + '/page/' + ${numberpagesyte+2}" th:text="${numberpagesyte+2}">3</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/msyte/' + ${categorysyteid} + '/page/' + ${numberpagesyte+3}">Следующая</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div th:fragment="youtube">
+  <div class="container jumbotron-fluid" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-4">
+
+      <div class="container jumbotron-fluid">
+        <div class="jumbotron bg-dark ">
+          <h3>Youtube каналы</h3>
+          <p>Выберите любимую категорию.</p>
+          <ul class="nav nav-pills flex-column">
+            <div th:each="categoryyoutube : ${categoryyoutubes}">
+              <li class="nav-item">
+                <a th:class="'nav-link text-white ' + ${categoryyoutube.active}" th:href="'/myoutube/' + ${categoryyoutube.id} + '/page/' + ${numberpageyoutube}" th:text="${categoryyoutube.name}">Active</a>
+              </li>
+            </div> 
+          </ul>
+          <hr class="d-sm-none">
+        </div>
+      </div>
+      </div>
+
+      <div class="col-sm-8  text-dark">
+        <div th:each="youtube : ${youtubes}">
+          <div class="border" style="margin:1px">
+          <div style="margin:10px">
+          <h4><b><span th:text="${youtube.name}"></span></b></h4>
+
+          <div class="mt-2 form-group">
+            <div class="row">
+
+              <div class="col-sm-4">
+                <img th:src="'/imgyoutube/'+${youtube.picture}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> 
+              </div>
+
+              <div class="col-sm" >
+                <h5><b>Категория: </b><small><span th:text="${youtube.categoryyoutubes}"></span></small></h5>
+                <h5><b>Описание Youtube канала:</b></h5>
+                <h5> <small> <span th:text="${youtube.description}"></span></small></h5>
+              </div>
+            </div>
+          </div>
+          
+          <h5><b>URL: </b><small><span th:text="${youtube.url}"></span></small></h5>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    <div class="container jumbotron-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+      
+      <div class="col-sm-8 mt-2">
+        <div class="container">
+    
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" th:href="'/myoutube/' + ${categoryyoutubeid} + '/page/' + ${numberpageyoutube-1}">Предыдущая</a></li>
+            <li class="page-item active"><a class="page-link" th:href="'/myoutube/' + ${categoryyoutubeid} + '/page/' + ${numberpageyoutube}" th:text="${numberpageyoutube}">1</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/myoutube/' + ${categoryyoutubeid} + '/page/' + ${numberpageyoutube+1}" th:text="${numberpageyoutube+1}">2</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/myoutube/' + ${categoryyoutubeid} + '/page/' + ${numberpageyoutube+2}" th:text="${numberpageyoutube+2}">3</a></li>
+            <li class="page-item"><a class="page-link" th:href="'/myoutube/' + ${categoryyoutubeid} + '/page/' + ${numberpageyoutube+3}">Следующая</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>

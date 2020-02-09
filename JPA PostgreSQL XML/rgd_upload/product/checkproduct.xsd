@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="products">
+    <xs:complexType>
+      <xs:sequence minOccurs="1" maxOccurs="10">
+
+        <xs:element name="product">
+          <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="1">
+
+              <xs:element name="productname">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="3"/>
+                    <xs:maxLength value="50"/>
+                    <xs:pattern value="[А-Я]([а-я])+"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>            
+              <xs:element name="amount">
+                <xs:simpleType>
+                  <xs:restriction base="xs:decimal">
+                  <xs:minInclusive value="0.01"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>              
+
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

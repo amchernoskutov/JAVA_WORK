@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customers>
+  <customer>
+    <customername>Иван</customername>
+    <lastname>Иванов</lastname>
+    <age>23</age>
+    <gender>MAN</gender>
+  </customer>
+  <customer>
+    <customername>Владимир</customername>
+    <lastname>Морозов</lastname>
+    <age>46</age>
+    <gender>MAN</gender>
+  </customer>
+  <customer>
+    <customername>Дмитрий</customername>
+    <lastname>Соколов</lastname>
+    <age>27</age>
+    <gender>MAN</gender>
+  </customer>
+  <customer>
+    <customername>Наталья</customername>
+    <lastname>Васильева</lastname>
+    <age>23</age>
+    <gender>WOMAN</gender>
+  </customer>
+  <customer>
+    <customername>Петр</customername>
+    <lastname>Белов</lastname>
+    <age>33</age>
+    <gender>MAN</gender>
+  </customer>
+</customers>

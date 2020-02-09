@@ -1,0 +1,5 @@
+build:
+docker:
+    web: Dockerfile
+run:
+    web: [PUT YOUR CMD COMMAND IN DOCKERFILE HERE]

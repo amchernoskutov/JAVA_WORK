@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Best CHAM Регистрация</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+  
+<body>
+  <div class="ml-0 modal-body">
+    <h4 class="modal-title">Регистрация</h4>
+  </div>
+ 
+   <div th:each="errormessags : ${errormessags}">
+    <form class="wl-35 ml-3 mb-1 form-inline"> 
+      <li class="list-group-item list-group-item-danger" th:text="${errormessags}">Danger item</li>
+    </form>
+  </div>
+ 
+  <div class="ml-0 modal-body">
+
+    <form th:action="@{/registration}" method="POST">
+      <div class="form-group">
+         <label for="username">Имя пользователя</label>
+         <input type="username" class="w-25 form-control" id="username" th:placeholder="${username}" name="username">
+      </div>
+      <div class="form-group">
+         <label for="email">Email:</label>
+         <input type="email" class="w-25 form-control" id="email" th:placeholder="${email}" name="email">
+      </div>
+      <div class="form-group">
+         <label for="password">Пароль:</label>
+         <input type="password" class="w-25 form-control" id="password" placeholder="Введите пароль" name="password">
+      </div>
+      <div class="form-group">
+         <label for="password">Подтверждение пароля:</label>
+         <input type="password" class="w-25 form-control" id="confirm" placeholder="Подтвердите пароль" name="confirm">
+      </div>
+
+      <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Регистрация</button>
+      <a th:href="@{/login}" class="ml-1 text-white btn btn-primary" role="button"><i class="fa fa-times"></i> Отмена</a>
+      
+    </form>
+  </div>
+    
+</body>
+</html>

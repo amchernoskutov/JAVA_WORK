@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product>
+    <productname>Телевизор</productname>
+    <amount>25000.01</amount>
+  </product>
+  <product>
+    <productname>Плеер</productname>
+    <amount>2000.00</amount>
+  </product>
+  <product>
+    <productname>Наушники</productname>
+    <amount>250.01</amount>
+  </product>
+  <product>
+    <productname>Батарейка</productname>
+    <amount>25.25</amount>
+  </product>
+  <product>
+    <productname>Фотоаппарат</productname>
+    <amount>5002.01</amount>
+  </product>
+  <product>
+    <productname>Холодильник</productname>
+    <amount>21999.11</amount>
+  </product>
+</products>

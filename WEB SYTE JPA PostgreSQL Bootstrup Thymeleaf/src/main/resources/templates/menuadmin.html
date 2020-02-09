@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+  <div th:fragment="menuadmintop">
+  
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="/home"><i class="fa fa-home"></i> BestCHAM.RU</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <i class="fa fa-film"></i> Фильмы
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/film">Справочник фильмов</a>
+            <a class="dropdown-item" href="/categoryfilm">Справочник категорий фильмов</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <i class="fa fa-columns"></i> Сайты
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/syte">Справочник сайтов</a>
+            <a class="dropdown-item" href="/categorysyte">Справочник категорий сайтов</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <i class="fa fa-youtube"></i> YouTube
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/youtube">Справочник youtube каналов</a>
+            <a class="dropdown-item" href="/categoryyoutube">Справочник категорий youtube каналов</a>
+          </div>
+        </li>
+      </ul>
+    </div>  
+  </nav>
+  
+  </div>
+
+</body>
+</html>
+
+
+
+

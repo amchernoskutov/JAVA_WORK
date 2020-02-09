@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Российские железные дороги</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+  
+<body>
+
+  <form th:action="@{/registration}" method="POST" th:object="${user}">
+
+      <div class="ml-0 modal-body">
+        <h4 class="modal-title">Регистрация</h4>
+        <div th:if="${#fields.hasErrors()}">
+          <span style="color: red">Некорректно заполнены данные, пожалуйста скорректируйте сведения</span>
+        </div>
+      </div>
+      <div class="ml-0 modal-body">
+
+      <div class="form-group">
+        <label for="username">Имя пользователя</label>
+        <input type="username" class="w-25 form-control" id="username" th:placeholder="${username}" name="username">
+        <span style="color: red"><td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td></span>
+      </div>
+      <div class="form-group">
+        <label for="password">Пароль:</label>
+        <input type="password" class="w-25 form-control" id="password" th:placeholder="${password}" name="password">
+        <span style="color: red"><td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td></span>
+      </div>
+
+      <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Регистрация</button>
+      <a th:href="@{/login}" class="ml-1 text-white btn btn-primary" role="button"><i class="fa fa-times"></i> Отмена</a>
+    </div>
+  </form>
+    
+</body>
+</html>

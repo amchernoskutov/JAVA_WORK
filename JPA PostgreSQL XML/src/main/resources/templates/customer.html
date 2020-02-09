@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Российские железные дороги</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div th:insert="navbar :: navbar"></div>
+
+    <div class="ml-0 mw-100 container">
+       <h2>Таблица покупателей</h2>
+       <p>Вы можете выполнить начальную инициализацию данных</p>
+
+       <form th:action="@{/customer}" method="POST" enctype="multipart/form-data" id="myform" >
+         <input type="file" style="display:none" id="myfileinput" accept=".xml" name = "myfileinput" />
+         <button type="button" class="mb-3 btn btn-primary" name="myButtion[]" value="customerinit"  id="customerinit" ><i class="fa fa-cog"></i> Инициализация</button>
+         <button type="buttion" style="display:none" class="mb-3 ml-1 btn btn-primary" name="myButtion[]" value="customerinit2"  id="customerinit2" ><i class="fa fa-cog"></i> </button>
+       </form>
+
+       <div th:each="errormessags : ${errormessags}">
+         <form class="wl-35 mb-2 form-inline"> 
+           <li class="list-group-item list-group-item-danger" th:text="${errormessags}">Danger item</li>
+         </form>
+       </div>
+
+       <table class="table table-bordered table-sm table-hover ">
+       <thead class="thead-dark">
+         <tr>
+           <th>ID</th>
+           <th>Фамилия</th>
+           <th>Имя</th>
+           <th style="text-align:center">Возрост</th>
+           <th style="text-align:center">Пол</th>
+         </tr>
+       </thead>
+       <tbody>
+         <div th:each="customer : ${customers}">
+           <tr>
+             <td th:text="${customer.id}"></td>
+             <td th:text="${customer.lastname}"></td>
+             <td th:text="${customer.customername}"></td>
+             <td th:text="${customer.age}" style="text-align:center"></td>
+             <td th:text="${customer.gender}" style="text-align:center"></td>
+           </tr>
+         </div>
+       </tbody>
+     </table>
+    </div>
+  <script>
+    document.getElementById('customerinit').onclick = function() {
+      document.getElementById('myfileinput').click();
+    };
+    document.getElementById('myfileinput').onchange = function() {
+        document.getElementById('customerinit2').click();
+      };
+    
+  </script>
+</body>
+</html>

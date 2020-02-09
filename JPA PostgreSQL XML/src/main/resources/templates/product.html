@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Российские железные дороги</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div th:insert="navbar :: navbar"></div>
+
+    <div class="ml-0 mw-100 container">
+       <h2>Таблица продуктов</h2>
+       <p>Вы можете выполнить начальную инициализацию данных</p>
+
+       <form th:action="@{/product}" method="POST" enctype="multipart/form-data" id="myform" >
+         <input type="file" style="display:none" id="myfileinput" accept=".xml" name = "myfileinput" />
+         <button type="button" class="mb-3 btn btn-primary" name="myButtion[]" value="productinit"  id="productinit" ><i class="fa fa-cog"></i> Инициализация</button>
+         <button type="buttion" style="display:none" class="mb-3 ml-1 btn btn-primary" name="myButtion[]" value="productinit2"  id="productinit2" ><i class="fa fa-cog"></i> </button>
+       </form>
+
+       <div th:each="errormessags : ${errormessags}">
+         <form class="wl-35 mb-2 form-inline"> 
+           <li class="list-group-item list-group-item-danger" th:text="${errormessags}">Danger item</li>
+         </form>
+       </div>
+
+       <table class="table table-bordered table-sm table-hover ">
+       <thead class="thead-dark">
+         <tr>
+           <th>ID</th>
+           <th>Наименование продукта</th>
+           <th style="text-align:right">Цена</th>
+         </tr>
+       </thead>
+       <tbody>
+         <div th:each="product : ${products}">
+           <tr>
+             <td th:text="${product.id}"></td>
+             <td th:text="${product.productname}"></td>
+             <td th:text="${product.amount}" style="text-align:right"></td>
+           </tr>
+         </div>
+       </tbody>
+     </table>
+    </div>
+  <script>
+    document.getElementById('productinit').onclick = function() {
+      document.getElementById('myfileinput').click();
+    };
+    document.getElementById('myfileinput').onchange = function() {
+        document.getElementById('productinit2').click();
+      };
+    
+  </script>
+</body>
+</html>

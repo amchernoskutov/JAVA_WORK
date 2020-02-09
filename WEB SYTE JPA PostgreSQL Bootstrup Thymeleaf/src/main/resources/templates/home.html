@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>BestCHAM Лучшие фильмы, сайты и YouTube каналы</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid" th:style="'background: url(/images/substrate.jpg); margin-bottom:0; '">
+
+<div class="container bg-white text-white">
+
+<div class="jumbotron text-center text-dark" th:style="'background: url(/images/V6AWYS.jpg); margin-bottom:0; background-size: 100%;'">
+  <h1><br></h1> 
+  <h3><br></h3> 
+</div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="#"><i class="fa fa-home"></i> BestCHAM.ru</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a th:class="'nav-link ' + ${menuitemfilm}" th:href="'/mfilm/' + ${categoryfilmid} + '/page/' + ${numberpagefilm}" ><i class="fa fa-film"></i> Фильмы</a>
+        </li>
+        <li class="nav-item">
+          <a th:class="'nav-link ' + ${menuitemsyte}" th:href="'/msyte/' + ${categorysyteid} + '/page/' + ${numberpagesyte}"><i class="fa fa-columns"></i> Сайты</a>
+        </li>
+        <li class="nav-item">
+          <a th:class="'nav-link ' + ${menuitemyoutube}" th:href="'/myoutube/' + ${categoryyoutubeid} + '/page/' + ${numberpageyoutube}"><i class="fa fa-youtube"></i> YouTube</a>
+        </li>    
+      </ul>
+    </div>  
+    <form class="form-inline" method="POST" th:action="@{/home}" >
+      <input class="form-control mr-sm-2" type="text" id="homefind" th:value="${homefind}" name="homefind">
+      <button class="btn btn-success" name="myButtion[]" value="interfind" type="submit"><i class="fa fa-filter"></i> Поиск</button>
+
+      <button class="ml-2 btn btn-success" name="myButtion[]" value="interlogin"><i class="fa fa-sign-in"></i> Вход</button>
+      <button th:if="${admindnone}" class="ml-2 btn btn-danger" name="myButtion[]" value="interadmin"><i class="fa fa-cog"></i> Администрирование</button>
+    </form>
+  </nav>
+
+  <div th:if="${menuitemfilm} == 'active'" th:insert="~{homebody :: film}"> </div>
+  <div th:if="${menuitemsyte} == 'active'" th:insert="~{homebody :: syte}"> </div>
+  <div th:if="${menuitemyoutube} == 'active'" th:insert="~{homebody :: youtube}"> </div>
+
+  <div class="jumbotron text-center text-white bg-dark" style="margin-bottom:0">
+    <p>Дорогие друзья!</p>
+    <p class="m-0">Для того чтобы Вы не теряли время в поисках свежих и интересных материалов,</p>
+    <p class="m-0">предлагаем Вашему вниманию подборку только лучших фильмов, сайтов и YouTube каналов.</p>
+    <p>Вся информация, отобрана для Вас создалемем сайта.</p>
+    <p>Copyright 2019 BestCHAM.ru</p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

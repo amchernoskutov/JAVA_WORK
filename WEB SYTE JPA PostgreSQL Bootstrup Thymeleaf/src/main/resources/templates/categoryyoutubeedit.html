@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div th:insert="menuadmin :: menuadmintop"></div>
+
+  <div class="ml-0 mt-2 container">
+    <div class="jumbotron">
+      <h3>Редактирование категории youtube канала</h3>    
+          
+       <div th:each="errormessage : ${errormessages}">
+         <form class="wl-35 ml-3 mb-1 form-inline"> 
+           <li class="list-group-item list-group-item-danger" th:text="${errormessage}">Danger item</li>
+         </form>
+       </div>
+            
+      <div class="mt-2 form-group">
+        <form th:action="@{/categoryyoutubeedit}" method="POST">
+          
+          <label for="usr">ID:</label>
+          <input type="text" readonly="readonly" class="w-25 form-control"  th:value="${categoryyoutubeidedit}" name="categoryyoutubeidedit"/>
+
+          <label for="usr">Имя новой категории youtube канала:</label>
+          <input type="text" class="w-50 form-control" th:value="${categoryyoutubenameedit}" name="categoryyoutubenameedit">
+
+          <button type="buttion" class="mt-2 btn btn-primary" name="myButtion[]" value="categoryyoutubebut#buttion#edit"><i class="fa fa-check"></i> Изменить</button>
+          <button type="buttion" class="mt-2 btn btn-primary" name="myButtion[]" value="categoryyoutubebut#buttion#edit#cancel"><i class="fa fa-times"></i> Отмена</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

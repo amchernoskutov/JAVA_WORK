@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>АСУ ТЭР - Модуль администратора</title>
+
+  <!-- Кодировка веб-страницы -->
+  <meta charset="utf-8">
+
+  <!-- Настройка viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Подключаем Bootstrap CSS -->
+  <link rel="stylesheet" href="webjars/bootstrap-4.4.1/css/bootstrap.min.css" >
+
+  <!-- Подключаем шрифты Awesome -->
+  <link rel="stylesheet" href="webjars/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+  <!-- Подключаем jQuery -->
+  <script src="webjars/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+
+  <!-- Подключаем Bootstrap JS -->    
+  <script src="webjars/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    @font-face {
+      font-family: Oswald; /* Гарнитура шрифта */
+      src: url(webjars/fonts/google/oswald/oswald-bold.ttf); /* Путь к файлу со шрифтом */
+    }
+  </style>
+</head>
+<body style="background-image: url('static/images/logostart-min.png'); background-repeat: no-repeat; background-size: cover;" >
+
+  <!-- Контент страницы --> 
+
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-sm-8">
+      </div>
+      <div class="col-sm-4">
+  
+        <div class="container-fluid ">
+          <div class="card border-info">
+  
+            <div th:insert="loginform :: loginform" id="loginFormPostF"></div>
+    
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

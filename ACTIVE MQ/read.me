@@ -1,0 +1,172 @@
+         sParamsRequest - представляет собой строку пар параметр-значение разделенные точкой с запятой, например
+           "amqaddress=activemq:tcp://10.240.4.248:61616;amqqueue=queue://donguz_28_nrr;typegr=901"
+            возможные параметры:
+                amqaddress  - адрес MQ
+                amqqueue    - очередь MQ
+                typegr      - тип запрашиваемой информации: 
+                                401 - предупреждения об ограничениях скорости  
+                                901-NORMATIVE; 
+                                902-GIDEXPORT(прогнозный выгруженный в ГИД); 
+                                903-ACTUAL; 
+                                922-FORECAST (прогнозный не выгруженный в ГИД)
+                                -1 - тип передается в s_typegr
+                s_typegr    - название типа запрашиваемого графика при typegr=-1
+                infolist    - (0/1) вернуть график/информацию об имеющихся графиках
+                reference   - ссылка на график
+                dtstart     - начало интервала запрашиваемых данных 
+                dtfinish    - конец интервала запрашиваемых данных
+                path2save   - файл куда сохранять или откуда считывать данные
+                path2prot   - файл куда писать протокол работы
+                kodroad     - код дороги
+                saveimagebin- (0/1) сохранять (нет/да) полученные данные в исходном виде в бинарном файле
+                saveimagetxt- (0/1) сохранять (нет/да) полученные данные в полном объеме со веми полями в текстовом файле 
+                loadfromfile- (0/1) 1-вместо обращения к mq загружать данные из файла = path2save но с расширением bin
+        
+
+amqaddress=activemq:tcp://172.30.231.21:61616; (Наверное - tcp://172.30.231.21:61616)
+queue://80_mqdb_queue; (Наверное - 80_mqdb_queue)
+typegr=901; 
+s_typegr=NORMATIVE;
+infolist=1;
+reference=;
+dtstart=2020-02-06 00:00;
+dtfinish=2020-02-07 00:00;
+path2save=c:\mq\2020-02-07_info_83_901.xml
+path2prot=c:\mq\protokol.log
+kodroad=83;
+saveimagebin=0;
+saveimagetxt=0;
+loadfromfile=0
+
+
+
+tcp://172.30.231.21:61616 -url
+//80_mqdb_queue - очередь
+sUser = "GDP" - user
+
+AMQTimeOut" value="120  <!--  Время ожидания ответа, секунды -->
+ режим доставки в NON_PERSISTENT
+requestData.Content = byteBody ?????
+
+
+"amqaddress=activemq:tcp://172.30.231.21:61616;queue://80_mqdb_queue;typegr=901;s_typegr=;infolist=1;reference=;dtstart=2020-02-06 00:00;dtfinish=2020-02-07 00:00;path2save=c:\mq\2020-02-07_info_83_901.xml;path2prot=c:\mq\protokol.log;kodroad=83;saveimagebin=0;saveimagetxt=0;loadfromfile=0"
+
+
+
+<?xml version="1.0"?>
+<configuration>
+  <appSettings>
+    <!--  Время ожидания ответа, секунды -->
+    <add key="AMQTimeOut" value="120" />
+    <!--  величина часового сдвига (летнее-зимнее время), часы -->
+    <add key="ShiftHour" value="1" />
+    <add key="ClientSettingsProvider.ServiceUri" value="" />
+  </appSettings>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0" />
+  </startup>
+  <system.web>
+    <membership defaultProvider="ClientAuthenticationMembershipProvider">
+      <providers>
+        <add name="ClientAuthenticationMembershipProvider" 
+             type="System.Web.ClientServices.Providers.ClientFormsAuthenticationMembershipProvider, 
+                   System.Web.Extensions, 
+                   Version=4.0.0.0, 
+                   Culture=neutral, 
+                   PublicKeyToken=31bf3856ad364e35" 
+                   serviceUri="" />
+      </providers>
+    </membership>
+    <roleManager defaultProvider="ClientRoleProvider" enabled="true">
+      <providers>
+        <add name="ClientRoleProvider" 
+             type="System.Web.ClientServices.Providers.ClientRoleProvider, 
+                   System.Web.Extensions, 
+                   Version=4.0.0.0, 
+                   Culture=neutral, 
+                   PublicKeyToken=31bf3856ad364e35" 
+                   serviceUri="" 
+                   cacheTimeout="86400" />
+      </providers>
+    </roleManager>
+  </system.web>
+</configuration>
+
+
+MemoryStream(byte[] buffer)
+
+
+                                       "NORMATIVE"+"_"+DateTime.Now.ToString();
+            request.NMSCorrelationID = Params_Request.sTypeGr + "_" + DateTime.Now.ToString();
+            request.Properties["emq:message_operation"] = "get_timetable_infos";
+            request.Properties["emq:message_type"] = "protobuf";
+            request.Properties["emq:status"] = "ok";
+            request.Properties["emq:proto_type"] = "elbrus_get_timetable_infos_request";
+            request.Properties["emq:message_operation_part"] = "request";
+
+
+
+headers
+emq:message_type=protobuf, 
+emq:remote_address=tcp://172.30.229.149:55000, 
+jms_destination=queue:////80_mqdb_queue, 
+jms_priority=9, 
+jms_timestamp=1581494944757, 
+jms_redelivered=false, 
+emq:proto_type=elbrus_get_timetable_infos_request, 
+jms_deliveryMode=1, 
+emq:message_operation=get_timetable_infos, 
+jms_correlationId=NORMATIVE_Wed Feb 12 11:09:04 MSK 2020, 
+emq:message_operation_part=request, 
+emq:status=ok, 
+id=687163da-377d-a1d1-6491-f7eb0ef3c783, 
+jms_expiration=1581494980757, 
+jms_messageId=ID:CMPE306ADMH2-54999-1581494943824-1:1:6:1:1, 
+timestamp=1581494944913
+
+ActiveMQBytesMessage {
+commandId = 15, 
+responseRequired = false, 
+messageId = ID:CMPE306ADMH2-54999-1581494943824-1:1:6:1:1, 
+originalDestination = null, 
+originalTransactionId = null, 
+producerId = ID:CMPE306ADMH2-54999-1581494943824-1:1:6:1, 
+destination = queue:////80_mqdb_queue, transactionId = null, 
+expiration = 1581494980757, 
+timestamp = 1581494944757, 
+arrival = 0, 
+brokerInTime = 1581494944835, 
+brokerOutTime = 1581494944838, 
+correlationId = NORMATIVE_Wed Feb 12 11:09:04 MSK 2020, 
+replyTo = null, 
+persistent = false, 
+type = null, 
+priority = 9, 
+groupID = null, 
+groupSequence = 0, 
+targetConsumerId = null, 
+compressed = false, 
+userID = null, 
+content = org.apache.activemq.util.ByteSequence@4472d48e, 
+marshalledProperties = org.apache.activemq.util.ByteSequence@18a848d9, 
+dataStructure = null, 
+redeliveryCounter = 0, 
+size = 0, 
+properties = {
+  emq:proto_type=elbrus_get_timetable_infos_request, 
+  emq:message_operation_part=request, 
+  emq:status=ok, 
+  emq:message_operation=get_timetable_infos, 
+  emq:message_type=protobuf, 
+  emq:remote_address=tcp://172.30.229.149:55000
+}, 
+readOnlyProperties = true, 
+readOnlyBody = true, 
+droppable = false, 
+jmsXGroupFirstForConsumer = false
+} 
+ActiveMQBytesMessage{ 
+  bytesOut = null, 
+  dataOut = null, 
+  dataIn = null 
+}

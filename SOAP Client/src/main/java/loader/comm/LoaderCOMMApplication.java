@@ -1,37 +1,33 @@
 package loader.comm;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import loader.comm.config.LCConfig;
-import loader.comm.log.LCLog;
-import loader.comm.manager.ManagerSoapClientCOMM;
+
+/**
+ * Loader COMM 
+ * Loader COMM - SOAP Crient приложение, взаимодействует с Web Service ЦОММ.  
+ * 
+ * Приложение запускается из Main Scheduler-а по заданному расписанию и формирует
+ * SAOP запрос или запросы к ЦОММ за определенный период времени.
+ *  
+ * Полученные ответы записывается в файл формата xml, далее Loader направляет 
+ * MQ Dispacher-у MQ сообщение о получении данных.   
+ * 
+ * Приложение использует конфигурационный файл configloadercomm.xml для считывания 
+ * параметров запроса.
+ * 
+ * Приложение получает два входящих параметра: первый это ID request запроса,
+ * второй - время (количество минут) за которое нужно получить данные от даты 
+ * последнего запроса.
+ * 
+ * Дата последнего запроса храниться в конфигурационном файле.  
+ */
 
 @SpringBootApplication
-public class LoaderCOMMApplication implements CommandLineRunner {
+public class LoadercommApplication {
 
-  public static void main(String[] args) {
-    SpringApplication.run(LoaderCOMMApplication.class, args);
-  }
-
-  @Override
-  public void run(String... args) throws Exception {
-    var lcConfig = new LCConfig();
-    new LCLog(lcConfig);
-
-    try {
-      ArrayList<String> elements =  new ArrayList<String>(Arrays.asList(Arrays.toString(args).replace("]", "").replace("[", "").split(", ")));
-      LCLog.Severe(elements.get(0) + " " + elements.get(1));
-      new ManagerSoapClientCOMM(Integer.parseInt(elements.get(0)), Integer.parseInt(elements.get(1)), lcConfig);
-    } catch (Exception e ) {
-      var arg = "";
-      for(var a:args) {
-        arg=arg + " " + a;
-      }
-      LCLog.Severe("ERROR read command arguments - " + arg);
-    }
-  }
+	public static void main(String[] args) {
+		SpringApplication.run(LoadercommApplication.class, args);
+	} 
 
 }

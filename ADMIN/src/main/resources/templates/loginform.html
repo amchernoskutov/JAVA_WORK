@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+  <div th:fragment="loginform">
+
+    <div class="card-header text-center text-white bg-info">
+      <h4 style="font-family: 'Oswald', sans-serif;">АВТОРИЗАЦИЯ</h4>      
+    </div>
+
+
+    <form id="loginFormPost" name="loginFormPost">
+      
+      <div class="card-body">
+        <div class="form-group"> 
+          <label for="username">Имя пользователя:</label>
+          <input type="text" class="form-control" id="username" placeholder="Имя пользователя" th:value="${loginForm.getUsername()}" name="username">
+          <div th:if="${not loginForm.getUsernameIsFound()}" class="invalid-feedback d-block">
+            Имя пользователя введено не корректно.
+          </div>
+          <div th:if="${not loginForm.getUsernameIsActive()}" class="invalid-feedback d-block">
+            Пользователь не активен.
+          </div>
+        </div>
+
+        <div class="form-group mb-0"> 
+          <label for="pwd">Пароль:</label>
+          <input type="password" class="form-control" id="password" placeholder="Пароль" th:value="${loginForm.getPassword()}" name="password">
+          <div th:if="${not loginForm.getPasswordIsFound()}" class="invalid-feedback d-block">
+            Пароль пользователя введен не корректно.
+          </div> 
+        </div>
+      </div>
+      
+
+      <div class="card-body">
+        <button type="submit" class="btn btn-info" id="loginButton"><i class="fa fa-sign-in"></i> Войти</button>
+      </div>
+    </form>
+      
+    <div class="card-footer text-center text-white bg-info">
+      <h6 style="font-family: 'Oswald', sans-serif;">АСУ ТЭР - АДМИНИСТРАТОР</h6>
+    </div>
+
+    <script type="text/javascript"> 
+      $(document).ready(function() {
+        $("#loginButton").click(function(event) {
+	    event.preventDefault();
+	    ajaxSubmitForm();
+	  });
+	});
+    
+      function ajaxSubmitForm() {
+        var form = $('#loginFormPost')[0];
+        var data = new FormData(form);
+  
+        $.ajax({
+          type: "post", 
+          url: "/login",
+          data: data,
+          processData: false,
+          contentType: false,
+          cache: false,
+          timeout: 1000000,        
+          success: function(result) {
+            if (result.indexOf('<div  id="loginF">') == -1) {
+              document.location.href = "asuteradmin";
+            } else { 
+        	    $('#loginFormPostF').html(result);
+            }
+          }
+        });
+      };
+  
+    </script>
+  
+  </div>
+
+
+</body>
+</html>

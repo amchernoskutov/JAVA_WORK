@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Taco Cloud</title>
-  </head>
-  
-  <body>
-    <h1>Login</h1>
-    <img th:src="@{/images/TacoCloud.png}"/>
-    
-    <div th:if="${error}"> 
-      Unable to login. Check your username and password.
+
+<head>
+  <title>Main Scheduler</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="webjars/fontawesome/4.7.0/css/fontawesome.min.css" rel="stylesheet">
+  <link href="webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="webjars/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="webjars/jquery/3.3.1/jquery.min.js"></script>
+  <script src="webjars/popper/1.14.0/js/popper.min.js"></script>
+</head>  
+<body>
+ 
+  <form th:action="@{/login}" method="POST" id="loginForm">
+    <div class="ml-0 modal-body">
+      <img src="static/rgd_logo.png" class="rounded" alt="rgd_logo"><hr>
+      <h5><b>АСУ ТЭР (Main Scheduler - авторизация)</b></h5>
+    </div> 
+ 
+    <div class="ml-0 modal-body">
+      <div class="form-group">
+         <label for="text">Имя пользователя:</label>
+         <input type="text" class="w-25 form-control" id="username" placeholder="Введите имя пользователя" name="username">
+      </div>
+      <div class="form-group">
+         <label for="password">Пароль:</label>
+         <input type="password" class="w-25 form-control" id="password" placeholder="Введите пароль" name="password">
+      </div>
+
+      <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Войти</button>
     </div>
-    
-    <p>New here? Click 
-       <a th:href="@{/register}">here</a> to register.</p>
-    
-    <!-- tag::thAction[] -->
-    <form method="POST" th:action="@{/login}" id="loginForm">
-    <!-- end::thAction[] -->
-      <label for="username">Username: </label>
-      <input type="text" name="username" id="username" /><br/>
-      
-      <label for="password">Password: </label>
-      <input type="password" name="password" id="password" /><br/>
-      
-      <input type="submit" value="Login"/>
-    </form>
-  </body>
+  </form> 
+
+</body>
 </html>

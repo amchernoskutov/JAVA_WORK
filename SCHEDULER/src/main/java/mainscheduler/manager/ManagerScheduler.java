@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.PostConstruct;
@@ -93,6 +94,7 @@ public class ManagerScheduler {
         
         // Создание планировщиков для каждого Loader-a  
         ScheduledFuture<?> scheduledFuture = Executors.newScheduledThreadPool(corePoolSize).scheduleAtFixedRate(new Runnable() {
+          
           public void run() {
             Date dateStartScheduled = DateUtils.round(new Date(), Calendar.MINUTE);
             try {
@@ -124,7 +126,8 @@ public class ManagerScheduler {
                     + item.getIntervalTimeMinute() + ";ERROR Recive Status=" + result.getStatusCodeValue() + " "
                     + result.getBody());
               }
-            } catch (Exception e){
+            } catch (Exception e) {
+              
               MSLog.Severe("Start time=" + MSLog.FORMAT_DATE.format(dateStartScheduled) + ";System short name=" + item.getName()
                     + ";ERROR Send POST REST request " + item.getURLRESTService() + " idRequest=" + item.getId() + " intervalTimeMinute="
                     + item.getIntervalTimeMinute() + ";Recive responce "          
@@ -132,6 +135,7 @@ public class ManagerScheduler {
             }
           }
         }, InitialDelay, (item.getIntervalTimeMinute() * MINUTE), TimeUnit.MILLISECONDS);
+
         String systemName = "";
         if (item.getURLRESTService().toLowerCase().indexOf(SYSTEM_COMM) >=0 ) systemName = SYSTEM_COMM; 
         if (item.getURLRESTService().toLowerCase().indexOf(SYSTEM_ELBRUS) >=0 ) systemName = SYSTEM_ELBRUS; 
@@ -143,8 +147,10 @@ public class ManagerScheduler {
             item.getURLRESTService(),
             item.getIntervalTimeMinute(),            
             scheduledFuture));
-      }
+
+        }
     });
+    
   }
   
   public ArrayList<MainForm> getMainForms() {

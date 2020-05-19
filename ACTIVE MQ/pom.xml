@@ -24,6 +24,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.fusesource.stompjms</groupId>
 			<artifactId>stompjms-client</artifactId>
 			<version>1.19</version>

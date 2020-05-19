@@ -202,12 +202,12 @@ public class ActiveMQGraphsWarning {
 
   // Формирование MQ сообщения
   private void createMQSender(String filePathRespond, MRequest mRequest, int requestIntervalTimeMinute) throws Exception { 
-    mqSender.setId(LALog.SHORT_LOADERCOMM_ID + mRequest.getId());
+    mqSender.setId(mRequest.getId());
     mqSender.setDate1(new Timestamp(mRequest.getDataStartTime().getTime()));
     mqSender.setDate2(new Timestamp(DateUtils.addMinutes(mRequest.getDataStartTime(), requestIntervalTimeMinute).getTime()));
     mqSender.setData_name(mRequest.getName());
     mqSender.setSystem_name(LALog.SHORT_LOADERCOMM_NAME);
-    mqSender.setXML_name(filePathRespond);
+    mqSender.setXML_name("/" + filePathRespond.replace("\\", "/"));
     mqSender.send("");
   }
 

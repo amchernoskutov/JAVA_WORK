@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+  <div th:fragment="nav">
+
+    <h3 style="font-family: 'Oswald', sans-serif;">Файловая загрузка данных</h3>
+    <p>Загрузка данных в АСУ ТЭР из файла на основе данных, полученных из АС ЦОММ, АПК ЭЛЬБРУС, СВЛ ТР.</p>
+    <hr/>
+
+    <form id="loaderFormPost" >
+    
+      <div class="form-group container jumbotron ml-0"> 
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="validatedCustomFile" name="validatedCustomFile" required>
+          <label class="custom-file-label" for="validatedCustomFile">Выберете файл...</label>
+          <div class="invalid-feedback">Example invalid custom file feedback</div>
+        </div>
+        <div th:if="*{error != null and #strings.length(error) > 0}" class="alert alert-danger">
+          <label th:text = "*{error}"/>
+        </div>
+        <button type="submit" class="mt-3 btn btn-info" id="loaderButtion" onClick = "loaderForm()"><i class="fa fa-upload"></i> Загрузить</button>
+      </div> 
+      
+    </form>     
+
+    <div class="ml-0 mt-0 container-fluid small border-0 jumbotron">
+      <h5>Список заданий для направления в очередь</h5>
+
+      <form id="sendFormPost" name="sendFormPost">
+        <table class="table table-sm table-bordered table-hover border-0">
+          <thead class="thead-dark">
+            <tr>
+              <th style="text-align:center">N п/п</th>
+              <th style="text-align:center">Направлено</th>
+              <th style="text-align:center">Информация о направлении</th>
+              <th style="text-align:center">ID запроса</th>
+              <th style="text-align:center">Имя запроса</th>
+              <th style="text-align:center">Имя системы</th>
+              <th style="text-align:center">Нач. дата данных</th>
+              <th style="text-align:center">Кон. дата данных</th>
+              <th style="text-align:center">Путь к файлу с данными</th>
+            </tr>
+          </thead>
+          <tbody> 
+            <tr th:each="loaderData : ${loaderDatas}">
+              <td class="table-light" th:text="${loaderData.getId()}" style="text-align:center"></td>
+              <td class="table-light" style="text-align:center">
+                <div class="form-check"> 
+                  <label class="form-check-label align-top" for="check1">
+                    <input th:if="${loaderData.isCheck()}" type="checkbox" class="form-check-input" id="check" name="option" value="something" checked disabled>
+                    <input th:if="${not loaderData.isCheck()}" type="checkbox" class="form-check-input" id="check" name="option" value="something" disabled>
+                  </label>    
+                </div>            
+              </td>
+              <td class="table-light" th:text="${loaderData.getRespond()}" style="text-align:left"></td>
+              <td class="table-light" th:text="${loaderData.getIdRequest()}" style="text-align:center"></td>
+              <td class="table-light" th:text="${loaderData.getShotNameRequest()}" style="text-align:center"></td>
+              <td class="table-light" th:text="${loaderData.getShotNameSystem()}" style="text-align:center"></td>
+              <td class="table-light" th:text="${#dates.format(loaderData.getDateStart(), 'yyyy-MM-dd hh:mm')}" style="text-align:center"></td>
+              <td class="table-light" th:text="${#dates.format(loaderData.getDateFinish(), 'yyyy-MM-dd hh:mm')}" style="text-align:center"></td>
+              <td class="table-light" th:text="${loaderData.getPathAndFileName()}" style="text-align:left"></td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped" role="progressbar" th:style="'width: ' + ${progressBarValue} + '%'" th:aria-valuenow="${progressBarValue}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        
+        <button type="submit" class="mt-3 btn btn-info" id="sendButtion" th:onClick = "'sendForm(' + ${progressBarSize} + ')'"><i class="fa fa-send"></i> Направить</button>
+      </form>
+    </div>
+
+    <script th:inline="javascript">
+      $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+      });
+    </script>
+
+  </div>
+
+</body>
+</html>

@@ -6,137 +6,136 @@
 
   <div th:fragment="nav">
 
-    <h3 style="font-family: 'Oswald', sans-serif;">Файловая загрузка данных</h3>
-    <p>Загрузка данных в АСУ ТЭР из файла на основе данных, полученных из АС ЦОММ, АПК ЭЛЬБРУС, СВЛ ТР.</p>
+    <h3 style="font-family: 'Oswald', sans-serif;">Редактирование настроек - Системы поставщики данных</h3> 
     <hr/>
     
-    <form id="loaderFormPost" name="loaderFormPost" enctype="multipart/form-data">
-    
-      <div class="form-group container jumbotron ml-0">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="validatedCustomFile" name="validatedCustomFile" required>
-          <label class="custom-file-label" for="validatedCustomFile">Выберете файл...</label>
-          <div class="invalid-feedback">Example invalid custom file feedback</div>
-        </div>
-        <div th:if="*{error != null and #strings.length(error) > 0}" class="alert alert-danger">
-          <label th:text = "*{error}"/>
-        </div>
-        <button type="submit" class="mt-3 btn btn-info" id="loaderButtion"><i class="fa fa-upload"></i> Загрузить</button>
-      </div> 
-      
-    </form>     
-
     <div class="ml-0 mt-0 container-fluid small border-0 jumbotron">
-      <h5>Список заданий для направления в очередь</h5>
+      <h5>Справочник - Системы поставщики данных </h5>
 
-      <form id="sendFormPost" name="sendFormPost">
-        <table class="table table-sm table-bordered table-hover border-0" id="sendFormPostF">
+      <form id="sendSystemNameFormPost" name="sendSystemNameFormPost">
+        <button type="button" class="btn btn-info mt-2 mb-2" data-toggle="modal" data-target="#addSystemNameModal">
+          <i class="fa fa-file-o"></i> Добавить
+        </button>
+
+        <table class="table table-sm table-bordered table-hover border-0 table-responsive">
           <thead class="thead-dark">
             <tr>
-              <th style="text-align:center">N п/п</th>
-              <th style="text-align:center">Направлено</th>
-              <th style="text-align:center">Информация о направлении</th>
-              <th style="text-align:center">ID запроса</th>
-              <th style="text-align:center">Имя запроса</th>
-              <th style="text-align:center">Имя системы</th>
-              <th style="text-align:center">Нач. дата данных</th>
-              <th style="text-align:center">Кон. дата данных</th>
-              <th style="text-align:center">Путь к файлу с данными</th>
+              <th style="text-align:center">Код системы</th>
+              <th style="text-align:center">Наименование системы</th>
+              <th style="text-align:center">Действия</th>
             </tr>
           </thead>
           <tbody> 
-            <tr th:each="loaderData : ${loaderDatas}">
-              <td class="table-light" th:text="${loaderData.getId()}" style="text-align:center"></td>
-              <td class="table-light" style="text-align:center">
-                <div class="form-check"> 
-                  <label class="form-check-label align-top" for="check1">
-                    <input th:if="${loaderData.isCheck()}" type="checkbox" class="form-check-input" id="check" name="option" value="something" checked disabled>
-                    <input th:if="${not loaderData.isCheck()}" type="checkbox" class="form-check-input" id="check" name="option" value="something" disabled>
-                  </label>    
-                </div>            
+            <tr th:each="systemName : ${systemNames}">
+              <td class="table-light" th:text="${systemName.getMnemSystem()}" style="text-align:center"></td>
+              <td class="table-light" th:text="${systemName.getDestination()}" style="text-align:center"></td>
+              <td> 
+                <button type="button" class="btn btn-info btn-sm" th:id="${systemName.getIdSystem()}" th:onClick = "'updateGetSystemNameButtion(' + ${systemName.getIdSystem()} + ')'"><i class="fa fa-pencil"></i></button>
+                <button type="button" class="btn btn-info btn-sm" th:id="${systemName.getIdSystem()}" th:onClick = "'deleteGetSystemNameButtion(' + ${systemName.getIdSystem()} + ')'"><i class="fa fa-trash-o"></i></button>
               </td>
-              <td class="table-light" th:text="${loaderData.getRespond()}" style="text-align:left"></td>
-              <td class="table-light" th:text="${loaderData.getIdRequest()}" style="text-align:center"></td>
-              <td class="table-light" th:text="${loaderData.getShotNameRequest()}" style="text-align:center"></td>
-              <td class="table-light" th:text="${loaderData.getShotNameSystem()}" style="text-align:center"></td>
-              <td class="table-light" th:text="${#dates.format(loaderData.getDateStart(), 'yyyy-MM-dd hh:mm')}" style="text-align:center"></td>
-              <td class="table-light" th:text="${#dates.format(loaderData.getDateFinish(), 'yyyy-MM-dd hh:mm')}" style="text-align:center"></td>
-              <td class="table-light" th:text="${loaderData.getPathAndFileName()}" style="text-align:left"></td>
             </tr>
+            
+            <!-- Модальное окно добавления записи -->
+            <div class="modal" id="addSystemNameModal" tabindex="-1" role="dialog" aria-labelledby="addSystemNameModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addSystemNameModalLabel">Добавление в справочник <br>Системы поставщики данных</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div th:if="${systemNameItemError.get('insertSystemName')} != null" class="font-weight-normal text-danger" th:text="${systemNameItemError.get('insertSystemName')}"></div> 
+        
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Код системы</label>
+                      <input type="text" class="form-control" id="mnemSystem" name="mnemSystem" th:value="${addsystemNameItem.mnemSystem}" placeholder="Код">
+                      <div th:if="${systemNameItemError.get('mnemSystem')} != null" class="font-weight-normal text-danger" th:text="${systemNameItemError.get('mnemSystem')}"></div> 
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput2">Наименование системы</label>
+                      <input type="text" class="form-control" id="destination" name="destination" th:value="${addsystemNameItem.destination}" placeholder="Наименование">
+                      <div th:if="${systemNameItemError.get('destination')} != null" class="font-weight-normal text-danger" th:text="${systemNameItemError.get('destination')}"></div> 
+                    </div>
+        
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" id="systemNameButtion" onClick = "addSystemNameButtion()">Сохранить</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Модальное окно удаления записи -->
+            <div class="modal" id="deleteSystemNameModal" tabindex="-1" role="dialog" aria-labelledby="deleteSystemNameModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="deleteSystemNameModalLabel">Удаление записи из справочника <br>Системы поставщики данных</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Удалить запись из справочника? </p>
+                    <div th:if="${systemNameItemError.get('deleteSystemName')} != null" class="font-weight-normal text-danger" th:text="${systemNameItemError.get('deleteSystemName')}"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" th:id="${deleteSystemNameItem.getIdSystem()}" th:onClick = "'deleteSystemNameButtion(' + ${deleteSystemNameItem.getIdSystem()} + ')'">Да</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Модальное окно редактирования записи -->
+            <div class="modal" id="updateSystemNameModal" tabindex="-1" role="dialog" aria-labelledby="updateSystemNameModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="updateSystemNameModalLabel">Редактирование справочника <br>Системы поставщики данных</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div th:if="${systemNameItemError.get('updateSystemName')} != null" class="font-weight-normal text-danger" th:text="${systemNameItemError.get('updateSystemName')}"></div> 
+        
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Код системы</label>
+                      <input type="text" class="form-control" id="mnemSystem" name="mnemSystem" th:value="${updateSystemNameItem.mnemSystem}" placeholder="Код">
+                      <div th:if="${systemNameItemError.get('mnemSystem')} != null" class="font-weight-normal text-danger" th:text="${systemNameItemError.get('mnemSystem')}"></div> 
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput2">Наименование системы</label>
+                      <input type="text" class="form-control" id="destination" name="destination" th:value="${updateSystemNameItem.destination}" placeholder="Наименование">
+                      <div th:if="${systemNameItemError.get('destination')} != null" class="font-weight-normal text-danger" th:text="${systemNameItemError.get('destination')}"></div> 
+                    </div>
+        
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" th:id="${updateSystemNameItem.getIdSystem()}" th:onClick = "'updateSystemNameButtion(' + ${updateSystemNameItem.getIdSystem()} + ')'">Да</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </tbody>
         </table>
-      
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped" role="progressbar" th:style="'width: ' + ${progressBarValue} + '%'" th:aria-valuenow="${progressBarValue}" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        
-        <button type="submit" class="mt-3 btn btn-info" id="sendButtion"><i class="fa fa-send"></i> Направить</button>
       </form>
     </div>
-    
 
-  <script th:inline="javascript"> 
-    $(".custom-file-input").on("change", function() {
-      var fileName = $(this).val().split("\\").pop();
-      $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
-
-    $(document).ready(function() {
-      $("#loaderButtion").click(function(event) {
-	    event.preventDefault();
-	    ajaxLoaderForm();
-	  });
-      $("#sendButtion").click(function(event) {
-	    event.preventDefault();
-        ajaxSendForm();
-	  });
-	});
-  
-    function ajaxLoaderForm() {
-      var form = $('#loaderFormPost')[0];
-      var data = new FormData(form);
-
-      $.ajax({
-        type: "post", 
-        url: "/asuteradmin/loaderfile",
-        data: data,
-        processData: false,
-        contentType: false,
-        cache: false,
-        timeout: 1000000,        
-        success: function(result) {
-          $('#loaderFormPostF').html(result);
-        }
-      });
-    };
-
-    function ajaxSendForm() {
-      var form = $('#sendFormPost')[0];
-      var data = new FormData(form);
-
-      $.ajax({
-        type: "post", 
-        url: "/asuteradmin/sendfile",
-        data: data,
-        processData: false,
-        contentType: false,
-        cache: false,
-        timeout: 1000000,         
-        success: function(result) {
-  	      if (([[${progressBarValue}]] != null) && ([[${progressBarValue}]] < 100)) {
-	        $('#loaderFormPostF').html(result);
-  	    	ajaxSendForm();
-  	      } else {
-  	        $('#loaderFormPostF').html(result);
-  	      }
-        }
-      });
-    };
-
-  </script> 
-
+    <script>
+      $('#addSystemNameModal').on('shown.bs.modal', function () {
+        $('#formGroupExampleInput').trigger('focus')
+      })
+    </script>
 
   </div>
+
 
 </body>
 </html>

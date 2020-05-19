@@ -1,0 +1,87 @@
+<configurationSVLTR>
+   <logAndDataServer>
+      <name>c:/</name>
+   </logAndDataServer>
+   <logPaths>
+      <logPath>logs/log1/</logPath>
+      <logPath>logs/log2/</logPath>
+   </logPaths>
+   <RestRequestParam>
+      <url>local.trans-ip.ru</url>
+      <urlapi>ter/api/login</urlapi>
+      <username>TERServiceBHbas2</username>
+      <password>JWNjgb3672bwVf!!m9</password>
+   </RestRequestParam>
+   <MQSenderParam>
+      <name>q-test</name>
+      <host>172.31.54.130</host>
+      <port>61613</port>
+      <login>admin</login>
+      <password>admin</password>
+   </MQSenderParam>
+   <requests>
+      <request>
+         <id>201</id>
+         <name>SPEED_HISTORY</name>
+         <urlapi>ter/api/speed_history</urlapi>
+         <dataStartTime>2020-02-17 01:10:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>202</id>
+         <name>COORD_HISTORY</name>
+         <urlapi>ter/api/coord_history</urlapi>
+         <dataStartTime>2020-03-03 14:10:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>203</id>
+         <name>TRAFFIC_LIGHT_HISTORY</name>
+         <urlapi>ter/api/traffic_light_history</urlapi>
+         <dataStartTime>2020-02-17 00:55:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>204</id>
+         <name>MEK_HISTORY</name>
+         <urlapi>ter/api/mek_history</urlapi>
+         <dataStartTime>2020-02-17 00:50:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>205</id>
+         <name>FUEL</name>
+         <urlapi>ter/api/fuel</urlapi>
+         <dataStartTime>2018-04-10 14:55:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>206</id>
+         <name>DIESEL_RUN_HISTORY</name>
+         <urlapi>ter/api/diesel_run_history</urlapi>
+         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>207</id>
+         <name>ELECTRIC_DATA</name>
+         <urlapi>ter/api/electric_data</urlapi>
+         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>208</id>
+         <name>VAGONS_DATA</name>
+         <urlapi>ter/api/vagons_data</urlapi>
+         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+      <request>
+         <id>209</id>
+         <name>ASOUP_DATA</name>
+         <urlapi>ter/api/asoup_data</urlapi>
+         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+   </requests>
+</configurationSVLTR>

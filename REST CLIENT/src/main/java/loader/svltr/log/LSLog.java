@@ -37,7 +37,6 @@ public class LSLog {
   public static final boolean CONSOLE_SHOW = false;
   public static final String ADD_LOADERSVLTR_PATH = "SVLTR";
   public static final String ADD_LOADER_PATH = "LOADERSVLTR";
-  public static final Integer SHORT_LOADERSVLTR_ID = 100;
   public static final String SHORT_LOADERSVLTR_NAME = "SVLTR";
   public static final String SHORT_LOADER_NAME = "SVLTR";
   public static final String LOG_FILE_FORMAT = ".log";

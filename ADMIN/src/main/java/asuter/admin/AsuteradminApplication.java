@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AsuteradminApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AsuteradminApplication.class, args);
+		SpringApplication.run(AsuteradminApplication.class, args);  
 	}
 
 }

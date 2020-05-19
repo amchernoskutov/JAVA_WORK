@@ -51,7 +51,7 @@ public class MSConfig {
   
   // Получение в одну строку конфигурационного файла формата XML из классов по которым
   // разложен файл configmainscheduler.xml
-  public String writeToString() {
+  public synchronized String writeToString() {
     StringWriter writer = new StringWriter();
     try {
       this.persister.write(this.config, writer);

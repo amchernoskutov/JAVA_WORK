@@ -1,15 +1,18 @@
 package asuter.admin.controller;
 
 import java.util.Map;
+import javax.sql.DataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import asuter.admin.domain.Users;
 import asuter.admin.form.LoginForm;
 import asuter.admin.jdbc.repository.JdbcUserRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@Log4j2
 @Controller
 public class LoginController {
 
@@ -21,18 +24,14 @@ public class LoginController {
   
   @GetMapping("/login")
   public String getLogin(Map<String, Object> model) {
-    LoginForm loginForm = new LoginForm("chernoskutov_am", true, true, "", true);
+    LoginForm loginForm = new LoginForm("user_admin", true, true, "", true);
     model.put("loginForm", loginForm);
-    
+
     return "login";
   }
 
-  @PostMapping("/login/failed")
+  @PostMapping( "/login/failed")
   public String getLoginFailed(LoginForm loginForm,  Map<String, Object> model) {
-//    https://o7planning.org/ru/11813/spring-boot-file-upload-with-jquery-ajax-example    
-
-//  public LoginForm getLoginFailed(LoginForm loginForm,  Map<String, Object> model) {
-
     loginForm.setUsernameIsActive(true);
     loginForm.setUsernameIsFound(true); 
     loginForm.setPasswordIsFound(true);
@@ -47,11 +46,10 @@ public class LoginController {
     } catch(Exception e) {
       loginForm.setUsernameIsFound(false);
     }
-    
 
     model.put("loginForm", loginForm);
+
     return "loginform";
-//    return "login";
   }
 
 }

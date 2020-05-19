@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+MAIN SCHEDULER
+ 
+Конфигурационный файл запуска MAIN SCHEDULER
+Имя конфигурационного файла - configmainscheduler.xml
+
+MAIN SCHEDULER - основной планировщик запуска Loader-ов. Коммандная строка запуска MAIN SCHEDULER:
+"java -jar mainscheduler.jar"
+
+В конфигурационном файле указываются Loader-ы, которые запрашивают данные от систем по расписанию: 
+- ЦОММ (файл запуска loadercomm.jar), 
+- АПК (файл запуска loaderelbrus.jar), 
+- СВЛ ТР (файл запуска loadersvl.jar)
+
+Коммандная строка для запуска Loader-ов формируется по принципу:
+ 
+"java -jar " + "Имя файла Loader-а" + "<id> - ID абривиатуры запроса к системе" +  
+"<intervalTimeMinute> - интервал в минутах запуска Loader-а"
+
+Пример: java -jar loadercomm.jar 1 360
+
+ID -  1 MM   (Маршрут машиниста)
+ID -  2 ESR  (NSI_ESR)
+ID -  3 DM   (NSI_DRIVER - данные машиниста)
+ID -  4 RASP (NSI_RASP)
+ID -  5 NP   (NSI_NORMPARTS)
+ID -  6 TD   (NSI_TNORM_DEPO)
+ID -  7 TG   (NSI_TR_GRP)
+ID -  8 TU   (NSI_TNORM_UCH)
+ID -  9 TGN  (NSI_TGNORMA)
+ID - 10 LOCK (NSI_LOSKS)
+ID - 101 NORMATIVE (Нормативные графики)
+ID - 102 FORECASE (Прогнозные графики)
+ID - 103 ACTUAL (Исполненный)
+ID - 104 LIMITSPEED (Ограничения скорости)
+ID - 201 SPEED_HISTORY - История изменения скорости движения
+ID - 202 COORD_HISTORY - История изменения географических координат
+ID - 203 TRAFFIC_LIGHT_HISTORY - История сигналов АЛСН
+ID - 204 MEK_HISTORY - История МЭК
+ID - 205 FUEL - История изменения данных по топливу (тепловозы)
+ID - 206 DIESEL_RUN_HISTORY - История запуска/остановки дизеля (тепловозы)
+ID - 207 ELECTRIC_DATA - Данные по электроэнергии
+ID - 208 VAGONS_DATA - Данные по вагонам
+ID - 209 ASOUP_DATA - История операций АСОУП
+
+При изменении файла конфигурации происходит перепланирование запуска Loader-ов в режиме реального времени. 
+-->
+
+<!-- 
+LOG-файлы
+
+Путь к log-файлам формируется по принципу:
+"Имя сервера" + <logPath> +"/" + 
+"yyyyMMdd - дата запуска запроса к системе (текущая системная дата)" +"/" + 
+"MSCHEDULER"
+
+Имя log-файлам формируется по принципу:
+"MS" + "yyyyMMdd - текущая системная дата " + ".log"
+-->
+
+<configurationScheduler>
+   <logServer>
+      <name>c:/</name> <!-- Имя сервера где размещаются log-файлы  -->
+   </logServer>
+   <logPaths>
+      <logPath>logs/log1/</logPath> <!-- Пути к log-файлам  -->
+      <logPath>logs/log2/</logPath> <!-- Пути к log-файлам  -->
+   </logPaths>
+   <systemInformations>
+      <systemInformation>
+         <id>1</id> <!-- ID наименования абривиатуры запроса к системе -->
+         <name>MM</name> <!-- Сокращенное наименование абривиатуры запроса к системе -->
+         <StartTime>2020-04-01 00:00:00.0 MSK</StartTime> <!-- Время запуска Loader-а -->
+         <intervalTimeMinute>5</intervalTimeMinute> <!-- Интервал в минутах запуска Loader-а -->
+         <URLRESTService>http://172.22.3.103:8080/loadercommupload</URLRESTService> <!-- URL REST service -->
+      </systemInformation>
+      <systemInformation>
+         <id>3</id>
+         <name>DM</name>
+         <StartTime>2020-01-01 12:49:00.0 MSK</StartTime>
+         <intervalTimeMinute>1440</intervalTimeMinute>
+         <URLRESTService>http://172.22.3.103:8080/loaderelbrusupload</URLRESTService> <!-- URL REST service -->
+      </systemInformation>
+   </systemInformations>
+</configurationScheduler>

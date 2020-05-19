@@ -1,0 +1,88 @@
+<!--
+LOADER COMM
+
+Конфигурационный файл запуска LOADERCOMM 
+Имя конфигурационного файла - configloadercomm.xml
+
+LOADER COMM - формирует SOAP запросы к системе - ЦОММ.
+Вызов LOADERCOMM происходит из планировкица задач MAIN SCHEDULER. 
+
+Имя файла LOADERCOMM - loadercomm.jar
+
+Сокращенные наименования абривиатур запросов к системе ЦОММ:
+
+ID	NAME	FULLNAME
+1	MM	Маршруты машинистов
+2	DM	Данные машинистов
+3	UND	Участки нормирования депо
+4	NSI	Справочники НСИ
+-->
+
+<!--
+LOG-файлы
+
+Путь к log-файлам формируется по принципу:
+"Имя сервера" + <logPath> +"/" + 
+"yyyyMMdd - дата запуска запроса к системе (текущая системная дата)" +"/" + 
+"Имя системы"  
+
+Имя log-файлам формируется по принципу:
+"Имя абривиатуры запроса к системе" + "_" +
+"Имя системы" + "_" 
+"yyyyMMdd - текущая системная дата " + ".log"
+-->
+
+<!-- 
+ФАЙЛЫ С ДАННЫМИ
+
+Путь к файлам с данными формируется по принципу:
+"Имя сервера" + <destPath> +"/" + 
+"yyyyMMdd - за который получены данные"  
+
+Имя файла с полученными данными формируется по принципу:
+
+"Имя абривиатуры запроса к системе" + "_" +
+"MMdd - начальное время полученных от системы данных" + "_" +
+"MMdd - конечное время полученных от системы данных" + 
+"расширение имени файла (xml/json)"
+-->
+
+
+<configurationCOMM>
+   <logAndDataServer>
+      <name>c:/</name> <!-- Имя сервера где размещаются log-файлы и файлы с полученными данными -->
+   </logAndDataServer>
+   <logPaths>
+      <logPath>logs/log1/</logPath> <!-- Пути к log-файлам  -->
+      <logPath>logs/log2/</logPath> <!-- Пути к log-файлам  -->
+   </logPaths>
+   <MQSenderParam>
+         <name>BG.Event</name> <!-- MQ name -->
+         <host>172.31.54.133</host> <!-- MQ host -->
+         <port>61613</port> <!-- MQ port -->
+         <login>system</login> <!-- MQ login -->
+         <password>manager</password> <!-- MQ password -->
+   </MQSenderParam>
+   <requests>
+      <request>
+         <id>0</id> <!-- ID наименования абривиатуры запроса к системе -->
+         <name>cbr</name> <!-- Сокращенное наименование абривиатуры запроса к системе -->
+         <namespaceURI>http://web.cbr.ru</namespaceURI> <!-- Имя Host-а SOAP сервиса -->
+         <serviceName>GetCursOnDate</serviceName> <!-- Имя процедуры SOAP сервиса -->
+         <url>https://cbr.ru/DailyInfoWebServ/DailyInfo.asmx</url> <!-- URL SOAP сервиса -->
+         <dataStartTime>2020-01-01 00:10:00.0 MSK</dataStartTime> <!-- Дата с которой запрашивать данные от системы -->
+         <destPath>logs/data/</destPath> <!-- Путь к файлам с данными -->
+      </request>
+      <request>
+         <id>1</id>
+         <name>mm</name>
+         <serviceName>Z63L_AS_EREPORT_GETOPER</serviceName>
+         <url>http://verden.gvc.oao.rzd:8035/sap/bc/srt/rfc/sap/z63l_as_ereport/200/z63l_as_ereport/z63l_as_ereport</url>
+         <login>AS_ENERGO</login> <!-- Login SOAP сервиса -->
+         <password>OL6w1pDB</password> <!-- Password SOAP сервиса -->
+         <dataStartTime>2020-01-10 00:43:00.0 MSK</dataStartTime>
+         <destPath>logs/data/</destPath>
+      </request>
+   </requests>
+</configurationCOMM>
+

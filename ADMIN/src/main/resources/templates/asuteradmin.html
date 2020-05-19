@@ -22,6 +22,9 @@
 
   <!-- Подключаем Bootstrap JS -->     
   <script src="webjars/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+ 
+  <script src="static/scripts/navmenu3.js" th:inline="javascript"></script> 
+  <script src="static/scripts/navmenu8.js" th:inline="javascript"></script> 
 
   <style>  
     @font-face {   
@@ -34,7 +37,7 @@
       color: #fff;
       background-color: #17a2b8; 
     }
-    
+
     .nav-link {
       color: black;
     }
@@ -61,22 +64,36 @@
   
         <div class="tab-content">
           <div id="menu1" class="container-fluid tab-pane active"><br>
-
-            <!-- Меню Настройка -->
-            <div th:insert="navmenu1 :: nav"></div>
-            
+            <!-- Меню АСУ ТЭР Администратор -->
+            <div th:insert="navmenu1 :: nav"></div>  
           </div>
           <div id="menu2" class="container-fluid tab-pane fade"><br>
-
-            <!-- Меню Пользователи -->
+            <!-- Меню Настройка -->
             <div th:insert="navmenu2 :: nav"></div>
-
           </div>
           <div id="menu3" class="container-fluid tab-pane fade"><br>
-
+            <!-- Меню Настройка - Системы поставщики данных -->
+            <div th:insert="navmenu3 :: nav" id="sendSystemNameFormPostF"></div>
+          </div>
+          <div id="menu4" class="container-fluid tab-pane fade"><br>
+            <!-- Меню Настройка - Модули АСУ ТЭР -->
+            <div th:insert="navmenu4 :: nav"></div>
+          </div>
+          <div id="menu5" class="container-fluid tab-pane fade"><br>
+            <!-- Меню Настройка - Запросы к системам -->
+            <div th:insert="navmenu5 :: nav"></div>
+          </div>
+          <div id="menu6" class="container-fluid tab-pane fade"><br>
+            <!-- Меню Настройка - Параметры модулей -->
+            <div th:insert="navmenu6 :: nav"></div>
+          </div>
+          <div id="menu7" class="container-fluid tab-pane fade"><br>
+            <!-- Меню Пользователи -->
+            <div th:insert="navmenu7 :: nav"></div>
+          </div>
+          <div id="menu8" class="container-fluid tab-pane fade"><br>
             <!-- Меню Загрузка -->
-            <div th:insert="navmenu3 :: nav" id="loaderFormPostF"></div>
-            
+            <div th:insert="navmenu8 :: nav" id="loaderFormPostF"></div> 
           </div>
         </div>
   

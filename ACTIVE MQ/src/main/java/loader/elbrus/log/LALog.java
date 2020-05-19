@@ -37,7 +37,6 @@ public class LALog {
   public static final boolean CONSOLE_SHOW = false;
   public static final String ADD_LOADERELBRUS_PATH = "ELBRUS";
   public static final String ADD_LOADER_PATH = "LOADERELBRUS";
-  public static final Integer SHORT_LOADERCOMM_ID = 100;
   public static final String SHORT_LOADERCOMM_NAME = "ELBRUS";
   public static final String SHORT_LOADER_NAME = "ELBRUS";
   public static final String LOG_FILE_FORMAT = ".log";

@@ -13,6 +13,7 @@ public class LoaderDatas {
   private int idRequest;
   private String shotNameRequest;
   private String shotNameSystem;
+  private String shotNameData;
   private Date dateStart;
   private Date dateFinish;
   private String pathAndFileName;

@@ -37,7 +37,6 @@ public class LSLog {
   public static final boolean CONSOLE_SHOW = false;
   public static final String ADD_LOADERCOMM_PATH = "COMM";
   public static final String ADD_LOADER_PATH = "LOADERCOMM";
-  public static final Integer SHORT_LOADERCOMM_ID = 100;
   public static final String SHORT_LOADERCOMM_NAME = "COMM";
   public static final String SHORT_LOADER_NAME = "COMM";
   public static final String LOG_FILE_FORMAT = ".log";

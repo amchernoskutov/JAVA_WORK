@@ -13,10 +13,6 @@ import lombok.Data;
 @Data
 public class Users { 
 
-  public Users() {
-    //
-  }
-
   private Long usesysid;
 
   @NotNull
@@ -26,4 +22,9 @@ public class Users {
   private String password; 
 
   private boolean active;
+  
+  public Users() {
+    //
+  }
+
 }

@@ -25,12 +25,13 @@ public class LoaderService {
     while ((line = bufferedReader.readLine()) != null) {
       String[] attributes = line.split(";");
 
-      if (attributes.length != 6) throw new Exception("Недостаточно данных в строке № " + numberString + " (" + line + ")");
+      if (attributes.length != 7) throw new Exception("Недостаточно данных в строке № " + numberString + " (" + line + ")");
       if ("".equals(attributes[0])) throw new Exception("Не задан ID запроса в строке № " + numberString + " (" + line + ")");
       if (Integer.parseInt(attributes[0]) < 1) throw new Exception("Не задан ID запроса в строке № " + line);
       if ("".equals(attributes[1])) throw new Exception("Не задано имя запроса в строке № " + numberString + " (" + line + ")");
       if ("".equals(attributes[2])) throw new Exception("Не задано имя системы в строке № " + numberString + " (" + line + ")");
-      if ("".equals(attributes[5])) throw new Exception("Не задан путь к файлу в строке № " + numberString + " (" + line + ")");
+      if ("".equals(attributes[3])) throw new Exception("Не задано имя системы поставщика данных строке № " + numberString + " (" + line + ")");
+      if ("".equals(attributes[6])) throw new Exception("Не задан путь к файлу в строке № " + numberString + " (" + line + ")");
 
       LoaderDatas loaderDatas = new LoaderDatas (
           numberString,
@@ -39,9 +40,10 @@ public class LoaderService {
           Integer.parseInt(attributes[0]), 
           attributes[1].toUpperCase(), 
           attributes[2].toUpperCase(), 
-          FORMAT_DATE.parse(attributes[3]), 
+          attributes[3].toUpperCase(), 
           FORMAT_DATE.parse(attributes[4]), 
-          attributes[5]);  
+          FORMAT_DATE.parse(attributes[5]), 
+          attributes[6]);  
 
       books.add(loaderDatas);
       numberString++;

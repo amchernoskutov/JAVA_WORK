@@ -4,8 +4,8 @@ import java.util.Comparator;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import loader.elbrus.config.data.GeneralData;
 import loader.elbrus.form.MainForm;
-import loader.elbrus.log.LALog;
 
 /**
  * LoaderelbrusController
@@ -20,8 +20,8 @@ public class LoaderelbrusController {
   @GetMapping("/loaderelbrus")
   public String senDnone(Map<String, Object> model) {
     
-    LALog.mainForms.sort(Comparator.comparing(MainForm::getDateCreate));
-    model.put("mainForms", LALog.mainForms);
+    GeneralData.mainForms.sort(Comparator.comparing(MainForm::getDateCreate));
+    model.put("mainForms", GeneralData.mainForms);
 
     return "loaderelbrus";
   }

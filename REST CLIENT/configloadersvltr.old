@@ -2,85 +2,138 @@
    <logAndDataServer>
       <name>c:/</name>
    </logAndDataServer>
-   <logPaths>
-      <logPath>logs/log1/</logPath>
-      <logPath>logs/log2/</logPath>
-   </logPaths>
-   <RESTRequestParam>
-      <url>http://local.trans-ip.ru/ter/</url>
+   <RestRequestParam>
+      <url>local.trans-ip.ru</url>
+      <urlapi>ter/api/login</urlapi>
       <username>TERServiceBHbas2</username>
       <password>JWNjgb3672bwVf!!m9</password>
-   </RESTRequestParam>
+   </RestRequestParam>
    <MQSenderParam>
-      <name>q-test</name>
-      <host>172.31.54.130</host>
+      <name>q-asuter</name>
+      <host>172.31.54.133</host>
       <port>61613</port>
       <login>admin</login>
       <password>admin</password>
    </MQSenderParam>
    <requests>
       <request>
-         <id>31</id>
-         <name>SPEED_HISTORY</name>
-         <url>api/speed_history</url>
-         <dataStartTime>2020-02-17 01:10:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <id>201</id>
+         <name>COORD_SPEED_HISTORY</name>
+         <urlapi>ter/api/coord_speed_history</urlapi>
+         <dataStartTime>2020-02-14 13:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
-         <id>32</id>
-         <name>COORD_HISTORY</name>
-         <url>api/coord_history</url>
-         <dataStartTime>2020-03-03 14:10:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-      </request>
-      <request>
-         <id>33</id>
-         <name>TRAFFIC_LIGHT_HISTORY</name>
-         <url>api/traffic_light_history</url>
-         <dataStartTime>2020-02-17 00:55:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-      </request>
-      <request>
-         <id>34</id>
-         <name>MEK_HISTORY</name>
-         <url>api/mek_history</url>
-         <dataStartTime>2020-02-17 00:50:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-      </request>
-      <request>
-         <id>35</id>
-         <name>FUEL</name>
-         <url>api/fuel</url>
-         <dataStartTime>2020-02-17 01:05:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-      </request>
-      <request>
-         <id>36</id>
-         <name>DIESEL_RUN_HISTORY</name>
-         <url>api/diesel_run_history</url>
-         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-      </request>
-      <request>
-         <id>37</id>
+         <id>202</id>
          <name>ELECTRIC_DATA</name>
-         <url>api/electric_data</url>
-         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <urlapi>ter/api/electric_data</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
-         <id>38</id>
+         <id>203</id>
+         <name>TRAFFIC_LIGHT_HISTORY</name>
+         <urlapi>ter/api/traffic_light_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>204</id>
+         <name>MEK_HISTORY</name>
+         <urlapi>ter/api/mek_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>205</id>
+         <name>FUEL</name>
+         <urlapi>ter/api/fuel</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>206</id>
+         <name>DIESEL_RUN_HISTORY</name>
+         <urlapi>ter/api/diesel_run_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>207</id>
          <name>VAGONS_DATA</name>
-         <url>api/vagons_data</url>
-         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <urlapi>ter/api/vagons_data</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
-         <id>39</id>
+         <id>208</id>
          <name>ASOUP_DATA</name>
-         <url>api/asoup_data</url>
-         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <urlapi>ter/api/asoup_data</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>209</id>
+         <name>ASSIGMENT_DATA</name>
+         <urlapi>ter/api/assigment_data</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>210</id>
+         <name>TRACTION_GENERATOR_HISTORY</name>
+         <urlapi>ter/api/traction_generator_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>211</id>
+         <name>TEMPERATURES_HISTORY</name>
+         <urlapi>ter/api/temperatures_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>212</id>
+         <name>CONTROLLER_POSITION_HISTORY</name>
+         <urlapi>ter/api/controller_position_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>213</id>
+         <name>NSI_DEPOTS</name>
+         <urlapi>ter/api/nsi_depots</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>214</id>
+         <name>NSI_OPERATIONS</name>
+         <urlapi>ter/api/nsi_operations</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>215</id>
+         <name>NSI_RAILWAYS</name>
+         <urlapi>ter/api/nsi_railways</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>216</id>
+         <name>NSI_STATES</name>
+         <urlapi>ter/api/nsi_states</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>217</id>
+         <name>NSI_STATIONS</name>
+         <urlapi>ter/api/nsi_stations</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
    </requests>
 </configurationSVLTR>

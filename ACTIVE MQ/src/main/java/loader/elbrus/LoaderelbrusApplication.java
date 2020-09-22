@@ -2,6 +2,8 @@ package loader.elbrus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Loader ELBRUS 
@@ -26,8 +28,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LoaderelbrusApplication {
 
+  public static Logger logger = LogManager.getLogger(LoaderelbrusApplication.class);
+  
   public static void main(String[] args) {
-    SpringApplication.run(LoaderelbrusApplication.class, args);
+    SpringApplication.run(LoaderelbrusApplication.class, args);   
   }
 
 }

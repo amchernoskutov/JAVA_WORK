@@ -10,9 +10,6 @@ public class ConfigurationSVLTR {
   @Element(name = "logAndDataServer")
   private logAndDataServer logAndDataServer;
   
-  @Element(name = "logPaths")
-  private LogPaths logPath;
-
   @Element(name = "RestRequestParam")
   private RestRequestParam RestRequestParam;
 

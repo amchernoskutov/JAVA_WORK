@@ -2,12 +2,8 @@ package loader.elbrus.activemq;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQBytesMessage;
-import org.apache.commons.lang3.time.DateUtils;
 import org.jdom.Document;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import java.io.ByteArrayInputStream;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,12 +17,11 @@ import javax.jms.MessageConsumer;
 import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
-import loader.elbrus.config.xml.LAConfig;
+import loader.elbrus.LoaderelbrusApplication;
+import loader.elbrus.config.data.GeneralData;
+import loader.elbrus.config.data.LBData;
 import loader.elbrus.form.MainForm;
-import loader.elbrus.log.LALog;
-import loader.elbrus.log.LBData;
 import loader.elbrus.model.xml.MRequest;
-import loader.elbrus.mqsender.MQSender;
 import loader.elbrus.proto.ElbrusProto.GetTimetableInfosRequestMessage;
 import loader.elbrus.proto.ElbrusProto.TimetableInfoMessage;
 import loader.elbrus.proto.ElbrusProto.TimetableInfosMessage;
@@ -42,21 +37,10 @@ import loader.elbrus.xml.XMLGraphsAvailable;
  *
  */
 
-@Service
 public class ActiveMQGraphsAvailable {
 
-  @Autowired
-  private LBData lbData; 
-
-  @Autowired
-  XMLGraphsAvailable xmlGraphsAvailable;
-
-  @Autowired
-  private LAConfig laConfig;
+  private LBData lbData;
   
-  @Autowired
-  private MQSender mqSender;
-
   public boolean onMessageRequest;
   public boolean onMessageRequestWrite;
   public List<TimetableInfoMessage> timetableInfosMessageList = new ArrayList<TimetableInfoMessage>();
@@ -65,8 +49,8 @@ public class ActiveMQGraphsAvailable {
   public MainForm mainForm;
   public String filePathRespond;
   
-  public ActiveMQGraphsAvailable() {
-    //
+  public ActiveMQGraphsAvailable(LBData lbData) {
+    this.lbData=lbData;
   }
   
   /**
@@ -80,8 +64,8 @@ public class ActiveMQGraphsAvailable {
    * @throws Exception - все возможные ошибки
    */
   
-  public synchronized List<TimetableInfoMessage> sendMessage(MRequest mRequest, int requestIntervalTimeMinute, 
-      Date dateStart, Date dateFinish) throws Exception {
+  public List<TimetableInfoMessage> sendMessage(MRequest mRequest, int codeRoad, int requestIntervalTimeMinute, 
+      Date dateStart, Date dateFinish, String url, String queueName) throws Exception {
     onMessageRequest = false;
     mainForm = new MainForm();
     mainForm.setDateCreate(new Date());
@@ -91,13 +75,13 @@ public class ActiveMQGraphsAvailable {
     messageTemporary = "";
     filePathRespond = "";
 
-    ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(laConfig.getConfig().getActiveMQRequestParam().getUrl());    
+    ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);    
     Connection connection = connectionFactory.createConnection();
     connection.start();
 
     Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-    Destination destRequest = session.createQueue(laConfig.getConfig().getActiveMQRequestParam().getQueueName());
+    Destination destRequest = session.createQueue(queueName);
     Destination destResponce = session.createTemporaryQueue();
 
     MessageProducer producer = session.createProducer(destRequest);
@@ -109,19 +93,22 @@ public class ActiveMQGraphsAvailable {
       @Override
       public void onMessage(Message bytesMessage) {
         try {
+          messageTemporary = GeneralData.FORMAT_DATE.format(new Date()) + " Successfully recive ActiveMQ;"; 
+
           ByteArrayInputStream inputStream = new ByteArrayInputStream(((ActiveMQBytesMessage) bytesMessage).getContent().getData());
           TimetableInfosMessage timetableInfosMessage = TimetableInfosMessage.parseFrom(inputStream);
 
           // Формируем XML документ
-          Document document = xmlGraphsAvailable.createXMLFile(timetableInfosMessage, mRequest, dateStart, dateFinish);
+          XMLGraphsAvailable xmlGraphsAvailable = new XMLGraphsAvailable();
+          Document document = xmlGraphsAvailable.createXMLFile(timetableInfosMessage, mRequest, dateStart, dateFinish, url);
           
           // Выводим документ в файл
-          filePathRespond = lbData.writeXMLFile(mRequest, document, requestIntervalTimeMinute, 0, 0, "");
-          messageTemporary = "Successfully create XML file and write respond to file:" + filePathRespond;
+          filePathRespond = lbData.writeXMLFile(mRequest, document, requestIntervalTimeMinute, codeRoad, dateStart, 0, "");
+          messageTemporary =  messageTemporary + "Successfully create XML file and write respond to file:" + filePathRespond;
           timetableInfosMessageList.addAll(timetableInfosMessage.getTimetableInfosList());
           onMessageRequestWrite = true;
         } catch (Exception e) {
-          messageTemporary = "ERROR create XML file and write respond to file:" + e.getMessage();
+          messageTemporary = messageTemporary + "ERROR create XML file and write respond to file:" + e.getMessage();
           onMessageRequestWrite = false;
         }
 
@@ -154,7 +141,7 @@ public class ActiveMQGraphsAvailable {
     
     producer.send(bytesMessage);
     
-    messageTemporary = "Successfully sent ActiveMQ request on date:" + LALog.FORMAT_DATE.format(mRequest.getDataStartTime()); 
+    messageTemporary = GeneralData.FORMAT_DATE.format(new Date()) + " Successfully sent ActiveMQ request on date:" + GeneralData.FORMAT_DATE.format(dateStart); 
     message = message + ";" + messageTemporary;
     mainForm.setRequest(messageTemporary);
     messageTemporary = "";
@@ -169,10 +156,8 @@ public class ActiveMQGraphsAvailable {
     connection.close();
 
     // Добавление в log-файл  информации о получении ответа из ActiveMQ данных  
-    if (onMessageRequest) {
-      messageTemporary = "Successfully recive ActiveMQ" + messageTemporary; 
-    } else {
-      messageTemporary = "ERROR recive ActiveMQ request - timeout > " + mRequest.getTimeout()*60*1000; 
+    if (!onMessageRequest) {
+      messageTemporary = GeneralData.FORMAT_DATE.format(new Date()) + " ERROR recive ActiveMQ request - timeout > " + mRequest.getTimeout()*60*1000; 
     }
     message = message + ";" + messageTemporary;
     mainForm.setWrite(messageTemporary);
@@ -181,9 +166,9 @@ public class ActiveMQGraphsAvailable {
 
     mainForm.setMqSender("Don't use");
 
-    LALog.mainForms.add(mainForm);
-    if (onMessageRequest) LALog.Info(message); else LALog.Severe(message);
-    if (LALog.mainForms.size() > LALog.MAX_MAINFORMS_SHOW) LALog.mainForms.remove(0);
+    GeneralData.mainForms.add(mainForm);
+    if (onMessageRequest) LoaderelbrusApplication.logger.fatal(message); else LoaderelbrusApplication.logger.fatal(message);
+    if (GeneralData.mainForms.size() > GeneralData.MAX_MAINFORMS_SHOW) GeneralData.mainForms.remove(0);
     
     return timetableInfosMessageList;
   }

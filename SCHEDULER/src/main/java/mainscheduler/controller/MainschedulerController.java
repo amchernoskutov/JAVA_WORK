@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import mainscheduler.log.MSLog;
+import mainscheduler.config.data.GeneralData;
 import mainscheduler.manager.ManagerScheduler;
 
 /**
@@ -30,7 +30,7 @@ public class MainschedulerController {
   public String senDnoneGet(Map<String, Object> model) {
     managerScheduler.getMainForms().forEach(item -> {
       if (item.getScheduledFuture().getDelay(TimeUnit.MILLISECONDS) > 0) {
-        item.setStartTime(MSLog.FORMAT_DATE.format(DateUtils.round(DateUtils.addMilliseconds(new Date(),
+        item.setStartTime(GeneralData.FORMAT_DATE.format(DateUtils.round(DateUtils.addMilliseconds(new Date(),
             (int) item.getScheduledFuture().getDelay(TimeUnit.MILLISECONDS)), Calendar.MINUTE)));
       } else {
         item.setStartTime("Задание выполняется");

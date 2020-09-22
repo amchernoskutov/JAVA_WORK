@@ -6,7 +6,7 @@ import org.simpleframework.xml.core.Persister;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import lombok.Data;
-import mainscheduler.log.MSLog;
+import mainscheduler.MainschedulerApplication;
 import mainscheduler.model.xml.СonfigurationScheduler;
 
 /**
@@ -36,7 +36,7 @@ public class MSConfig {
     try {
       this.config = persister.read(СonfigurationScheduler.class, this.file);
     } catch (Exception e) {
-      MSLog.Severe("ERROR read configurational file:" + this.file + ";" + e.getMessage());
+      MainschedulerApplication.logger.fatal("ERROR read configurational file:" + this.file + ";" + e.getMessage());
     } 
   }
   
@@ -45,7 +45,7 @@ public class MSConfig {
     try {
       this.persister.write(this.config, System.out);
     } catch (Exception e) {
-      MSLog.Severe("ERROR write configurational file:" + this.file + ";" + e.getMessage());
+      MainschedulerApplication.logger.fatal("ERROR write configurational file:" + this.file + ";" + e.getMessage());
     } 
   }
   
@@ -56,7 +56,7 @@ public class MSConfig {
     try {
       this.persister.write(this.config, writer);
     } catch (Exception e) {
-      MSLog.Severe("ERROR write to string configurational file:" + this.file + ";" + e.getMessage());
+      MainschedulerApplication.logger.fatal("ERROR write to string configurational file:" + this.file + ";" + e.getMessage());
     }  
     
     String rezult = writer.toString().replaceAll("\n","").replaceAll(" <","<").replaceAll(" >",">");

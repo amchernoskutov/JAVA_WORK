@@ -3,10 +3,13 @@ package loader.comm.manager;
 import java.util.Date;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
+import loader.comm.LoadercommApplication;
+import loader.comm.config.data.LSData;
 import loader.comm.config.xml.LSConfig;
-import loader.comm.log.LSLog;
 import loader.comm.model.xml.MRequest;
+import loader.comm.model.xml.RoadAndTime;
 import loader.comm.soapclients.SoapClientMM;
 import loader.comm.soapclients.SoapClientNSI;
 
@@ -25,45 +28,43 @@ import loader.comm.soapclients.SoapClientNSI;
 public class ManagerSoapClient {
   @Autowired
   private LSConfig lsConfig;
-  
-  @Autowired
-  private SoapClientMM soapClientMM;
 
   @Autowired
-  private SoapClientNSI soapClientNSI;
+  private LSData lsData;
+ 
+  @Autowired
+  private Jaxb2Marshaller jaxb2Marshaller;
 
-  public boolean exec(int requestId, int requestIntervalTimeMinute) {
+  public boolean exec(int requestId, int codeRoad, Date dataStartTime, int requestIntervalTimeMinute) {
     MRequest mRequest = lsConfig.getConfig().getRequest().getRequests().stream().filter(item -> item.getId() == requestId).findFirst().orElse(null); 
 
     // Если нет записи в конфигурационном файле, то выходим
     if (mRequest == null) {
-      LSLog.Severe("ERROR don't found record in config file requestId=" + requestId);
+      LoadercommApplication.logger.fatal("ERROR don't found record in config file requestId=" + requestId);
       return false;  
     }
     
     // Если дата запроса данных больше текущей, то выходим
-    if (DateUtils.addMinutes(mRequest.getDataStartTime(), requestIntervalTimeMinute).getTime() > (new Date()).getTime()) {
-      LSLog.Severe("Loger ID " + mRequest.getId() + " name " + mRequest.getName() + 
+    if (DateUtils.addMinutes(dataStartTime, requestIntervalTimeMinute).getTime() > (new Date()).getTime()) {
+      LoadercommApplication.logger.fatal("Loger ID " + mRequest.getId() + " name " + mRequest.getName() + 
                 " can not start. [DataStartTime + RequestIntervalTimeMinute] > [DateNow]." + 
-                " DataStartTime=" + mRequest.getDataStartTime() + 
+                " DataStartTime=" + dataStartTime + 
                 " RequestIntervalTimeMinute=" + requestIntervalTimeMinute +  
                 " DateNow=" + new Date());
       return false;
     }
 
-    int[] dor = new int[] {83};
-//    int[] depo = new int[] {2, 3, 4};
+    // TODO: Чтобы получить по всем депо, нужно будет указать 0. На тестовом сервисе это не работает, это работает на новом боевом. 
     int[] depo = new int[] {3};
     boolean soapRequestSuccessful = true;
 
-    while ((DateUtils.addMinutes(mRequest.getDataStartTime(), requestIntervalTimeMinute).getTime() < (new Date()).getTime())&&(soapRequestSuccessful)) {
+    while ((DateUtils.addMinutes(dataStartTime, requestIntervalTimeMinute).getTime() < (new Date()).getTime())&&(soapRequestSuccessful)) {
       switch (requestId) {
         case 1:
-          for(int dorNumber: dor) {
-            for(int depoNumber: depo) {
-              soapRequestSuccessful = soapClientMM.generateSOAPData(mRequest, dorNumber, depoNumber, requestIntervalTimeMinute);
-            }  
-          }
+          for(int codeDepo: depo) {
+            SoapClientMM soapClientMM = new SoapClientMM(lsConfig, lsData, jaxb2Marshaller);
+            soapRequestSuccessful = soapClientMM.generateSOAPData(mRequest, codeRoad, dataStartTime, codeDepo, requestIntervalTimeMinute);
+          }  
           break;
         case 2:
         case 3:
@@ -74,16 +75,17 @@ public class ManagerSoapClient {
         case 8:
         case 9:
         case 10:
-          for(int dorNumber: dor) {
-            for(int depoNumber: depo) {
-              soapRequestSuccessful = soapClientNSI.generateSOAPData(mRequest, dorNumber, depoNumber, requestIntervalTimeMinute, requestId);
-            }  
-          }
+          for(int codeDepo: depo) {
+            SoapClientNSI soapClientNSI = new SoapClientNSI(lsConfig, lsData, jaxb2Marshaller);
+            soapRequestSuccessful = soapClientNSI.generateSOAPData(mRequest, codeRoad, dataStartTime, codeDepo, requestIntervalTimeMinute, requestId);
+          }  
           break;
       }
       if (soapRequestSuccessful) {
-        lsConfig.addDataStartTime(mRequest, requestIntervalTimeMinute);
+        lsConfig.addDataStartTime(mRequest, codeRoad, dataStartTime, requestIntervalTimeMinute);
         lsConfig.write();
+        RoadAndTime roadAndTime = mRequest.getRoadsAndTime().stream().filter(item -> item.getCodeRoad()==codeRoad).findFirst().orElse(null);
+        dataStartTime = roadAndTime.getDataStartTime();
       } else {
         break;
       }

@@ -2,10 +2,6 @@
    <logAndDataServer>
       <name>c:/</name>
    </logAndDataServer>
-   <logPaths>
-      <logPath>logs/log1/</logPath>
-      <logPath>logs/log2/</logPath>
-   </logPaths>
    <SOAPRequestParam>
       <url>http://verden.gvc.oao.rzd:8035/sap/bc/srt/rfc/sap/z63l_as_ereport/200/z63l_as_ereport/z63l_as_ereport</url>
       <soapActionOPER>Z63L_AS_EREPORT_GETOPER</soapActionOPER>
@@ -14,8 +10,8 @@
       <password>OL6w1pDB</password>
    </SOAPRequestParam>
    <MQSenderParam>
-      <name>q-test</name>
-      <host>172.31.54.130</host>
+      <name>q-asuter</name>
+      <host>172.31.54.133</host>
       <port>61613</port>
       <login>admin</login>
       <password>admin</password>
@@ -24,61 +20,62 @@
       <request>
          <id>1</id>
          <name>MM</name>
-         <dataStartTime>2020-03-29 13:16:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2020-09-07 02:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>2</id>
          <name>ESR</name>
-         <dataStartTime>2020-03-03 14:10:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
+         <road codeRoad="80" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>3</id>
          <name>DM</name>
-         <dataStartTime>2020-02-17 00:55:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2020-09-09 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>4</id>
          <name>RASP</name>
-         <dataStartTime>2020-02-17 00:50:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>5</id>
          <name>NP</name>
-         <dataStartTime>2020-02-17 01:05:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>6</id>
          <name>TD</name>
-         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>7</id>
          <name>TG</name>
-         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>8</id>
          <name>TU</name>
-         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>9</id>
          <name>TGN</name>
-         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
       <request>
          <id>10</id>
          <name>LOCK</name>
-         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
+         <road codeRoad="83" dataStartTime="2022-09-07 01:00:00.0 MSK"/>
          <destPath>logs/data/</destPath>
       </request>
    </requests>

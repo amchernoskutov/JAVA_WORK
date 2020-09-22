@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import loader.svltr.log.LSLog;
+import loader.svltr.config.data.GeneralData;
 import loader.svltr.manager.ManagerRestClient;
 
 
@@ -31,9 +31,6 @@ public class PurchaseController {
   @Autowired
   private ManagerRestClient managerSoapClient;
 
-  @Autowired
-  private LSLog lsLog;
-
   @GetMapping
   @ResponseBody
   public ArrayList<HashSet<String>> list() {
@@ -48,15 +45,11 @@ public class PurchaseController {
     String request;
     HashSet<String> requests = new HashSet<String>();
 
-    if (!LSLog.oldDate.equals(LSLog.FORMAT_DATE_FILE.format(new Date()))) {
-      lsLog.initHandlers();
-    }
-
     if (requestsValidator.size() > MAX_REQUEST_SHOW) {
       requestsValidator.remove(0).clear(); 
     }
 
-    request = LSLog.FORMAT_DATE.format(new Date()) + " Request accepted: idReqest=" + idRequest + " intervalTimeMinute=" + intervalTimeMinute;
+    request = GeneralData.FORMAT_DATE.format(new Date()) + " Request accepted: idReqest=" + idRequest + " intervalTimeMinute=" + intervalTimeMinute;
     
     Thread thread = new Thread(new Runnable() {
       @Override

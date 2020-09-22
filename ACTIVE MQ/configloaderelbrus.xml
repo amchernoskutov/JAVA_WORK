@@ -2,74 +2,75 @@
    <logAndDataServer>
       <name>c:/</name>
    </logAndDataServer>
-   <logPaths>
-      <logPath>logs/log1/</logPath>
-      <logPath>logs/log2/</logPath>
-   </logPaths>
-   <ActiveMQRequestParam>
-      <url>tcp://172.30.231.21:61616</url>
-      <queueName>80_mqdb_queue</queueName>
-   </ActiveMQRequestParam>
    <MQSenderParam>
-      <name>q-test</name>
-      <host>172.31.54.130</host>
+      <name>q-asuter</name>
+      <host>172.31.54.133</host>
       <port>61613</port>
       <login>admin</login>
       <password>admin</password>
    </MQSenderParam>
    <requests>
       <request>
-         <id>1</id>
+         <id>101</id>
          <name>NORMATIVE</name>
-         <timeout>60</timeout>
-         <dataStartTime>2020-03-10 00:05:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <timeout>180</timeout>
+         <road codeRoad="80" dataStartTime="2020-09-08 01:00:00.0 MSK" url="tcp://10.81.253.245:61616" queueName="80_mqdb_queue"/>
+         <destPath>dt/data/</destPath>
          <typeParam>NORMATIVE</typeParam>
          <userParam>GDP</userParam>
       </request>
       <request>
          <id>102</id>
-         <name>FORECASE</name>
-         <timeout>60</timeout>
-         <dataStartTime>2020-04-06 00:05:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-         <typeParam>FORECASE</typeParam>
-         <userParam>ELBRUS</userParam>
-      </request>
-      <request>
-         <id>3</id>
          <name>GIDEXPORT</name>
          <timeout>60</timeout>
-         <dataStartTime>2020-03-10 01:10:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <road codeRoad="80" dataStartTime="2022-09-07 01:00:00.0 MSK" url="tcp://10.81.253.245:61616" queueName="80_mqdb_queue"/>
+         <destPath>dt/data/</destPath>
          <typeParam>GIDEXPORT</typeParam>
-         <userParam>GDP</userParam>
-      </request>
-      <request>
-         <id>4</id>
-         <name>ACTUAL</name>
-         <timeout>60</timeout>
-         <dataStartTime>2020-03-10 00:00:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-         <typeParam>ACTUAL</typeParam>
          <userParam>ELBRUS</userParam>
       </request>
       <request>
-         <id>5</id>
-         <name>LIMITSPEED</name>
+         <id>103</id>
+         <name>ACTUAL</name>
          <timeout>60</timeout>
-         <dataStartTime>2020-03-21 00:00:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <road codeRoad="80" dataStartTime="2022-09-07 01:00:00.0 MSK" url="tcp://10.81.253.245:61616" queueName="80_mqdb_queue"/>
+         <destPath>dt/data/</destPath>
          <typeParam>ACTUAL</typeParam>
          <userParam>GID</userParam>
       </request>
       <request>
-         <id>6</id>
-         <name>OTHERCHARTS</name>
+         <id>104</id>
+         <name>LIMITSPEED</name>
          <timeout>60</timeout>
-         <dataStartTime>2020-03-10 01:10:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
-         <typeParam>GID</typeParam>
+         <road codeRoad="80" dataStartTime="2022-09-07 01:00:00.0 MSK" url="tcp://10.81.253.245:61616" queueName="80_mqdb_queue"/>
+         <destPath>dt/data/</destPath>
+         <typeParam>ACTUAL</typeParam>
+         <userParam>GID</userParam>
+      </request>
+      <request>
+         <id>105</id>
+         <name>MARKS</name>
+         <timeout>60</timeout>
+         <road codeRoad="80" dataStartTime="2022-09-07 01:00:00.0 MSK" url="tcp://10.81.253.245:61616" queueName="80_mqdb_queue"/>
+         <destPath>dt/data/</destPath>
+         <typeParam>ACTUAL</typeParam>
+         <userParam>GID</userParam>
+      </request>
+      <request>
+         <id>106</id>
+         <name>LIMITS</name>
+         <timeout>60</timeout>
+         <road codeRoad="80" dataStartTime="2022-09-07 01:00:00.0 MSK" url="tcp://10.81.253.245:61616" queueName="80_mqdb_queue"/>
+         <destPath>dt/data/</destPath>
+         <typeParam>ACTUAL</typeParam>
+         <userParam>GID</userParam>
+      </request>
+      <request>
+         <id>107</id>
+         <name>GAPS</name>
+         <timeout>60</timeout>
+         <road codeRoad="80" dataStartTime="2022-09-07 01:00:00.0 MSK" url="tcp://10.81.253.245:61616" queueName="80_mqdb_queue"/>
+         <destPath>dt/data/</destPath>
+         <typeParam>ACTUAL</typeParam>
          <userParam>GID</userParam>
       </request>
    </requests>

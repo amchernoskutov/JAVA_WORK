@@ -11,7 +11,6 @@ import javax.jms.TextMessage;
 import org.fusesource.stomp.jms.StompJmsConnectionFactory;
 import org.fusesource.stomp.jms.StompJmsDestination;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import loader.elbrus.config.xml.LAConfig;
 import lombok.Data;
 
@@ -24,7 +23,7 @@ import lombok.Data;
  */
 
 @Data
-@Service
+//@Service
 public class MQSender {
     private String user;
     private String password;
@@ -38,7 +37,8 @@ public class MQSender {
     private MessageProducer producer;
 
     private int id = 0;
-    private int system_id = 0;
+    private int codeRoad = 0;
+    private int system_id = 2; // ELBRUS
     private String system_name = "";
     private Timestamp data_id = new Timestamp(0);
     private String data_name = "";
@@ -50,6 +50,10 @@ public class MQSender {
     
     @Autowired
     private LAConfig laConfig;
+    
+    public MQSender(LAConfig laConfig) {
+      this.laConfig=laConfig;
+    }
 
     public void initMQSender() throws JMSException {
       this.user = laConfig.getConfig().getMQSenderParam().getLogin();
@@ -80,7 +84,8 @@ public class MQSender {
       this.initMQSender();
       
       TextMessage msg = session.createTextMessage(body_txt);
-      msg.setIntProperty("id", id); // id сообщения
+      msg.setIntProperty("id", 0); // id сообщения
+      msg.setIntProperty("request_id", id); // id запроса к системе
       msg.setIntProperty("system_id", system_id); // id системы
       msg.setStringProperty("system_name", system_name); // наименование системы
       msg.setLongProperty("data_id", data_id.getTime()); // id типа данных
@@ -91,6 +96,7 @@ public class MQSender {
       msg.setLongProperty("current_timestamp", current_timestamp.getTime()); // дата/время текущее
       msg.setBooleanProperty("cut", cut);
       msg.setIntProperty("part", 0); //часть сообщения (0 - целый файл, >0 - номер куска файла) сообщения
+      msg.setIntProperty("coderoad", codeRoad); //Код дороги 0 - все дороги
       producer.send(msg);
 
       connection.close();

@@ -1,7 +1,8 @@
 package loader.comm.model.xml;
 
-import java.util.Date;
+import java.util.List;
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 import lombok.Data;
 
@@ -13,9 +14,9 @@ public class MRequest {
   
   @Element(name = "name")
   private String name;
-
-  @Element(name = "dataStartTime")
-  private Date dataStartTime;
+  
+  @ElementList(entry="road", inline=true)
+  private List<RoadAndTime> roadsAndTime;
   
   @Element(name = "destPath")
   private String destPath;

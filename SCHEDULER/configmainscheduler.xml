@@ -31,19 +31,33 @@ ID -  7 TG   (NSI_TR_GRP)
 ID -  8 TU   (NSI_TNORM_UCH)
 ID -  9 TGN  (NSI_TGNORMA)
 ID - 10 LOCK (NSI_LOSKS)
+
 ID - 101 NORMATIVE (Нормативные графики)
-ID - 102 FORECASE (Прогнозные графики)
-ID - 103 ACTUAL (Исполненный)
-ID - 104 LIMITSPEED (Ограничения скорости)
-ID - 201 SPEED_HISTORY - История изменения скорости движения
-ID - 202 COORD_HISTORY - История изменения географических координат
-ID - 203 TRAFFIC_LIGHT_HISTORY - История сигналов АЛСН
-ID - 204 MEK_HISTORY - История МЭК
-ID - 205 FUEL - История изменения данных по топливу (тепловозы)
-ID - 206 DIESEL_RUN_HISTORY - История запуска/остановки дизеля (тепловозы)
-ID - 207 ELECTRIC_DATA - Данные по электроэнергии
-ID - 208 VAGONS_DATA - Данные по вагонам
-ID - 209 ASOUP_DATA - История операций АСОУП
+ID - 102 GIDEXPORT (Прогнозный в ГИД)
+ID - 103 ACTUAL    (Исполненный)
+ID - 104 WARNING   (Предупреждения)
+ID - 105 MARKS     (Пометки ГИД)
+ID - 106 LIMITS    (Ограничения)
+ID - 107 GAPS      (Данные об окнах)
+
+ID - 201 COORD_SPEED_HISTORY         (Скорость и географические координаты)
+ID - 202 ELECTRIC_DATA               (Показания счетчиков тяги, рекуперации)
+ID - 203 TRAFFIC_LIGHT_HISTORY       (Сигнал АЛСН)
+ID - 204 MEK_HISTORY                 (Данные МЭК)
+ID - 205 FUEL                        (Данные о топливе)
+ID - 206 DIESEL_RUN_HISTORY          (Работа дизеля)
+ID - 207 VAGONS_DATA                 (Данные по вагонам)
+ID - 208 ASOUP_DATA                  (История операций и состояний локомотивов)
+ID - 209 ASSIGNMENT_DATA             (Приписка локомотива)
+ID - 210 TRACTION_GENERATOR_HISTORY  (Ток, напряжение, электроэнергия тягового генератора)
+ID - 211 TEMPERATURES_HISTORY        (Температуры воды, масла дизеля, окружающего воздуха)
+ID - 212 CONTROLLER_POSITION_HISTORY (Позиция контроллера) 
+ID - 213 NSI_DEPOTS                  (Депо) 
+ID - 214 NSI_OPERATIONS              (Операции АСОУП) 
+ID - 215 NSI_RAILWAYS                (Дороги)
+ID - 216 NSI_STATES                  (Состояния АСОУП)
+ID - 217 NSI_STATIONS                (Станции)
+
 
 При изменении файла конфигурации происходит перепланирование запуска Loader-ов в режиме реального времени. 
 -->
@@ -64,22 +78,18 @@ LOG-файлы
    <logServer>
       <name>c:/</name> <!-- Имя сервера где размещаются log-файлы  -->
    </logServer>
-   <logPaths>
-      <logPath>logs/log1/</logPath> <!-- Пути к log-файлам  -->
-      <logPath>logs/log2/</logPath> <!-- Пути к log-файлам  -->
-   </logPaths>
    <systemInformations>
       <systemInformation>
          <id>1</id> <!-- ID наименования абривиатуры запроса к системе -->
          <name>MM</name> <!-- Сокращенное наименование абривиатуры запроса к системе -->
-         <StartTime>2020-04-01 00:00:00.0 MSK</StartTime> <!-- Время запуска Loader-а -->
+         <startTime>2020-04-01 00:00:00.0 MSK</startTime> <!-- Время запуска Loader-а -->
          <intervalTimeMinute>5</intervalTimeMinute> <!-- Интервал в минутах запуска Loader-а -->
          <URLRESTService>http://172.22.3.103:8080/loadercommupload</URLRESTService> <!-- URL REST service -->
       </systemInformation>
       <systemInformation>
          <id>3</id>
          <name>DM</name>
-         <StartTime>2020-01-01 12:49:00.0 MSK</StartTime>
+         <startTime>2020-01-01 12:50:00.0 MSK</startTime>
          <intervalTimeMinute>1440</intervalTimeMinute>
          <URLRESTService>http://172.22.3.103:8080/loaderelbrusupload</URLRESTService> <!-- URL REST service -->
       </systemInformation>

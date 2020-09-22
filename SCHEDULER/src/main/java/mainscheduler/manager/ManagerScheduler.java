@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.PostConstruct;
@@ -21,10 +20,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import lombok.Data;
+import mainscheduler.MainschedulerApplication;
+import mainscheduler.config.data.GeneralData;
 import mainscheduler.config.xml.DataConfig;
 import mainscheduler.config.xml.MSConfig;
 import mainscheduler.form.MainForm;
-import mainscheduler.log.MSLog;
 
 /**
  * Планирование запуска Loger-ов по расписанию заданному в конфигурационном файле configmainscheduler.xml
@@ -42,8 +42,6 @@ public class ManagerScheduler {
   @Autowired
   private MSConfig msConfig;
   
-  @Autowired
-  private MSLog msLog;
   private final TaskScheduler taskScheduler;
   private ArrayList<MainForm> mainForms = new ArrayList<MainForm>();
   private final String CORN ="*/59 * * * * *";
@@ -63,10 +61,10 @@ public class ManagerScheduler {
     MSConfig msConfigNew = new MSConfig(dataConfig); 
     msConfigNew.read();
     if (!msConfigNew.getConfig().equals(msConfig.getConfig())) {
-      MSLog.Info("The file " + dataConfig.getConfigfilename() + " was changed");
-      MSLog.Info("Old file " + dataConfig.getConfigfilename() + " is:" + msConfig.writeToString());
+      MainschedulerApplication.logger.fatal("The file " + dataConfig.getConfigfilename() + " was changed");
+      MainschedulerApplication.logger.fatal("Old file " + dataConfig.getConfigfilename() + " is:" + msConfig.writeToString());
       msConfig.read();
-      MSLog.Info("New file " + dataConfig.getConfigfilename() + " is:" + msConfigNew.writeToString());
+      MainschedulerApplication.logger.fatal("New file " + dataConfig.getConfigfilename() + " is:" + msConfigNew.writeToString());
       mainForms.stream().forEach(scheduled -> scheduled.getScheduledFuture().cancel(true));
       mainForms.clear();
       executeSchedule();
@@ -98,11 +96,6 @@ public class ManagerScheduler {
           public void run() {
             Date dateStartScheduled = DateUtils.round(new Date(), Calendar.MINUTE);
             try {
-              // При наступлении новой даты создает новые логи
-              if(!MSLog.oldDate.equals(MSLog.FORMAT_DATE.format(new Date()))) { 
-                msLog.initHandlers();
-              }  
-              
               HttpHeaders headers = new HttpHeaders();
               headers.set("idRequest", Integer.toString(item.getId()));
               headers.set("intervalTimeMinute", Integer.toString(item.getIntervalTimeMinute()));
@@ -116,19 +109,19 @@ public class ManagerScheduler {
                   restTemplate.exchange(item.getURLRESTService(), HttpMethod.POST, request, String.class);
               
               if (result.getStatusCodeValue() == 200) {
-                MSLog.Info("Start time=" + MSLog.FORMAT_DATE.format(dateStartScheduled) + ";System short name=" + item.getName()
+                MainschedulerApplication.logger.fatal("Start time=" + GeneralData.FORMAT_DATE.format(dateStartScheduled) + ";System short name=" + item.getName()
                     + ";Send POST REST request " + item.getURLRESTService() + " idRequest=" + item.getId() + " intervalTimeMinute="
                     + item.getIntervalTimeMinute() + ";Recive responce Status=" + result.getStatusCodeValue() + " " 
                     + result.getBody());
               } else {
-                MSLog.Info("Start time=" + MSLog.FORMAT_DATE.format(dateStartScheduled) + ";System short name=" + item.getName()
+                MainschedulerApplication.logger.fatal("Start time=" + GeneralData.FORMAT_DATE.format(dateStartScheduled) + ";System short name=" + item.getName()
                     + ";Send POST REST request " + item.getURLRESTService() + " idRequest=" + item.getId() + " intervalTimeMinute="
                     + item.getIntervalTimeMinute() + ";ERROR Recive Status=" + result.getStatusCodeValue() + " "
                     + result.getBody());
               }
             } catch (Exception e) {
               
-              MSLog.Severe("Start time=" + MSLog.FORMAT_DATE.format(dateStartScheduled) + ";System short name=" + item.getName()
+              MainschedulerApplication.logger.fatal("Start time=" + GeneralData.FORMAT_DATE.format(dateStartScheduled) + ";System short name=" + item.getName()
                     + ";ERROR Send POST REST request " + item.getURLRESTService() + " idRequest=" + item.getId() + " intervalTimeMinute="
                     + item.getIntervalTimeMinute() + ";Recive responce "          
                     + e.getMessage());

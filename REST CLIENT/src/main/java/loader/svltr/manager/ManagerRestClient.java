@@ -1,11 +1,13 @@
 package loader.svltr.manager;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import loader.svltr.LoadersvltrApplication;
+import loader.svltr.config.data.LSData;
 import loader.svltr.config.xml.LSConfig;
-import loader.svltr.log.LSLog;
 import loader.svltr.model.xml.MRequest;
 import loader.svltr.restclients.RestClient;
 
@@ -29,20 +31,25 @@ public class ManagerRestClient {
   private LSConfig lsConfig;
   
   @Autowired
-  private RestClient restClient; 
+  private LSData lsData;
   
+  @Autowired
+  ManagerTokenScheduler managerTokenScheduler;
+
   public boolean exec(int requestId, int requestIntervalTimeMinute) {
     MRequest mRequest = lsConfig.getConfig().getRequest().getRequests().stream().filter(item -> item.getId() == requestId).findFirst().orElse(null); 
+    MRequest mRequestVagonData = lsConfig.getConfig().getRequest().getRequests().
+    stream().filter(f -> RestClient.VAGONS_DATA.toLowerCase().equals(f.getName().toLowerCase())).findFirst().orElse(null);
 
     // Если нет записи в конфигурационном файле, то выходим
     if (mRequest == null) {
-      LSLog.Severe("ERROR don't found record in config file requestId=" + requestId);
+      LoadersvltrApplication.logger.fatal("ERROR don't found record in config file requestId=" + requestId);
       return false;  
     }
     
     // Если дата запроса данных больше текущей, то выходим
     if (DateUtils.addMinutes(mRequest.getDataStartTime(), requestIntervalTimeMinute).getTime() > (new Date()).getTime()) {
-      LSLog.Severe("Loger ID " + mRequest.getId() + " name " + mRequest.getName() + 
+      LoadersvltrApplication.logger.fatal("Loger ID " + mRequest.getId() + " name " + mRequest.getName() + 
                 " can not start. [DataStartTime + RequestIntervalTimeMinute] > [DateNow]." + 
                 " DataStartTime=" + mRequest.getDataStartTime() + 
                 " RequestIntervalTimeMinute=" + requestIntervalTimeMinute +  
@@ -53,40 +60,63 @@ public class ManagerRestClient {
     Boolean soapRequestSuccessful = true;
 
 // На реальных данных нужно будет раскоментарить чтобы данные запрашивались в случае отставания    
+    Boolean stop = false;
 //    while ((DateUtils.addMinutes(mRequest.getDataStartTime(), requestIntervalTimeMinute).getTime() < (new Date()).getTime())&&(soapRequestSuccessful)) {
-      switch (requestId) {
-        case 201: // SPEED_HISTORY - История изменения скорости движения
-        case 202: // COORD_HISTORY - История изменения географических координат
-        case 203: // TRAFFIC_LIGHT_HISTORY - История сигналов АЛСН
-        case 204: // MEK_HISTORY - История МЭК
-        case 205: // FUEL - История изменения данных по топливу (тепловозы)
-        case 206: // DIESEL_RUN_HISTORY - История запуска/остановки дизеля (тепловозы)
-        case 207: // ELECTRIC_DATA - Данные по электроэнергии
-        case 208: // VAGONS_DATA - Данные по вагонам 
-        case 209: // ASOUP_DATA - История операций АСОУП
-          Boolean stop = null;
-          while (stop == null) {
-            Date currentВate = new Date();
-            Date currentDateTime = DateUtils.addSeconds((Date)restClient.intervalAndDateTime.get("currentDateTime"), 
-                (int)restClient.intervalAndDateTime.get("minInterval"));
+    switch (requestId) {
+      case 201: // COORD_SPEED_HISTORY - Скорость и географические координаты
+      case 202: // ELECTRIC_DATA - Показания счетчиков тяги, рекуперации
+      case 203: // TRAFFIC_LIGHT_HISTORY - Сигнал АЛСН
+      case 204: // MEK_HISTORY - Данные МЭК
+      case 205: // FUEL - Данные о топливе
+      case 206: // DIESEL_RUN_HISTORY - Работа дизеля
+      case 207: // VAGONS_DATA - Данные по вагонам
+      case 208: // ASOUP_DATA - История операций и состояний локомотивов
+      case 209: // ASSIGNMENT_DATA - Приписка локомотива
+      case 210: // TRACTION_GENERATOR_HISTORY - Ток, напряжение, электроэнергия тягового генератора
+      case 211: // TEMPERATURES_HISTORY - Температуры воды, масла дизеля, окружающего воздуха
+      case 212: // CONTROLLER_POSITION_HISTORY - Позиция контроллера 
+      case 213: // NSI_DEPOTS - Депо 
+      case 214: // NSI_OPERATIONS - Операции АСОУП 
+      case 215: // NSI_RAILWAYS - Дороги
+      case 216: // NSI_STATES - Состояния АСОУП
+      case 217: // NSI_STATIONS - Станции
+        RestClient restClient = new RestClient(lsConfig, lsData, managerTokenScheduler.getToken());
+        while (stop == false) {
+          Date currentВate = new Date();
+          Date currentDateTime = DateUtils.addSeconds((Date)restClient.getIntervalAndDateTime().get("currentDateTime"), 
+              (int)restClient.getIntervalAndDateTime().get("minInterval"));
 
-            if (currentВate.getTime() >= currentDateTime.getTime()) {
-              soapRequestSuccessful = restClient.exec(mRequest, requestIntervalTimeMinute);
-              stop = soapRequestSuccessful;
-            } else {
-              try {
-                Thread.sleep(currentDateTime.getTime() - currentВate.getTime());
-              } catch (InterruptedException e) {
-                //
-              }
-            }  
-          }
+          if (currentВate.getTime() >= currentDateTime.getTime()) {
+            soapRequestSuccessful = restClient.exec(mRequest, requestIntervalTimeMinute, null, null);
+            stop = soapRequestSuccessful;
+
+            try {
+              TimeUnit.SECONDS.sleep((int)restClient.getIntervalAndDateTime().get("minInterval"));
+            } catch (InterruptedException e) {
+              // 
+            }
+          } else {
+            try {
+              Thread.sleep(currentDateTime.getTime() - currentВate.getTime());
+            } catch (InterruptedException e) {
+              //
+            }
+          }  
+        }
+        
+        if ((requestId==208)&(soapRequestSuccessful==true)) {
+          soapRequestSuccessful = restClient.execVagonsData(mRequest, mRequestVagonData, requestIntervalTimeMinute);
+        }
           
-          break;
+        break;
       }
       if (soapRequestSuccessful) {
         lsConfig.addDataStartTime(mRequest, requestIntervalTimeMinute);
         lsConfig.write();
+        if (requestId==208) {
+          lsConfig.addDataStartTime(mRequestVagonData, requestIntervalTimeMinute);
+          lsConfig.write();
+        }
       } else {
 //        break;
       }

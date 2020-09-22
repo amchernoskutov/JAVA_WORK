@@ -24,7 +24,6 @@ import lombok.Data;
  */
 
 @Data
-@Service
 public class MQSender {
   private String user;
   private String password;
@@ -38,7 +37,7 @@ public class MQSender {
   private MessageProducer producer;
 
   private int id = 0;
-  private int system_id = 0;
+  private int system_id = 3; // SVLTR
   private String system_name = "";
   private Timestamp data_id = new Timestamp(0);
   private String data_name = "";
@@ -48,8 +47,11 @@ public class MQSender {
   private Timestamp current_timestamp = new Timestamp(System.currentTimeMillis());
   private boolean cut = false;
   
-  @Autowired
   private LSConfig lsConfig;
+  
+  public MQSender(LSConfig lsConfig) {
+    this.lsConfig=lsConfig;
+  }
 
   public void initMQSender() throws JMSException {
     this.user = lsConfig.getConfig().getMQSenderParam().getLogin();
@@ -80,7 +82,8 @@ public class MQSender {
     this.initMQSender();
     
     TextMessage msg = session.createTextMessage(body_txt);
-    msg.setIntProperty("id", id); // id сообщения
+    msg.setIntProperty("id", 0); // id сообщения
+    msg.setIntProperty("request_id", id); // id запроса к системе
     msg.setIntProperty("system_id", system_id); // id системы
     msg.setStringProperty("system_name", system_name); // наименование системы
     msg.setLongProperty("data_id", data_id.getTime()); // id типа данных
@@ -91,6 +94,7 @@ public class MQSender {
     msg.setLongProperty("current_timestamp", current_timestamp.getTime()); // дата/время текущее
     msg.setBooleanProperty("cut", cut);
     msg.setIntProperty("part", 0); //часть сообщения (0 - целый файл, >0 - номер куска файла) сообщения
+    msg.setIntProperty("coderoad", 0); //Код дороги 0 - все дороги
     producer.send(msg);
 
     connection.close();

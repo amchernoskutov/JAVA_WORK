@@ -53,6 +53,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private BooleanMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_BooleanMessage_descriptor;
@@ -71,16 +111,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new BooleanMessage(input, extensionRegistry);
       }
     };
 
@@ -109,6 +140,46 @@ public final class CommonProto {
     private void initFields() {
       value_ = false;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.BooleanMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -256,6 +327,45 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.BooleanMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.BooleanMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.BooleanMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.BooleanMessage.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.BooleanMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.BooleanMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional bool value = 1;
@@ -352,6 +462,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private StringMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_StringMessage_descriptor;
@@ -370,16 +520,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new StringMessage(input, extensionRegistry);
       }
     };
 
@@ -435,6 +576,46 @@ public final class CommonProto {
     private void initFields() {
       value_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getValueBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getValueBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.StringMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -582,6 +763,47 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.StringMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.StringMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.StringMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.StringMessage.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          bitField0_ |= 0x00000001;
+          value_ = other.value_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.StringMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.StringMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional string value = 1;
@@ -714,6 +936,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private IntegerMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_IntegerMessage_descriptor;
@@ -732,16 +994,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new IntegerMessage(input, extensionRegistry);
       }
     };
 
@@ -770,6 +1023,46 @@ public final class CommonProto {
     private void initFields() {
       value_ = 0;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.IntegerMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -917,6 +1210,45 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.IntegerMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.IntegerMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.IntegerMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.IntegerMessage.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.IntegerMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.IntegerMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional int32 value = 1;
@@ -1008,6 +1340,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private LongMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_LongMessage_descriptor;
@@ -1026,16 +1398,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new LongMessage(input, extensionRegistry);
       }
     };
 
@@ -1064,6 +1427,46 @@ public final class CommonProto {
     private void initFields() {
       value_ = 0L;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.LongMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1211,6 +1614,45 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.LongMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.LongMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.LongMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.LongMessage.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.LongMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.LongMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional int64 value = 1;
@@ -1302,6 +1744,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private DoubleMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 9: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readDouble();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_DoubleMessage_descriptor;
@@ -1320,16 +1802,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DoubleMessage(input, extensionRegistry);
       }
     };
 
@@ -1358,6 +1831,46 @@ public final class CommonProto {
     private void initFields() {
       value_ = 0D;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeDouble(1, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(1, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.DoubleMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1505,6 +2018,45 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.DoubleMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.DoubleMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.DoubleMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.DoubleMessage.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.DoubleMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.DoubleMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional double value = 1;
@@ -1596,6 +2148,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private TimestampMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              time_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_TimestampMessage_descriptor;
@@ -1614,16 +2206,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TimestampMessage(input, extensionRegistry);
       }
     };
 
@@ -1652,6 +2235,46 @@ public final class CommonProto {
     private void initFields() {
       time_ = 0L;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, time_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, time_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.TimestampMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1799,6 +2422,45 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.TimestampMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.TimestampMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.TimestampMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.TimestampMessage.getDefaultInstance()) return this;
+        if (other.hasTime()) {
+          setTime(other.getTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.TimestampMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.TimestampMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional int64 time = 1;
@@ -1907,6 +2569,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private TimeStringMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              timeValue_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_TimeStringMessage_descriptor;
@@ -1925,16 +2627,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TimeStringMessage(input, extensionRegistry);
       }
     };
 
@@ -2002,6 +2695,46 @@ public final class CommonProto {
     private void initFields() {
       timeValue_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getTimeValueBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getTimeValueBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.TimeStringMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2149,6 +2882,47 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.TimeStringMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.TimeStringMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.TimeStringMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.TimeStringMessage.getDefaultInstance()) return this;
+        if (other.hasTimeValue()) {
+          bitField0_ |= 0x00000001;
+          timeValue_ = other.timeValue_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.TimeStringMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.TimeStringMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional string time_value = 1;
@@ -2322,6 +3096,46 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private Base64StringMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_Base64StringMessage_descriptor;
@@ -2340,16 +3154,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Base64StringMessage(input, extensionRegistry);
       }
     };
 
@@ -2417,6 +3222,46 @@ public final class CommonProto {
     private void initFields() {
       value_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getValueBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getValueBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.Base64StringMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2564,6 +3409,47 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.Base64StringMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.Base64StringMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.Base64StringMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.Base64StringMessage.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          bitField0_ |= 0x00000001;
+          value_ = other.value_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.Base64StringMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.Base64StringMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional string value = 1;
@@ -2675,6 +3561,1217 @@ public final class CommonProto {
     // @@protoc_insertion_point(class_scope:proto.Base64StringMessage)
   }
 
+  public interface PointIntMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 x = 1;
+    /**
+     * <code>optional int32 x = 1;</code>
+     *
+     * <pre>
+     * абцисса
+     * </pre>
+     */
+    boolean hasX();
+    /**
+     * <code>optional int32 x = 1;</code>
+     *
+     * <pre>
+     * абцисса
+     * </pre>
+     */
+    int getX();
+
+    // optional int32 y = 2;
+    /**
+     * <code>optional int32 y = 2;</code>
+     *
+     * <pre>
+     * ордината
+     * </pre>
+     */
+    boolean hasY();
+    /**
+     * <code>optional int32 y = 2;</code>
+     *
+     * <pre>
+     * ордината
+     * </pre>
+     */
+    int getY();
+  }
+  /**
+   * Protobuf type {@code proto.PointIntMessage}
+   *
+   * <pre>
+   * type-id = point_int_message
+   * </pre>
+   */
+  public static final class PointIntMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements PointIntMessageOrBuilder {
+    // Use PointIntMessage.newBuilder() to construct.
+    private PointIntMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private PointIntMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final PointIntMessage defaultInstance;
+    public static PointIntMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public PointIntMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PointIntMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              x_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              y_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_PointIntMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_PointIntMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.PointIntMessage.class, loader.elbrus.proto.CommonProto.PointIntMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<PointIntMessage> PARSER =
+        new com.google.protobuf.AbstractParser<PointIntMessage>() {
+      public PointIntMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PointIntMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PointIntMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 x = 1;
+    public static final int X_FIELD_NUMBER = 1;
+    private int x_;
+    /**
+     * <code>optional int32 x = 1;</code>
+     *
+     * <pre>
+     * абцисса
+     * </pre>
+     */
+    public boolean hasX() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 x = 1;</code>
+     *
+     * <pre>
+     * абцисса
+     * </pre>
+     */
+    public int getX() {
+      return x_;
+    }
+
+    // optional int32 y = 2;
+    public static final int Y_FIELD_NUMBER = 2;
+    private int y_;
+    /**
+     * <code>optional int32 y = 2;</code>
+     *
+     * <pre>
+     * ордината
+     * </pre>
+     */
+    public boolean hasY() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 y = 2;</code>
+     *
+     * <pre>
+     * ордината
+     * </pre>
+     */
+    public int getY() {
+      return y_;
+    }
+
+    private void initFields() {
+      x_ = 0;
+      y_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, x_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, y_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, x_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, y_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.PointIntMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.PointIntMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.PointIntMessage}
+     *
+     * <pre>
+     * type-id = point_int_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.PointIntMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_PointIntMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_PointIntMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.PointIntMessage.class, loader.elbrus.proto.CommonProto.PointIntMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.PointIntMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        x_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        y_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_PointIntMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.PointIntMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.PointIntMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.PointIntMessage build() {
+        loader.elbrus.proto.CommonProto.PointIntMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.PointIntMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.PointIntMessage result = new loader.elbrus.proto.CommonProto.PointIntMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.x_ = x_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.y_ = y_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.PointIntMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.PointIntMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.PointIntMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.PointIntMessage.getDefaultInstance()) return this;
+        if (other.hasX()) {
+          setX(other.getX());
+        }
+        if (other.hasY()) {
+          setY(other.getY());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.PointIntMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.PointIntMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 x = 1;
+      private int x_ ;
+      /**
+       * <code>optional int32 x = 1;</code>
+       *
+       * <pre>
+       * абцисса
+       * </pre>
+       */
+      public boolean hasX() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 x = 1;</code>
+       *
+       * <pre>
+       * абцисса
+       * </pre>
+       */
+      public int getX() {
+        return x_;
+      }
+      /**
+       * <code>optional int32 x = 1;</code>
+       *
+       * <pre>
+       * абцисса
+       * </pre>
+       */
+      public Builder setX(int value) {
+        bitField0_ |= 0x00000001;
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 x = 1;</code>
+       *
+       * <pre>
+       * абцисса
+       * </pre>
+       */
+      public Builder clearX() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        x_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 y = 2;
+      private int y_ ;
+      /**
+       * <code>optional int32 y = 2;</code>
+       *
+       * <pre>
+       * ордината
+       * </pre>
+       */
+      public boolean hasY() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 y = 2;</code>
+       *
+       * <pre>
+       * ордината
+       * </pre>
+       */
+      public int getY() {
+        return y_;
+      }
+      /**
+       * <code>optional int32 y = 2;</code>
+       *
+       * <pre>
+       * ордината
+       * </pre>
+       */
+      public Builder setY(int value) {
+        bitField0_ |= 0x00000002;
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 y = 2;</code>
+       *
+       * <pre>
+       * ордината
+       * </pre>
+       */
+      public Builder clearY() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        y_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.PointIntMessage)
+    }
+
+    static {
+      defaultInstance = new PointIntMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.PointIntMessage)
+  }
+
+  public interface PenMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional int32 color = 1;
+    /**
+     * <code>optional int32 color = 1;</code>
+     *
+     * <pre>
+     * цвет
+     * </pre>
+     */
+    boolean hasColor();
+    /**
+     * <code>optional int32 color = 1;</code>
+     *
+     * <pre>
+     * цвет
+     * </pre>
+     */
+    int getColor();
+
+    // optional int32 width = 2;
+    /**
+     * <code>optional int32 width = 2;</code>
+     *
+     * <pre>
+     * ширина
+     * </pre>
+     */
+    boolean hasWidth();
+    /**
+     * <code>optional int32 width = 2;</code>
+     *
+     * <pre>
+     * ширина
+     * </pre>
+     */
+    int getWidth();
+
+    // optional int32 style = 3;
+    /**
+     * <code>optional int32 style = 3;</code>
+     *
+     * <pre>
+     * стиль
+     * </pre>
+     */
+    boolean hasStyle();
+    /**
+     * <code>optional int32 style = 3;</code>
+     *
+     * <pre>
+     * стиль
+     * </pre>
+     */
+    int getStyle();
+  }
+  /**
+   * Protobuf type {@code proto.PenMessage}
+   *
+   * <pre>
+   * type-id = pen_message
+   * </pre>
+   */
+  public static final class PenMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements PenMessageOrBuilder {
+    // Use PenMessage.newBuilder() to construct.
+    private PenMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private PenMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final PenMessage defaultInstance;
+    public static PenMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public PenMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PenMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              color_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              width_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              style_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_PenMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_PenMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.PenMessage.class, loader.elbrus.proto.CommonProto.PenMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<PenMessage> PARSER =
+        new com.google.protobuf.AbstractParser<PenMessage>() {
+      public PenMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PenMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PenMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional int32 color = 1;
+    public static final int COLOR_FIELD_NUMBER = 1;
+    private int color_;
+    /**
+     * <code>optional int32 color = 1;</code>
+     *
+     * <pre>
+     * цвет
+     * </pre>
+     */
+    public boolean hasColor() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 color = 1;</code>
+     *
+     * <pre>
+     * цвет
+     * </pre>
+     */
+    public int getColor() {
+      return color_;
+    }
+
+    // optional int32 width = 2;
+    public static final int WIDTH_FIELD_NUMBER = 2;
+    private int width_;
+    /**
+     * <code>optional int32 width = 2;</code>
+     *
+     * <pre>
+     * ширина
+     * </pre>
+     */
+    public boolean hasWidth() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 width = 2;</code>
+     *
+     * <pre>
+     * ширина
+     * </pre>
+     */
+    public int getWidth() {
+      return width_;
+    }
+
+    // optional int32 style = 3;
+    public static final int STYLE_FIELD_NUMBER = 3;
+    private int style_;
+    /**
+     * <code>optional int32 style = 3;</code>
+     *
+     * <pre>
+     * стиль
+     * </pre>
+     */
+    public boolean hasStyle() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 style = 3;</code>
+     *
+     * <pre>
+     * стиль
+     * </pre>
+     */
+    public int getStyle() {
+      return style_;
+    }
+
+    private void initFields() {
+      color_ = 0;
+      width_ = 0;
+      style_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, color_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, width_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, style_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, color_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, width_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, style_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.PenMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.PenMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.PenMessage}
+     *
+     * <pre>
+     * type-id = pen_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.PenMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_PenMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_PenMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.PenMessage.class, loader.elbrus.proto.CommonProto.PenMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.PenMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        color_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        width_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        style_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_PenMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.PenMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.PenMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.PenMessage build() {
+        loader.elbrus.proto.CommonProto.PenMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.PenMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.PenMessage result = new loader.elbrus.proto.CommonProto.PenMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.color_ = color_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.width_ = width_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.style_ = style_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.PenMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.PenMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.PenMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.PenMessage.getDefaultInstance()) return this;
+        if (other.hasColor()) {
+          setColor(other.getColor());
+        }
+        if (other.hasWidth()) {
+          setWidth(other.getWidth());
+        }
+        if (other.hasStyle()) {
+          setStyle(other.getStyle());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.PenMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.PenMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional int32 color = 1;
+      private int color_ ;
+      /**
+       * <code>optional int32 color = 1;</code>
+       *
+       * <pre>
+       * цвет
+       * </pre>
+       */
+      public boolean hasColor() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 color = 1;</code>
+       *
+       * <pre>
+       * цвет
+       * </pre>
+       */
+      public int getColor() {
+        return color_;
+      }
+      /**
+       * <code>optional int32 color = 1;</code>
+       *
+       * <pre>
+       * цвет
+       * </pre>
+       */
+      public Builder setColor(int value) {
+        bitField0_ |= 0x00000001;
+        color_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 color = 1;</code>
+       *
+       * <pre>
+       * цвет
+       * </pre>
+       */
+      public Builder clearColor() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        color_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 width = 2;
+      private int width_ ;
+      /**
+       * <code>optional int32 width = 2;</code>
+       *
+       * <pre>
+       * ширина
+       * </pre>
+       */
+      public boolean hasWidth() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 width = 2;</code>
+       *
+       * <pre>
+       * ширина
+       * </pre>
+       */
+      public int getWidth() {
+        return width_;
+      }
+      /**
+       * <code>optional int32 width = 2;</code>
+       *
+       * <pre>
+       * ширина
+       * </pre>
+       */
+      public Builder setWidth(int value) {
+        bitField0_ |= 0x00000002;
+        width_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 width = 2;</code>
+       *
+       * <pre>
+       * ширина
+       * </pre>
+       */
+      public Builder clearWidth() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        width_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 style = 3;
+      private int style_ ;
+      /**
+       * <code>optional int32 style = 3;</code>
+       *
+       * <pre>
+       * стиль
+       * </pre>
+       */
+      public boolean hasStyle() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 style = 3;</code>
+       *
+       * <pre>
+       * стиль
+       * </pre>
+       */
+      public int getStyle() {
+        return style_;
+      }
+      /**
+       * <code>optional int32 style = 3;</code>
+       *
+       * <pre>
+       * стиль
+       * </pre>
+       */
+      public Builder setStyle(int value) {
+        bitField0_ |= 0x00000004;
+        style_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 style = 3;</code>
+       *
+       * <pre>
+       * стиль
+       * </pre>
+       */
+      public Builder clearStyle() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        style_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.PenMessage)
+    }
+
+    static {
+      defaultInstance = new PenMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.PenMessage)
+  }
+
   public interface BinaryDataMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -2706,32 +4803,14 @@ public final class CommonProto {
     // optional string algorithm = 3;
     /**
      * <code>optional string algorithm = 3;</code>
-     *
-     * <pre>
-     * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-     * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-     * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-     * </pre>
      */
     boolean hasAlgorithm();
     /**
      * <code>optional string algorithm = 3;</code>
-     *
-     * <pre>
-     * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-     * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-     * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-     * </pre>
      */
     java.lang.String getAlgorithm();
     /**
      * <code>optional string algorithm = 3;</code>
-     *
-     * <pre>
-     * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-     * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-     * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-     * </pre>
      */
     com.google.protobuf.ByteString
         getAlgorithmBytes();
@@ -2768,6 +4847,56 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private BinaryDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              data_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              digest_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              algorithm_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_BinaryDataMessage_descriptor;
@@ -2786,16 +4915,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new BinaryDataMessage(input, extensionRegistry);
       }
     };
 
@@ -2869,24 +4989,12 @@ public final class CommonProto {
     private java.lang.Object algorithm_;
     /**
      * <code>optional string algorithm = 3;</code>
-     *
-     * <pre>
-     * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-     * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-     * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-     * </pre>
      */
     public boolean hasAlgorithm() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional string algorithm = 3;</code>
-     *
-     * <pre>
-     * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-     * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-     * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-     * </pre>
      */
     public java.lang.String getAlgorithm() {
       java.lang.Object ref = algorithm_;
@@ -2904,12 +5012,6 @@ public final class CommonProto {
     }
     /**
      * <code>optional string algorithm = 3;</code>
-     *
-     * <pre>
-     * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-     * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-     * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getAlgorithmBytes() {
@@ -2930,6 +5032,60 @@ public final class CommonProto {
       digest_ = "";
       algorithm_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, data_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getDigestBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getAlgorithmBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, data_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getDigestBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getAlgorithmBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.BinaryDataMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3089,6 +5245,55 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.BinaryDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.BinaryDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.BinaryDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.BinaryDataMessage.getDefaultInstance()) return this;
+        if (other.hasData()) {
+          setData(other.getData());
+        }
+        if (other.hasDigest()) {
+          bitField0_ |= 0x00000002;
+          digest_ = other.digest_;
+          onChanged();
+        }
+        if (other.hasAlgorithm()) {
+          bitField0_ |= 0x00000004;
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.BinaryDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.BinaryDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional bytes data = 1;
@@ -3205,24 +5410,12 @@ public final class CommonProto {
       private java.lang.Object algorithm_ = "";
       /**
        * <code>optional string algorithm = 3;</code>
-       *
-       * <pre>
-       * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-       * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-       * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-       * </pre>
        */
       public boolean hasAlgorithm() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional string algorithm = 3;</code>
-       *
-       * <pre>
-       * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-       * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-       * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-       * </pre>
        */
       public java.lang.String getAlgorithm() {
         java.lang.Object ref = algorithm_;
@@ -3237,12 +5430,6 @@ public final class CommonProto {
       }
       /**
        * <code>optional string algorithm = 3;</code>
-       *
-       * <pre>
-       * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-       * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-       * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getAlgorithmBytes() {
@@ -3259,12 +5446,6 @@ public final class CommonProto {
       }
       /**
        * <code>optional string algorithm = 3;</code>
-       *
-       * <pre>
-       * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-       * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-       * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-       * </pre>
        */
       public Builder setAlgorithm(
           java.lang.String value) {
@@ -3278,12 +5459,6 @@ public final class CommonProto {
       }
       /**
        * <code>optional string algorithm = 3;</code>
-       *
-       * <pre>
-       * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-       * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-       * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-       * </pre>
        */
       public Builder clearAlgorithm() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -3293,12 +5468,6 @@ public final class CommonProto {
       }
       /**
        * <code>optional string algorithm = 3;</code>
-       *
-       * <pre>
-       * algorithm possible values: MD2,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512
-       * algorithm aliases: SHA_1,SHA1,SHA_224,SHA224,SHA_256,SHA256,SHA_384,SHA384,SHA_512,SHA512
-       * md2,md5,sha-1,sha_1,sha1,sha-224,sha_224,sha224,sha-256,sha_256,sha256,sha-384,sha_384,sha384,sha-512,sha_512,sha512
-       * </pre>
        */
       public Builder setAlgorithmBytes(
           com.google.protobuf.ByteString value) {
@@ -3320,6 +5489,1588 @@ public final class CommonProto {
     }
 
     // @@protoc_insertion_point(class_scope:proto.BinaryDataMessage)
+  }
+
+  public interface DigestInfoMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string digest = 1;
+    /**
+     * <code>optional string digest = 1;</code>
+     */
+    boolean hasDigest();
+    /**
+     * <code>optional string digest = 1;</code>
+     */
+    java.lang.String getDigest();
+    /**
+     * <code>optional string digest = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDigestBytes();
+
+    // optional string algorithm = 2;
+    /**
+     * <code>optional string algorithm = 2;</code>
+     */
+    boolean hasAlgorithm();
+    /**
+     * <code>optional string algorithm = 2;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>optional string algorithm = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+  }
+  /**
+   * Protobuf type {@code proto.DigestInfoMessage}
+   *
+   * <pre>
+   * type-id = digest_info_message
+   * </pre>
+   */
+  public static final class DigestInfoMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements DigestInfoMessageOrBuilder {
+    // Use DigestInfoMessage.newBuilder() to construct.
+    private DigestInfoMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DigestInfoMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final DigestInfoMessage defaultInstance;
+    public static DigestInfoMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DigestInfoMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DigestInfoMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              digest_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              algorithm_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_DigestInfoMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_DigestInfoMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.DigestInfoMessage.class, loader.elbrus.proto.CommonProto.DigestInfoMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<DigestInfoMessage> PARSER =
+        new com.google.protobuf.AbstractParser<DigestInfoMessage>() {
+      public DigestInfoMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DigestInfoMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DigestInfoMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string digest = 1;
+    public static final int DIGEST_FIELD_NUMBER = 1;
+    private java.lang.Object digest_;
+    /**
+     * <code>optional string digest = 1;</code>
+     */
+    public boolean hasDigest() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string digest = 1;</code>
+     */
+    public java.lang.String getDigest() {
+      java.lang.Object ref = digest_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          digest_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string digest = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDigestBytes() {
+      java.lang.Object ref = digest_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        digest_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string algorithm = 2;
+    public static final int ALGORITHM_FIELD_NUMBER = 2;
+    private java.lang.Object algorithm_;
+    /**
+     * <code>optional string algorithm = 2;</code>
+     */
+    public boolean hasAlgorithm() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string algorithm = 2;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          algorithm_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string algorithm = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      digest_ = "";
+      algorithm_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getDigestBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getAlgorithmBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getDigestBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getAlgorithmBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.DigestInfoMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.DigestInfoMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.DigestInfoMessage}
+     *
+     * <pre>
+     * type-id = digest_info_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.DigestInfoMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_DigestInfoMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_DigestInfoMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.DigestInfoMessage.class, loader.elbrus.proto.CommonProto.DigestInfoMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.DigestInfoMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        digest_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        algorithm_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_DigestInfoMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.DigestInfoMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.DigestInfoMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.DigestInfoMessage build() {
+        loader.elbrus.proto.CommonProto.DigestInfoMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.DigestInfoMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.DigestInfoMessage result = new loader.elbrus.proto.CommonProto.DigestInfoMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.digest_ = digest_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.algorithm_ = algorithm_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.DigestInfoMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.DigestInfoMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.DigestInfoMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.DigestInfoMessage.getDefaultInstance()) return this;
+        if (other.hasDigest()) {
+          bitField0_ |= 0x00000001;
+          digest_ = other.digest_;
+          onChanged();
+        }
+        if (other.hasAlgorithm()) {
+          bitField0_ |= 0x00000002;
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.DigestInfoMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.DigestInfoMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string digest = 1;
+      private java.lang.Object digest_ = "";
+      /**
+       * <code>optional string digest = 1;</code>
+       */
+      public boolean hasDigest() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string digest = 1;</code>
+       */
+      public java.lang.String getDigest() {
+        java.lang.Object ref = digest_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          digest_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string digest = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDigestBytes() {
+        java.lang.Object ref = digest_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          digest_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string digest = 1;</code>
+       */
+      public Builder setDigest(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        digest_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string digest = 1;</code>
+       */
+      public Builder clearDigest() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        digest_ = getDefaultInstance().getDigest();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string digest = 1;</code>
+       */
+      public Builder setDigestBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        digest_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string algorithm = 2;
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>optional string algorithm = 2;</code>
+       */
+      public boolean hasAlgorithm() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string algorithm = 2;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string algorithm = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string algorithm = 2;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string algorithm = 2;</code>
+       */
+      public Builder clearAlgorithm() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string algorithm = 2;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.DigestInfoMessage)
+    }
+
+    static {
+      defaultInstance = new DigestInfoMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.DigestInfoMessage)
+  }
+
+  public interface LabelDigestInfoMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string label = 1;
+    /**
+     * <code>optional string label = 1;</code>
+     */
+    boolean hasLabel();
+    /**
+     * <code>optional string label = 1;</code>
+     */
+    java.lang.String getLabel();
+    /**
+     * <code>optional string label = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getLabelBytes();
+
+    // optional string digest = 2;
+    /**
+     * <code>optional string digest = 2;</code>
+     */
+    boolean hasDigest();
+    /**
+     * <code>optional string digest = 2;</code>
+     */
+    java.lang.String getDigest();
+    /**
+     * <code>optional string digest = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDigestBytes();
+
+    // optional string transient_digest = 3;
+    /**
+     * <code>optional string transient_digest = 3;</code>
+     */
+    boolean hasTransientDigest();
+    /**
+     * <code>optional string transient_digest = 3;</code>
+     */
+    java.lang.String getTransientDigest();
+    /**
+     * <code>optional string transient_digest = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTransientDigestBytes();
+
+    // optional string algorithm = 4;
+    /**
+     * <code>optional string algorithm = 4;</code>
+     */
+    boolean hasAlgorithm();
+    /**
+     * <code>optional string algorithm = 4;</code>
+     */
+    java.lang.String getAlgorithm();
+    /**
+     * <code>optional string algorithm = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAlgorithmBytes();
+  }
+  /**
+   * Protobuf type {@code proto.LabelDigestInfoMessage}
+   *
+   * <pre>
+   * type-id = label_digest_info_message
+   * </pre>
+   */
+  public static final class LabelDigestInfoMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements LabelDigestInfoMessageOrBuilder {
+    // Use LabelDigestInfoMessage.newBuilder() to construct.
+    private LabelDigestInfoMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private LabelDigestInfoMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final LabelDigestInfoMessage defaultInstance;
+    public static LabelDigestInfoMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public LabelDigestInfoMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LabelDigestInfoMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              label_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              digest_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              transientDigest_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              algorithm_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_LabelDigestInfoMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_LabelDigestInfoMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.LabelDigestInfoMessage.class, loader.elbrus.proto.CommonProto.LabelDigestInfoMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<LabelDigestInfoMessage> PARSER =
+        new com.google.protobuf.AbstractParser<LabelDigestInfoMessage>() {
+      public LabelDigestInfoMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LabelDigestInfoMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LabelDigestInfoMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string label = 1;
+    public static final int LABEL_FIELD_NUMBER = 1;
+    private java.lang.Object label_;
+    /**
+     * <code>optional string label = 1;</code>
+     */
+    public boolean hasLabel() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string label = 1;</code>
+     */
+    public java.lang.String getLabel() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          label_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string label = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLabelBytes() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        label_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string digest = 2;
+    public static final int DIGEST_FIELD_NUMBER = 2;
+    private java.lang.Object digest_;
+    /**
+     * <code>optional string digest = 2;</code>
+     */
+    public boolean hasDigest() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string digest = 2;</code>
+     */
+    public java.lang.String getDigest() {
+      java.lang.Object ref = digest_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          digest_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string digest = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDigestBytes() {
+      java.lang.Object ref = digest_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        digest_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string transient_digest = 3;
+    public static final int TRANSIENT_DIGEST_FIELD_NUMBER = 3;
+    private java.lang.Object transientDigest_;
+    /**
+     * <code>optional string transient_digest = 3;</code>
+     */
+    public boolean hasTransientDigest() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string transient_digest = 3;</code>
+     */
+    public java.lang.String getTransientDigest() {
+      java.lang.Object ref = transientDigest_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          transientDigest_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string transient_digest = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTransientDigestBytes() {
+      java.lang.Object ref = transientDigest_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        transientDigest_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string algorithm = 4;
+    public static final int ALGORITHM_FIELD_NUMBER = 4;
+    private java.lang.Object algorithm_;
+    /**
+     * <code>optional string algorithm = 4;</code>
+     */
+    public boolean hasAlgorithm() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string algorithm = 4;</code>
+     */
+    public java.lang.String getAlgorithm() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          algorithm_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string algorithm = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAlgorithmBytes() {
+      java.lang.Object ref = algorithm_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        algorithm_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      label_ = "";
+      digest_ = "";
+      transientDigest_ = "";
+      algorithm_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getLabelBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getDigestBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getTransientDigestBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getAlgorithmBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getLabelBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getDigestBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getTransientDigestBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getAlgorithmBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.LabelDigestInfoMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.LabelDigestInfoMessage}
+     *
+     * <pre>
+     * type-id = label_digest_info_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.LabelDigestInfoMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_LabelDigestInfoMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_LabelDigestInfoMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.LabelDigestInfoMessage.class, loader.elbrus.proto.CommonProto.LabelDigestInfoMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.LabelDigestInfoMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        label_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        digest_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        transientDigest_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        algorithm_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_LabelDigestInfoMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.LabelDigestInfoMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.LabelDigestInfoMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.LabelDigestInfoMessage build() {
+        loader.elbrus.proto.CommonProto.LabelDigestInfoMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.LabelDigestInfoMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.LabelDigestInfoMessage result = new loader.elbrus.proto.CommonProto.LabelDigestInfoMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.label_ = label_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.digest_ = digest_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.transientDigest_ = transientDigest_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.algorithm_ = algorithm_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.LabelDigestInfoMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.LabelDigestInfoMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.LabelDigestInfoMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.LabelDigestInfoMessage.getDefaultInstance()) return this;
+        if (other.hasLabel()) {
+          bitField0_ |= 0x00000001;
+          label_ = other.label_;
+          onChanged();
+        }
+        if (other.hasDigest()) {
+          bitField0_ |= 0x00000002;
+          digest_ = other.digest_;
+          onChanged();
+        }
+        if (other.hasTransientDigest()) {
+          bitField0_ |= 0x00000004;
+          transientDigest_ = other.transientDigest_;
+          onChanged();
+        }
+        if (other.hasAlgorithm()) {
+          bitField0_ |= 0x00000008;
+          algorithm_ = other.algorithm_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.LabelDigestInfoMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.LabelDigestInfoMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string label = 1;
+      private java.lang.Object label_ = "";
+      /**
+       * <code>optional string label = 1;</code>
+       */
+      public boolean hasLabel() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string label = 1;</code>
+       */
+      public java.lang.String getLabel() {
+        java.lang.Object ref = label_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          label_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string label = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLabelBytes() {
+        java.lang.Object ref = label_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          label_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string label = 1;</code>
+       */
+      public Builder setLabel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        label_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string label = 1;</code>
+       */
+      public Builder clearLabel() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        label_ = getDefaultInstance().getLabel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string label = 1;</code>
+       */
+      public Builder setLabelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        label_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string digest = 2;
+      private java.lang.Object digest_ = "";
+      /**
+       * <code>optional string digest = 2;</code>
+       */
+      public boolean hasDigest() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string digest = 2;</code>
+       */
+      public java.lang.String getDigest() {
+        java.lang.Object ref = digest_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          digest_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string digest = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDigestBytes() {
+        java.lang.Object ref = digest_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          digest_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string digest = 2;</code>
+       */
+      public Builder setDigest(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        digest_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string digest = 2;</code>
+       */
+      public Builder clearDigest() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        digest_ = getDefaultInstance().getDigest();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string digest = 2;</code>
+       */
+      public Builder setDigestBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        digest_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string transient_digest = 3;
+      private java.lang.Object transientDigest_ = "";
+      /**
+       * <code>optional string transient_digest = 3;</code>
+       */
+      public boolean hasTransientDigest() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string transient_digest = 3;</code>
+       */
+      public java.lang.String getTransientDigest() {
+        java.lang.Object ref = transientDigest_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          transientDigest_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string transient_digest = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTransientDigestBytes() {
+        java.lang.Object ref = transientDigest_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          transientDigest_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string transient_digest = 3;</code>
+       */
+      public Builder setTransientDigest(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        transientDigest_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string transient_digest = 3;</code>
+       */
+      public Builder clearTransientDigest() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        transientDigest_ = getDefaultInstance().getTransientDigest();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string transient_digest = 3;</code>
+       */
+      public Builder setTransientDigestBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        transientDigest_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string algorithm = 4;
+      private java.lang.Object algorithm_ = "";
+      /**
+       * <code>optional string algorithm = 4;</code>
+       */
+      public boolean hasAlgorithm() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string algorithm = 4;</code>
+       */
+      public java.lang.String getAlgorithm() {
+        java.lang.Object ref = algorithm_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          algorithm_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string algorithm = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAlgorithmBytes() {
+        java.lang.Object ref = algorithm_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          algorithm_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string algorithm = 4;</code>
+       */
+      public Builder setAlgorithm(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string algorithm = 4;</code>
+       */
+      public Builder clearAlgorithm() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        algorithm_ = getDefaultInstance().getAlgorithm();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string algorithm = 4;</code>
+       */
+      public Builder setAlgorithmBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        algorithm_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.LabelDigestInfoMessage)
+    }
+
+    static {
+      defaultInstance = new LabelDigestInfoMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.LabelDigestInfoMessage)
   }
 
   public interface StringMapMessageOrBuilder
@@ -3382,6 +7133,52 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private StringMapMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                entries_ = new java.util.ArrayList<loader.elbrus.proto.CommonProto.StringMapMessage.Entry>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              entries_.add(input.readMessage(loader.elbrus.proto.CommonProto.StringMapMessage.Entry.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          entries_ = java.util.Collections.unmodifiableList(entries_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_StringMapMessage_descriptor;
@@ -3400,16 +7197,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new StringMapMessage(input, extensionRegistry);
       }
     };
 
@@ -3479,6 +7267,51 @@ public final class CommonProto {
           getUnknownFields() {
         return this.unknownFields;
       }
+      private Entry(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                bitField0_ |= 0x00000001;
+                key_ = input.readBytes();
+                break;
+              }
+              case 18: {
+                bitField0_ |= 0x00000002;
+                value_ = input.readBytes();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return loader.elbrus.proto.CommonProto.internal_static_proto_StringMapMessage_Entry_descriptor;
@@ -3497,16 +7330,7 @@ public final class CommonProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(builder.buildPartial());
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-          }
-          return builder.buildPartial();
+          return new Entry(input, extensionRegistry);
         }
       };
 
@@ -3606,6 +7430,53 @@ public final class CommonProto {
         key_ = "";
         value_ = "";
       }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeBytes(1, getKeyBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeBytes(2, getValueBytes());
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(1, getKeyBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(2, getValueBytes());
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
       public static loader.elbrus.proto.CommonProto.StringMapMessage.Entry parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3755,6 +7626,52 @@ public final class CommonProto {
           return result;
         }
 
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof loader.elbrus.proto.CommonProto.StringMapMessage.Entry) {
+            return mergeFrom((loader.elbrus.proto.CommonProto.StringMapMessage.Entry)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(loader.elbrus.proto.CommonProto.StringMapMessage.Entry other) {
+          if (other == loader.elbrus.proto.CommonProto.StringMapMessage.Entry.getDefaultInstance()) return this;
+          if (other.hasKey()) {
+            bitField0_ |= 0x00000001;
+            key_ = other.key_;
+            onChanged();
+          }
+          if (other.hasValue()) {
+            bitField0_ |= 0x00000002;
+            value_ = other.value_;
+            onChanged();
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          loader.elbrus.proto.CommonProto.StringMapMessage.Entry parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (loader.elbrus.proto.CommonProto.StringMapMessage.Entry) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
         private int bitField0_;
 
         // optional string key = 1;
@@ -3955,6 +7872,46 @@ public final class CommonProto {
     private void initFields() {
       entries_ = java.util.Collections.emptyList();
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < entries_.size(); i++) {
+        output.writeMessage(1, entries_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < entries_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, entries_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.StringMapMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4110,6 +8067,68 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.StringMapMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.StringMapMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.StringMapMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.StringMapMessage.getDefaultInstance()) return this;
+        if (entriesBuilder_ == null) {
+          if (!other.entries_.isEmpty()) {
+            if (entries_.isEmpty()) {
+              entries_ = other.entries_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureEntriesIsMutable();
+              entries_.addAll(other.entries_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.entries_.isEmpty()) {
+            if (entriesBuilder_.isEmpty()) {
+              entriesBuilder_.dispose();
+              entriesBuilder_ = null;
+              entries_ = other.entries_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              entriesBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getEntriesFieldBuilder() : null;
+            } else {
+              entriesBuilder_.addAllMessages(other.entries_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.StringMapMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.StringMapMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // repeated .proto.StringMapMessage.Entry entries = 1;
@@ -4428,6 +8447,59 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private TimeFilterMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              loader.elbrus.proto.CommonProto.TimeStringMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = time_.toBuilder();
+              }
+              time_ = input.readMessage(loader.elbrus.proto.CommonProto.TimeStringMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(time_);
+                time_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              operation_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_TimeFilterMessage_descriptor;
@@ -4446,16 +8518,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TimeFilterMessage(input, extensionRegistry);
       }
     };
 
@@ -4534,6 +8597,53 @@ public final class CommonProto {
       time_ = loader.elbrus.proto.CommonProto.TimeStringMessage.getDefaultInstance();
       operation_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, time_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getOperationBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, time_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getOperationBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.TimeFilterMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4697,6 +8807,50 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.TimeFilterMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.TimeFilterMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.TimeFilterMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.TimeFilterMessage.getDefaultInstance()) return this;
+        if (other.hasTime()) {
+          mergeTime(other.getTime());
+        }
+        if (other.hasOperation()) {
+          bitField0_ |= 0x00000002;
+          operation_ = other.operation_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.TimeFilterMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.TimeFilterMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional .proto.TimeStringMessage time = 1;
@@ -4976,6 +9130,56 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private ProtobufExceptionMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              message_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              type_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_ProtobufExceptionMessage_descriptor;
@@ -4994,16 +9198,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ProtobufExceptionMessage(input, extensionRegistry);
       }
     };
 
@@ -5120,6 +9315,60 @@ public final class CommonProto {
       message_ = "";
       type_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getMessageBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getTypeBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getMessageBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getTypeBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.ProtobufExceptionMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5279,6 +9528,55 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.ProtobufExceptionMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.ProtobufExceptionMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.ProtobufExceptionMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.ProtobufExceptionMessage.getDefaultInstance()) return this;
+        if (other.hasCode()) {
+          setCode(other.getCode());
+        }
+        if (other.hasMessage()) {
+          bitField0_ |= 0x00000002;
+          message_ = other.message_;
+          onChanged();
+        }
+        if (other.hasType()) {
+          bitField0_ |= 0x00000004;
+          type_ = other.type_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.ProtobufExceptionMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.ProtobufExceptionMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional int32 code = 1;
@@ -5538,6 +9836,51 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private StringParameterMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              key_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              value_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_StringParameterMessage_descriptor;
@@ -5556,16 +9899,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new StringParameterMessage(input, extensionRegistry);
       }
     };
 
@@ -5665,6 +9999,53 @@ public final class CommonProto {
       key_ = "";
       value_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getKeyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getValueBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getKeyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getValueBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.StringParameterMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5818,6 +10199,52 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.StringParameterMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.StringParameterMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.StringParameterMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.StringParameterMessage.getDefaultInstance()) return this;
+        if (other.hasKey()) {
+          bitField0_ |= 0x00000001;
+          key_ = other.key_;
+          onChanged();
+        }
+        if (other.hasValue()) {
+          bitField0_ |= 0x00000002;
+          value_ = other.value_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.StringParameterMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.StringParameterMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional string key = 1;
@@ -6039,6 +10466,51 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private IntParameterMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              key_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              value_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_IntParameterMessage_descriptor;
@@ -6057,16 +10529,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new IntParameterMessage(input, extensionRegistry);
       }
     };
 
@@ -6139,6 +10602,53 @@ public final class CommonProto {
       key_ = "";
       value_ = 0;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getKeyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getKeyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.IntParameterMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6292,6 +10802,50 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.IntParameterMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.IntParameterMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.IntParameterMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.IntParameterMessage.getDefaultInstance()) return this;
+        if (other.hasKey()) {
+          bitField0_ |= 0x00000001;
+          key_ = other.key_;
+          onChanged();
+        }
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.IntParameterMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.IntParameterMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional string key = 1;
@@ -6472,6 +11026,51 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private DoubleParameterMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              key_ = input.readBytes();
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000002;
+              value_ = input.readDouble();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_DoubleParameterMessage_descriptor;
@@ -6490,16 +11089,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DoubleParameterMessage(input, extensionRegistry);
       }
     };
 
@@ -6572,6 +11162,53 @@ public final class CommonProto {
       key_ = "";
       value_ = 0D;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getKeyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeDouble(2, value_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getKeyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, value_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.DoubleParameterMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6725,6 +11362,50 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.DoubleParameterMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.DoubleParameterMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.DoubleParameterMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.DoubleParameterMessage.getDefaultInstance()) return this;
+        if (other.hasKey()) {
+          bitField0_ |= 0x00000001;
+          key_ = other.key_;
+          onChanged();
+        }
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.DoubleParameterMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.DoubleParameterMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional string key = 1;
@@ -6926,6 +11607,56 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private IntIntervalMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              lower_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              upper_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              even_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_IntIntervalMessage_descriptor;
@@ -6944,16 +11675,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new IntIntervalMessage(input, extensionRegistry);
       }
     };
 
@@ -7032,6 +11754,60 @@ public final class CommonProto {
       upper_ = 0;
       even_ = false;
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, lower_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, upper_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, even_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, lower_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, upper_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, even_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.IntIntervalMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7191,6 +11967,51 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.IntIntervalMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.IntIntervalMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.IntIntervalMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.IntIntervalMessage.getDefaultInstance()) return this;
+        if (other.hasLower()) {
+          setLower(other.getLower());
+        }
+        if (other.hasUpper()) {
+          setUpper(other.getUpper());
+        }
+        if (other.hasEven()) {
+          setEven(other.getEven());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.IntIntervalMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.IntIntervalMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional int32 lower = 1;
@@ -7409,6 +12230,76 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private IntSetMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                nums_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              nums_.add(input.readInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                nums_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                nums_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                intervals_ = new java.util.ArrayList<loader.elbrus.proto.CommonProto.IntIntervalMessage>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              intervals_.add(input.readMessage(loader.elbrus.proto.CommonProto.IntIntervalMessage.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          nums_ = java.util.Collections.unmodifiableList(nums_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          intervals_ = java.util.Collections.unmodifiableList(intervals_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_IntSetMessage_descriptor;
@@ -7427,16 +12318,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new IntSetMessage(input, extensionRegistry);
       }
     };
 
@@ -7508,6 +12390,58 @@ public final class CommonProto {
       nums_ = java.util.Collections.emptyList();
       intervals_ = java.util.Collections.emptyList();
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < nums_.size(); i++) {
+        output.writeInt32(1, nums_.get(i));
+      }
+      for (int i = 0; i < intervals_.size(); i++) {
+        output.writeMessage(2, intervals_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < nums_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(nums_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getNumsList().size();
+      }
+      for (int i = 0; i < intervals_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, intervals_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.IntSetMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7670,6 +12604,78 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.IntSetMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.IntSetMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.IntSetMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.IntSetMessage.getDefaultInstance()) return this;
+        if (!other.nums_.isEmpty()) {
+          if (nums_.isEmpty()) {
+            nums_ = other.nums_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureNumsIsMutable();
+            nums_.addAll(other.nums_);
+          }
+          onChanged();
+        }
+        if (intervalsBuilder_ == null) {
+          if (!other.intervals_.isEmpty()) {
+            if (intervals_.isEmpty()) {
+              intervals_ = other.intervals_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureIntervalsIsMutable();
+              intervals_.addAll(other.intervals_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.intervals_.isEmpty()) {
+            if (intervalsBuilder_.isEmpty()) {
+              intervalsBuilder_.dispose();
+              intervalsBuilder_ = null;
+              intervals_ = other.intervals_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              intervalsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getIntervalsFieldBuilder() : null;
+            } else {
+              intervalsBuilder_.addAllMessages(other.intervals_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.IntSetMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.IntSetMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // repeated int32 nums = 1;
@@ -7989,6 +12995,511 @@ public final class CommonProto {
     // @@protoc_insertion_point(class_scope:proto.IntSetMessage)
   }
 
+  public interface StringListMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated string values = 1;
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    java.util.List<java.lang.String>
+    getValuesList();
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    int getValuesCount();
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    java.lang.String getValues(int index);
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getValuesBytes(int index);
+  }
+  /**
+   * Protobuf type {@code proto.StringListMessage}
+   *
+   * <pre>
+   * type-id = string_list_message
+   * </pre>
+   */
+  public static final class StringListMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements StringListMessageOrBuilder {
+    // Use StringListMessage.newBuilder() to construct.
+    private StringListMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private StringListMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final StringListMessage defaultInstance;
+    public static StringListMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public StringListMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StringListMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                values_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              values_.add(input.readBytes());
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          values_ = new com.google.protobuf.UnmodifiableLazyStringList(values_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_StringListMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_StringListMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.StringListMessage.class, loader.elbrus.proto.CommonProto.StringListMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<StringListMessage> PARSER =
+        new com.google.protobuf.AbstractParser<StringListMessage>() {
+      public StringListMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StringListMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StringListMessage> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated string values = 1;
+    public static final int VALUES_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList values_;
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    public java.util.List<java.lang.String>
+        getValuesList() {
+      return values_;
+    }
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    public int getValuesCount() {
+      return values_.size();
+    }
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    public java.lang.String getValues(int index) {
+      return values_.get(index);
+    }
+    /**
+     * <code>repeated string values = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getValuesBytes(int index) {
+      return values_.getByteString(index);
+    }
+
+    private void initFields() {
+      values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < values_.size(); i++) {
+        output.writeBytes(1, values_.getByteString(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < values_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(values_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getValuesList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.StringListMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.StringListMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.StringListMessage}
+     *
+     * <pre>
+     * type-id = string_list_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.StringListMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_StringListMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_StringListMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.StringListMessage.class, loader.elbrus.proto.CommonProto.StringListMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.StringListMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_StringListMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.StringListMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.StringListMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.StringListMessage build() {
+        loader.elbrus.proto.CommonProto.StringListMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.StringListMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.StringListMessage result = new loader.elbrus.proto.CommonProto.StringListMessage(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          values_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              values_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.values_ = values_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.StringListMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.StringListMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.StringListMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.StringListMessage.getDefaultInstance()) return this;
+        if (!other.values_.isEmpty()) {
+          if (values_.isEmpty()) {
+            values_ = other.values_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureValuesIsMutable();
+            values_.addAll(other.values_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.StringListMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.StringListMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated string values = 1;
+      private com.google.protobuf.LazyStringList values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureValuesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          values_ = new com.google.protobuf.LazyStringArrayList(values_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public java.util.List<java.lang.String>
+          getValuesList() {
+        return java.util.Collections.unmodifiableList(values_);
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public int getValuesCount() {
+        return values_.size();
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public java.lang.String getValues(int index) {
+        return values_.get(index);
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getValuesBytes(int index) {
+        return values_.getByteString(index);
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public Builder setValues(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValuesIsMutable();
+        values_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public Builder addValues(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValuesIsMutable();
+        values_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public Builder addAllValues(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureValuesIsMutable();
+        super.addAll(values, values_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public Builder clearValues() {
+        values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string values = 1;</code>
+       */
+      public Builder addValuesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureValuesIsMutable();
+        values_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.StringListMessage)
+    }
+
+    static {
+      defaultInstance = new StringListMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.StringListMessage)
+  }
+
   public interface AppVersionMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -8020,6 +13531,20 @@ public final class CommonProto {
      */
     com.google.protobuf.ByteString
         getInfoBytes();
+
+    // optional .proto.TimeStringMessage version_date = 3;
+    /**
+     * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+     */
+    boolean hasVersionDate();
+    /**
+     * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+     */
+    loader.elbrus.proto.CommonProto.TimeStringMessage getVersionDate();
+    /**
+     * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+     */
+    loader.elbrus.proto.CommonProto.TimeStringMessageOrBuilder getVersionDateOrBuilder();
   }
   /**
    * Protobuf type {@code proto.AppVersionMessage}
@@ -8054,6 +13579,83 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private AppVersionMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                versionParts_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              versionParts_.add(input.readInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                versionParts_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                versionParts_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000001;
+              info_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              loader.elbrus.proto.CommonProto.TimeStringMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = versionDate_.toBuilder();
+              }
+              versionDate_ = input.readMessage(loader.elbrus.proto.CommonProto.TimeStringMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(versionDate_);
+                versionDate_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          versionParts_ = java.util.Collections.unmodifiableList(versionParts_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_AppVersionMessage_descriptor;
@@ -8072,16 +13674,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AppVersionMessage(input, extensionRegistry);
       }
     };
 
@@ -8157,10 +13750,92 @@ public final class CommonProto {
       }
     }
 
+    // optional .proto.TimeStringMessage version_date = 3;
+    public static final int VERSION_DATE_FIELD_NUMBER = 3;
+    private loader.elbrus.proto.CommonProto.TimeStringMessage versionDate_;
+    /**
+     * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+     */
+    public boolean hasVersionDate() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+     */
+    public loader.elbrus.proto.CommonProto.TimeStringMessage getVersionDate() {
+      return versionDate_;
+    }
+    /**
+     * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+     */
+    public loader.elbrus.proto.CommonProto.TimeStringMessageOrBuilder getVersionDateOrBuilder() {
+      return versionDate_;
+    }
+
     private void initFields() {
       versionParts_ = java.util.Collections.emptyList();
       info_ = "";
+      versionDate_ = loader.elbrus.proto.CommonProto.TimeStringMessage.getDefaultInstance();
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < versionParts_.size(); i++) {
+        output.writeInt32(1, versionParts_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(2, getInfoBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(3, versionDate_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < versionParts_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(versionParts_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getVersionPartsList().size();
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getInfoBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, versionDate_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.AppVersionMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8262,6 +13937,7 @@ public final class CommonProto {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getVersionDateFieldBuilder();
         }
       }
       private static Builder create() {
@@ -8274,6 +13950,12 @@ public final class CommonProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         info_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (versionDateBuilder_ == null) {
+          versionDate_ = loader.elbrus.proto.CommonProto.TimeStringMessage.getDefaultInstance();
+        } else {
+          versionDateBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -8311,11 +13993,73 @@ public final class CommonProto {
           to_bitField0_ |= 0x00000001;
         }
         result.info_ = info_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (versionDateBuilder_ == null) {
+          result.versionDate_ = versionDate_;
+        } else {
+          result.versionDate_ = versionDateBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.AppVersionMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.AppVersionMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.AppVersionMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance()) return this;
+        if (!other.versionParts_.isEmpty()) {
+          if (versionParts_.isEmpty()) {
+            versionParts_ = other.versionParts_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureVersionPartsIsMutable();
+            versionParts_.addAll(other.versionParts_);
+          }
+          onChanged();
+        }
+        if (other.hasInfo()) {
+          bitField0_ |= 0x00000002;
+          info_ = other.info_;
+          onChanged();
+        }
+        if (other.hasVersionDate()) {
+          mergeVersionDate(other.getVersionDate());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.AppVersionMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.AppVersionMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // repeated int32 version_parts = 1;
@@ -8458,6 +14202,123 @@ public final class CommonProto {
         return this;
       }
 
+      // optional .proto.TimeStringMessage version_date = 3;
+      private loader.elbrus.proto.CommonProto.TimeStringMessage versionDate_ = loader.elbrus.proto.CommonProto.TimeStringMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.TimeStringMessage, loader.elbrus.proto.CommonProto.TimeStringMessage.Builder, loader.elbrus.proto.CommonProto.TimeStringMessageOrBuilder> versionDateBuilder_;
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public boolean hasVersionDate() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public loader.elbrus.proto.CommonProto.TimeStringMessage getVersionDate() {
+        if (versionDateBuilder_ == null) {
+          return versionDate_;
+        } else {
+          return versionDateBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public Builder setVersionDate(loader.elbrus.proto.CommonProto.TimeStringMessage value) {
+        if (versionDateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          versionDate_ = value;
+          onChanged();
+        } else {
+          versionDateBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public Builder setVersionDate(
+          loader.elbrus.proto.CommonProto.TimeStringMessage.Builder builderForValue) {
+        if (versionDateBuilder_ == null) {
+          versionDate_ = builderForValue.build();
+          onChanged();
+        } else {
+          versionDateBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public Builder mergeVersionDate(loader.elbrus.proto.CommonProto.TimeStringMessage value) {
+        if (versionDateBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              versionDate_ != loader.elbrus.proto.CommonProto.TimeStringMessage.getDefaultInstance()) {
+            versionDate_ =
+              loader.elbrus.proto.CommonProto.TimeStringMessage.newBuilder(versionDate_).mergeFrom(value).buildPartial();
+          } else {
+            versionDate_ = value;
+          }
+          onChanged();
+        } else {
+          versionDateBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public Builder clearVersionDate() {
+        if (versionDateBuilder_ == null) {
+          versionDate_ = loader.elbrus.proto.CommonProto.TimeStringMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          versionDateBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public loader.elbrus.proto.CommonProto.TimeStringMessage.Builder getVersionDateBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getVersionDateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      public loader.elbrus.proto.CommonProto.TimeStringMessageOrBuilder getVersionDateOrBuilder() {
+        if (versionDateBuilder_ != null) {
+          return versionDateBuilder_.getMessageOrBuilder();
+        } else {
+          return versionDate_;
+        }
+      }
+      /**
+       * <code>optional .proto.TimeStringMessage version_date = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.TimeStringMessage, loader.elbrus.proto.CommonProto.TimeStringMessage.Builder, loader.elbrus.proto.CommonProto.TimeStringMessageOrBuilder> 
+          getVersionDateFieldBuilder() {
+        if (versionDateBuilder_ == null) {
+          versionDateBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.TimeStringMessage, loader.elbrus.proto.CommonProto.TimeStringMessage.Builder, loader.elbrus.proto.CommonProto.TimeStringMessageOrBuilder>(
+                  versionDate_,
+                  getParentForChildren(),
+                  isClean());
+          versionDate_ = null;
+        }
+        return versionDateBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:proto.AppVersionMessage)
     }
 
@@ -8510,6 +14371,21 @@ public final class CommonProto {
      * <code>optional .proto.AppVersionMessage version = 3;</code>
      */
     loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder getVersionOrBuilder();
+
+    // optional string location = 4;
+    /**
+     * <code>optional string location = 4;</code>
+     */
+    boolean hasLocation();
+    /**
+     * <code>optional string location = 4;</code>
+     */
+    java.lang.String getLocation();
+    /**
+     * <code>optional string location = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getLocationBytes();
   }
   /**
    * Protobuf type {@code proto.ProductVersionMessage}
@@ -8543,6 +14419,69 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private ProductVersionMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              productName_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              apiLevel_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              loader.elbrus.proto.CommonProto.AppVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = version_.toBuilder();
+              }
+              version_ = input.readMessage(loader.elbrus.proto.CommonProto.AppVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(version_);
+                version_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              location_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_ProductVersionMessage_descriptor;
@@ -8561,16 +14500,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ProductVersionMessage(input, extensionRegistry);
       }
     };
 
@@ -8661,11 +14591,116 @@ public final class CommonProto {
       return version_;
     }
 
+    // optional string location = 4;
+    public static final int LOCATION_FIELD_NUMBER = 4;
+    private java.lang.Object location_;
+    /**
+     * <code>optional string location = 4;</code>
+     */
+    public boolean hasLocation() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string location = 4;</code>
+     */
+    public java.lang.String getLocation() {
+      java.lang.Object ref = location_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          location_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string location = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLocationBytes() {
+      java.lang.Object ref = location_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        location_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       productName_ = "";
       apiLevel_ = 0;
       version_ = loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance();
+      location_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getProductNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, apiLevel_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, version_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getLocationBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getProductNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, apiLevel_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, version_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getLocationBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.ProductVersionMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8785,6 +14820,8 @@ public final class CommonProto {
           versionBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
+        location_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -8829,11 +14866,67 @@ public final class CommonProto {
         } else {
           result.version_ = versionBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.location_ = location_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.ProductVersionMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.ProductVersionMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.ProductVersionMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.ProductVersionMessage.getDefaultInstance()) return this;
+        if (other.hasProductName()) {
+          bitField0_ |= 0x00000001;
+          productName_ = other.productName_;
+          onChanged();
+        }
+        if (other.hasApiLevel()) {
+          setApiLevel(other.getApiLevel());
+        }
+        if (other.hasVersion()) {
+          mergeVersion(other.getVersion());
+        }
+        if (other.hasLocation()) {
+          bitField0_ |= 0x00000008;
+          location_ = other.location_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.ProductVersionMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.ProductVersionMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional string product_name = 1;
@@ -9060,6 +15153,80 @@ public final class CommonProto {
         return versionBuilder_;
       }
 
+      // optional string location = 4;
+      private java.lang.Object location_ = "";
+      /**
+       * <code>optional string location = 4;</code>
+       */
+      public boolean hasLocation() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string location = 4;</code>
+       */
+      public java.lang.String getLocation() {
+        java.lang.Object ref = location_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          location_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string location = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLocationBytes() {
+        java.lang.Object ref = location_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          location_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string location = 4;</code>
+       */
+      public Builder setLocation(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        location_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string location = 4;</code>
+       */
+      public Builder clearLocation() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        location_ = getDefaultInstance().getLocation();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string location = 4;</code>
+       */
+      public Builder setLocationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        location_ = value;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:proto.ProductVersionMessage)
     }
 
@@ -9074,59 +15241,74 @@ public final class CommonProto {
   public interface ProductUpdateMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional string product_name = 1;
+    // optional string update_url = 1;
     /**
-     * <code>optional string product_name = 1;</code>
+     * <code>optional string update_url = 1;</code>
+     */
+    boolean hasUpdateUrl();
+    /**
+     * <code>optional string update_url = 1;</code>
+     */
+    java.lang.String getUpdateUrl();
+    /**
+     * <code>optional string update_url = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUpdateUrlBytes();
+
+    // optional string product_name = 2;
+    /**
+     * <code>optional string product_name = 2;</code>
      */
     boolean hasProductName();
     /**
-     * <code>optional string product_name = 1;</code>
+     * <code>optional string product_name = 2;</code>
      */
     java.lang.String getProductName();
     /**
-     * <code>optional string product_name = 1;</code>
+     * <code>optional string product_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getProductNameBytes();
 
-    // optional int32 api_level = 2;
+    // optional int32 api_level = 3;
     /**
-     * <code>optional int32 api_level = 2;</code>
+     * <code>optional int32 api_level = 3;</code>
      */
     boolean hasApiLevel();
     /**
-     * <code>optional int32 api_level = 2;</code>
+     * <code>optional int32 api_level = 3;</code>
      */
     int getApiLevel();
 
-    // optional .proto.AppVersionMessage version = 3;
+    // optional .proto.AppVersionMessage version = 4;
     /**
-     * <code>optional .proto.AppVersionMessage version = 3;</code>
+     * <code>optional .proto.AppVersionMessage version = 4;</code>
      */
     boolean hasVersion();
     /**
-     * <code>optional .proto.AppVersionMessage version = 3;</code>
+     * <code>optional .proto.AppVersionMessage version = 4;</code>
      */
     loader.elbrus.proto.CommonProto.AppVersionMessage getVersion();
     /**
-     * <code>optional .proto.AppVersionMessage version = 3;</code>
+     * <code>optional .proto.AppVersionMessage version = 4;</code>
      */
     loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder getVersionOrBuilder();
 
-    // optional string update_url = 4;
+    // optional string location = 5;
     /**
-     * <code>optional string update_url = 4;</code>
+     * <code>optional string location = 5;</code>
      */
-    boolean hasUpdateUrl();
+    boolean hasLocation();
     /**
-     * <code>optional string update_url = 4;</code>
+     * <code>optional string location = 5;</code>
      */
-    java.lang.String getUpdateUrl();
+    java.lang.String getLocation();
     /**
-     * <code>optional string update_url = 4;</code>
+     * <code>optional string location = 5;</code>
      */
     com.google.protobuf.ByteString
-        getUpdateUrlBytes();
+        getLocationBytes();
   }
   /**
    * Protobuf type {@code proto.ProductUpdateMessage}
@@ -9160,6 +15342,74 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private ProductUpdateMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              updateUrl_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              productName_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              apiLevel_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              loader.elbrus.proto.CommonProto.AppVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = version_.toBuilder();
+              }
+              version_ = input.readMessage(loader.elbrus.proto.CommonProto.AppVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(version_);
+                version_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              location_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_ProductUpdateMessage_descriptor;
@@ -9178,16 +15428,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ProductUpdateMessage(input, extensionRegistry);
       }
     };
 
@@ -9197,98 +15438,17 @@ public final class CommonProto {
     }
 
     private int bitField0_;
-    // optional string product_name = 1;
-    public static final int PRODUCT_NAME_FIELD_NUMBER = 1;
-    private java.lang.Object productName_;
+    // optional string update_url = 1;
+    public static final int UPDATE_URL_FIELD_NUMBER = 1;
+    private java.lang.Object updateUrl_;
     /**
-     * <code>optional string product_name = 1;</code>
+     * <code>optional string update_url = 1;</code>
      */
-    public boolean hasProductName() {
+    public boolean hasUpdateUrl() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional string product_name = 1;</code>
-     */
-    public java.lang.String getProductName() {
-      java.lang.Object ref = productName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          productName_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string product_name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getProductNameBytes() {
-      java.lang.Object ref = productName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        productName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // optional int32 api_level = 2;
-    public static final int API_LEVEL_FIELD_NUMBER = 2;
-    private int apiLevel_;
-    /**
-     * <code>optional int32 api_level = 2;</code>
-     */
-    public boolean hasApiLevel() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional int32 api_level = 2;</code>
-     */
-    public int getApiLevel() {
-      return apiLevel_;
-    }
-
-    // optional .proto.AppVersionMessage version = 3;
-    public static final int VERSION_FIELD_NUMBER = 3;
-    private loader.elbrus.proto.CommonProto.AppVersionMessage version_;
-    /**
-     * <code>optional .proto.AppVersionMessage version = 3;</code>
-     */
-    public boolean hasVersion() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional .proto.AppVersionMessage version = 3;</code>
-     */
-    public loader.elbrus.proto.CommonProto.AppVersionMessage getVersion() {
-      return version_;
-    }
-    /**
-     * <code>optional .proto.AppVersionMessage version = 3;</code>
-     */
-    public loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder getVersionOrBuilder() {
-      return version_;
-    }
-
-    // optional string update_url = 4;
-    public static final int UPDATE_URL_FIELD_NUMBER = 4;
-    private java.lang.Object updateUrl_;
-    /**
-     * <code>optional string update_url = 4;</code>
-     */
-    public boolean hasUpdateUrl() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional string update_url = 4;</code>
+     * <code>optional string update_url = 1;</code>
      */
     public java.lang.String getUpdateUrl() {
       java.lang.Object ref = updateUrl_;
@@ -9305,7 +15465,7 @@ public final class CommonProto {
       }
     }
     /**
-     * <code>optional string update_url = 4;</code>
+     * <code>optional string update_url = 1;</code>
      */
     public com.google.protobuf.ByteString
         getUpdateUrlBytes() {
@@ -9321,12 +15481,205 @@ public final class CommonProto {
       }
     }
 
+    // optional string product_name = 2;
+    public static final int PRODUCT_NAME_FIELD_NUMBER = 2;
+    private java.lang.Object productName_;
+    /**
+     * <code>optional string product_name = 2;</code>
+     */
+    public boolean hasProductName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string product_name = 2;</code>
+     */
+    public java.lang.String getProductName() {
+      java.lang.Object ref = productName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          productName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string product_name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getProductNameBytes() {
+      java.lang.Object ref = productName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        productName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int32 api_level = 3;
+    public static final int API_LEVEL_FIELD_NUMBER = 3;
+    private int apiLevel_;
+    /**
+     * <code>optional int32 api_level = 3;</code>
+     */
+    public boolean hasApiLevel() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 api_level = 3;</code>
+     */
+    public int getApiLevel() {
+      return apiLevel_;
+    }
+
+    // optional .proto.AppVersionMessage version = 4;
+    public static final int VERSION_FIELD_NUMBER = 4;
+    private loader.elbrus.proto.CommonProto.AppVersionMessage version_;
+    /**
+     * <code>optional .proto.AppVersionMessage version = 4;</code>
+     */
+    public boolean hasVersion() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .proto.AppVersionMessage version = 4;</code>
+     */
+    public loader.elbrus.proto.CommonProto.AppVersionMessage getVersion() {
+      return version_;
+    }
+    /**
+     * <code>optional .proto.AppVersionMessage version = 4;</code>
+     */
+    public loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder getVersionOrBuilder() {
+      return version_;
+    }
+
+    // optional string location = 5;
+    public static final int LOCATION_FIELD_NUMBER = 5;
+    private java.lang.Object location_;
+    /**
+     * <code>optional string location = 5;</code>
+     */
+    public boolean hasLocation() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional string location = 5;</code>
+     */
+    public java.lang.String getLocation() {
+      java.lang.Object ref = location_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          location_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string location = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLocationBytes() {
+      java.lang.Object ref = location_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        location_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
+      updateUrl_ = "";
       productName_ = "";
       apiLevel_ = 0;
       version_ = loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance();
-      updateUrl_ = "";
+      location_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getUpdateUrlBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getProductNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, apiLevel_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, version_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, getLocationBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getUpdateUrlBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getProductNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, apiLevel_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, version_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getLocationBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.ProductUpdateMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9436,18 +15789,20 @@ public final class CommonProto {
 
       public Builder clear() {
         super.clear();
-        productName_ = "";
+        updateUrl_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        apiLevel_ = 0;
+        productName_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        apiLevel_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (versionBuilder_ == null) {
           version_ = loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance();
         } else {
           versionBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        updateUrl_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        location_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -9479,264 +15834,101 @@ public final class CommonProto {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.productName_ = productName_;
+        result.updateUrl_ = updateUrl_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.apiLevel_ = apiLevel_;
+        result.productName_ = productName_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.apiLevel_ = apiLevel_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         if (versionBuilder_ == null) {
           result.version_ = version_;
         } else {
           result.version_ = versionBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
-        result.updateUrl_ = updateUrl_;
+        result.location_ = location_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.ProductUpdateMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.ProductUpdateMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.ProductUpdateMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.ProductUpdateMessage.getDefaultInstance()) return this;
+        if (other.hasUpdateUrl()) {
+          bitField0_ |= 0x00000001;
+          updateUrl_ = other.updateUrl_;
+          onChanged();
+        }
+        if (other.hasProductName()) {
+          bitField0_ |= 0x00000002;
+          productName_ = other.productName_;
+          onChanged();
+        }
+        if (other.hasApiLevel()) {
+          setApiLevel(other.getApiLevel());
+        }
+        if (other.hasVersion()) {
+          mergeVersion(other.getVersion());
+        }
+        if (other.hasLocation()) {
+          bitField0_ |= 0x00000010;
+          location_ = other.location_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.ProductUpdateMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.ProductUpdateMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
-      // optional string product_name = 1;
-      private java.lang.Object productName_ = "";
+      // optional string update_url = 1;
+      private java.lang.Object updateUrl_ = "";
       /**
-       * <code>optional string product_name = 1;</code>
+       * <code>optional string update_url = 1;</code>
        */
-      public boolean hasProductName() {
+      public boolean hasUpdateUrl() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional string product_name = 1;</code>
-       */
-      public java.lang.String getProductName() {
-        java.lang.Object ref = productName_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          productName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string product_name = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getProductNameBytes() {
-        java.lang.Object ref = productName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          productName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string product_name = 1;</code>
-       */
-      public Builder setProductName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        productName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string product_name = 1;</code>
-       */
-      public Builder clearProductName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        productName_ = getDefaultInstance().getProductName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string product_name = 1;</code>
-       */
-      public Builder setProductNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        productName_ = value;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 api_level = 2;
-      private int apiLevel_ ;
-      /**
-       * <code>optional int32 api_level = 2;</code>
-       */
-      public boolean hasApiLevel() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional int32 api_level = 2;</code>
-       */
-      public int getApiLevel() {
-        return apiLevel_;
-      }
-      /**
-       * <code>optional int32 api_level = 2;</code>
-       */
-      public Builder setApiLevel(int value) {
-        bitField0_ |= 0x00000002;
-        apiLevel_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 api_level = 2;</code>
-       */
-      public Builder clearApiLevel() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        apiLevel_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional .proto.AppVersionMessage version = 3;
-      private loader.elbrus.proto.CommonProto.AppVersionMessage version_ = loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          loader.elbrus.proto.CommonProto.AppVersionMessage, loader.elbrus.proto.CommonProto.AppVersionMessage.Builder, loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder> versionBuilder_;
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public boolean hasVersion() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public loader.elbrus.proto.CommonProto.AppVersionMessage getVersion() {
-        if (versionBuilder_ == null) {
-          return version_;
-        } else {
-          return versionBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public Builder setVersion(loader.elbrus.proto.CommonProto.AppVersionMessage value) {
-        if (versionBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          version_ = value;
-          onChanged();
-        } else {
-          versionBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public Builder setVersion(
-          loader.elbrus.proto.CommonProto.AppVersionMessage.Builder builderForValue) {
-        if (versionBuilder_ == null) {
-          version_ = builderForValue.build();
-          onChanged();
-        } else {
-          versionBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public Builder mergeVersion(loader.elbrus.proto.CommonProto.AppVersionMessage value) {
-        if (versionBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              version_ != loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance()) {
-            version_ =
-              loader.elbrus.proto.CommonProto.AppVersionMessage.newBuilder(version_).mergeFrom(value).buildPartial();
-          } else {
-            version_ = value;
-          }
-          onChanged();
-        } else {
-          versionBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public Builder clearVersion() {
-        if (versionBuilder_ == null) {
-          version_ = loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance();
-          onChanged();
-        } else {
-          versionBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public loader.elbrus.proto.CommonProto.AppVersionMessage.Builder getVersionBuilder() {
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return getVersionFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      public loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder getVersionOrBuilder() {
-        if (versionBuilder_ != null) {
-          return versionBuilder_.getMessageOrBuilder();
-        } else {
-          return version_;
-        }
-      }
-      /**
-       * <code>optional .proto.AppVersionMessage version = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          loader.elbrus.proto.CommonProto.AppVersionMessage, loader.elbrus.proto.CommonProto.AppVersionMessage.Builder, loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder> 
-          getVersionFieldBuilder() {
-        if (versionBuilder_ == null) {
-          versionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              loader.elbrus.proto.CommonProto.AppVersionMessage, loader.elbrus.proto.CommonProto.AppVersionMessage.Builder, loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder>(
-                  version_,
-                  getParentForChildren(),
-                  isClean());
-          version_ = null;
-        }
-        return versionBuilder_;
-      }
-
-      // optional string update_url = 4;
-      private java.lang.Object updateUrl_ = "";
-      /**
-       * <code>optional string update_url = 4;</code>
-       */
-      public boolean hasUpdateUrl() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>optional string update_url = 4;</code>
+       * <code>optional string update_url = 1;</code>
        */
       public java.lang.String getUpdateUrl() {
         java.lang.Object ref = updateUrl_;
@@ -9750,7 +15942,7 @@ public final class CommonProto {
         }
       }
       /**
-       * <code>optional string update_url = 4;</code>
+       * <code>optional string update_url = 1;</code>
        */
       public com.google.protobuf.ByteString
           getUpdateUrlBytes() {
@@ -9766,37 +15958,335 @@ public final class CommonProto {
         }
       }
       /**
-       * <code>optional string update_url = 4;</code>
+       * <code>optional string update_url = 1;</code>
        */
       public Builder setUpdateUrl(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000001;
         updateUrl_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string update_url = 4;</code>
+       * <code>optional string update_url = 1;</code>
        */
       public Builder clearUpdateUrl() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         updateUrl_ = getDefaultInstance().getUpdateUrl();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string update_url = 4;</code>
+       * <code>optional string update_url = 1;</code>
        */
       public Builder setUpdateUrlBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000001;
         updateUrl_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string product_name = 2;
+      private java.lang.Object productName_ = "";
+      /**
+       * <code>optional string product_name = 2;</code>
+       */
+      public boolean hasProductName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string product_name = 2;</code>
+       */
+      public java.lang.String getProductName() {
+        java.lang.Object ref = productName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          productName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string product_name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getProductNameBytes() {
+        java.lang.Object ref = productName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          productName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string product_name = 2;</code>
+       */
+      public Builder setProductName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        productName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string product_name = 2;</code>
+       */
+      public Builder clearProductName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        productName_ = getDefaultInstance().getProductName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string product_name = 2;</code>
+       */
+      public Builder setProductNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        productName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 api_level = 3;
+      private int apiLevel_ ;
+      /**
+       * <code>optional int32 api_level = 3;</code>
+       */
+      public boolean hasApiLevel() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 api_level = 3;</code>
+       */
+      public int getApiLevel() {
+        return apiLevel_;
+      }
+      /**
+       * <code>optional int32 api_level = 3;</code>
+       */
+      public Builder setApiLevel(int value) {
+        bitField0_ |= 0x00000004;
+        apiLevel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 api_level = 3;</code>
+       */
+      public Builder clearApiLevel() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        apiLevel_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional .proto.AppVersionMessage version = 4;
+      private loader.elbrus.proto.CommonProto.AppVersionMessage version_ = loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.AppVersionMessage, loader.elbrus.proto.CommonProto.AppVersionMessage.Builder, loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder> versionBuilder_;
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public boolean hasVersion() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public loader.elbrus.proto.CommonProto.AppVersionMessage getVersion() {
+        if (versionBuilder_ == null) {
+          return version_;
+        } else {
+          return versionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public Builder setVersion(loader.elbrus.proto.CommonProto.AppVersionMessage value) {
+        if (versionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          version_ = value;
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public Builder setVersion(
+          loader.elbrus.proto.CommonProto.AppVersionMessage.Builder builderForValue) {
+        if (versionBuilder_ == null) {
+          version_ = builderForValue.build();
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public Builder mergeVersion(loader.elbrus.proto.CommonProto.AppVersionMessage value) {
+        if (versionBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              version_ != loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance()) {
+            version_ =
+              loader.elbrus.proto.CommonProto.AppVersionMessage.newBuilder(version_).mergeFrom(value).buildPartial();
+          } else {
+            version_ = value;
+          }
+          onChanged();
+        } else {
+          versionBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public Builder clearVersion() {
+        if (versionBuilder_ == null) {
+          version_ = loader.elbrus.proto.CommonProto.AppVersionMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          versionBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public loader.elbrus.proto.CommonProto.AppVersionMessage.Builder getVersionBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getVersionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      public loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder getVersionOrBuilder() {
+        if (versionBuilder_ != null) {
+          return versionBuilder_.getMessageOrBuilder();
+        } else {
+          return version_;
+        }
+      }
+      /**
+       * <code>optional .proto.AppVersionMessage version = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.AppVersionMessage, loader.elbrus.proto.CommonProto.AppVersionMessage.Builder, loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder> 
+          getVersionFieldBuilder() {
+        if (versionBuilder_ == null) {
+          versionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.AppVersionMessage, loader.elbrus.proto.CommonProto.AppVersionMessage.Builder, loader.elbrus.proto.CommonProto.AppVersionMessageOrBuilder>(
+                  version_,
+                  getParentForChildren(),
+                  isClean());
+          version_ = null;
+        }
+        return versionBuilder_;
+      }
+
+      // optional string location = 5;
+      private java.lang.Object location_ = "";
+      /**
+       * <code>optional string location = 5;</code>
+       */
+      public boolean hasLocation() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional string location = 5;</code>
+       */
+      public java.lang.String getLocation() {
+        java.lang.Object ref = location_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          location_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string location = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLocationBytes() {
+        java.lang.Object ref = location_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          location_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string location = 5;</code>
+       */
+      public Builder setLocation(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        location_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string location = 5;</code>
+       */
+      public Builder clearLocation() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        location_ = getDefaultInstance().getLocation();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string location = 5;</code>
+       */
+      public Builder setLocationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        location_ = value;
         onChanged();
         return this;
       }
@@ -9903,6 +16393,93 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private VersionPolicyMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              loader.elbrus.proto.CommonProto.ProductVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = serverVersion_.toBuilder();
+              }
+              serverVersion_ = input.readMessage(loader.elbrus.proto.CommonProto.ProductVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(serverVersion_);
+                serverVersion_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              loader.elbrus.proto.CommonProto.ProductVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = clientMinVersion_.toBuilder();
+              }
+              clientMinVersion_ = input.readMessage(loader.elbrus.proto.CommonProto.ProductVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientMinVersion_);
+                clientMinVersion_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              loader.elbrus.proto.CommonProto.ProductVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = clientMaxVersion_.toBuilder();
+              }
+              clientMaxVersion_ = input.readMessage(loader.elbrus.proto.CommonProto.ProductVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientMaxVersion_);
+                clientMaxVersion_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              loader.elbrus.proto.CommonProto.ProductUpdateMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = clientUpdate_.toBuilder();
+              }
+              clientUpdate_ = input.readMessage(loader.elbrus.proto.CommonProto.ProductUpdateMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientUpdate_);
+                clientUpdate_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_VersionPolicyMessage_descriptor;
@@ -9921,16 +16498,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new VersionPolicyMessage(input, extensionRegistry);
       }
     };
 
@@ -10034,6 +16602,67 @@ public final class CommonProto {
       clientMaxVersion_ = loader.elbrus.proto.CommonProto.ProductVersionMessage.getDefaultInstance();
       clientUpdate_ = loader.elbrus.proto.CommonProto.ProductUpdateMessage.getDefaultInstance();
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, serverVersion_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, clientMinVersion_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, clientMaxVersion_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, clientUpdate_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, serverVersion_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, clientMinVersion_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, clientMaxVersion_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, clientUpdate_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.VersionPolicyMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10235,6 +16864,54 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.VersionPolicyMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.VersionPolicyMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.VersionPolicyMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.VersionPolicyMessage.getDefaultInstance()) return this;
+        if (other.hasServerVersion()) {
+          mergeServerVersion(other.getServerVersion());
+        }
+        if (other.hasClientMinVersion()) {
+          mergeClientMinVersion(other.getClientMinVersion());
+        }
+        if (other.hasClientMaxVersion()) {
+          mergeClientMaxVersion(other.getClientMaxVersion());
+        }
+        if (other.hasClientUpdate()) {
+          mergeClientUpdate(other.getClientUpdate());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.VersionPolicyMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.VersionPolicyMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional .proto.ProductVersionMessage server_version = 1;
@@ -10794,6 +17471,72 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private ProductVersionUpdateMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              loader.elbrus.proto.CommonProto.ProductVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = updatedVersion_.toBuilder();
+              }
+              updatedVersion_ = input.readMessage(loader.elbrus.proto.CommonProto.ProductVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(updatedVersion_);
+                updatedVersion_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              loader.elbrus.proto.CommonProto.BinaryDataMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = binaryData_.toBuilder();
+              }
+              binaryData_ = input.readMessage(loader.elbrus.proto.CommonProto.BinaryDataMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(binaryData_);
+                binaryData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              fileName_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_ProductVersionUpdateMessage_descriptor;
@@ -10812,16 +17555,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ProductVersionUpdateMessage(input, extensionRegistry);
       }
     };
 
@@ -10923,6 +17657,60 @@ public final class CommonProto {
       binaryData_ = loader.elbrus.proto.CommonProto.BinaryDataMessage.getDefaultInstance();
       fileName_ = "";
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, updatedVersion_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, binaryData_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getFileNameBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, updatedVersion_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, binaryData_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getFileNameBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.ProductVersionUpdateMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11100,6 +17888,53 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.ProductVersionUpdateMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.ProductVersionUpdateMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.ProductVersionUpdateMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.ProductVersionUpdateMessage.getDefaultInstance()) return this;
+        if (other.hasUpdatedVersion()) {
+          mergeUpdatedVersion(other.getUpdatedVersion());
+        }
+        if (other.hasBinaryData()) {
+          mergeBinaryData(other.getBinaryData());
+        }
+        if (other.hasFileName()) {
+          bitField0_ |= 0x00000004;
+          fileName_ = other.fileName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.ProductVersionUpdateMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.ProductVersionUpdateMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional .proto.ProductVersionMessage updated_version = 1;
@@ -11514,6 +18349,82 @@ public final class CommonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
+    private ProductVersionInfoMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              versionAllowed_ = input.readBool();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              couldUpdate_ = input.readBool();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              shouldUpdate_ = input.readBool();
+              break;
+            }
+            case 34: {
+              loader.elbrus.proto.CommonProto.ProductVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = checkedVersion_.toBuilder();
+              }
+              checkedVersion_ = input.readMessage(loader.elbrus.proto.CommonProto.ProductVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(checkedVersion_);
+                checkedVersion_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              loader.elbrus.proto.CommonProto.ProductVersionMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = updatedVersion_.toBuilder();
+              }
+              updatedVersion_ = input.readMessage(loader.elbrus.proto.CommonProto.ProductVersionMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(updatedVersion_);
+                updatedVersion_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return loader.elbrus.proto.CommonProto.internal_static_proto_ProductVersionInfoMessage_descriptor;
@@ -11532,16 +18443,7 @@ public final class CommonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ProductVersionInfoMessage(input, extensionRegistry);
       }
     };
 
@@ -11650,6 +18552,74 @@ public final class CommonProto {
       checkedVersion_ = loader.elbrus.proto.CommonProto.ProductVersionMessage.getDefaultInstance();
       updatedVersion_ = loader.elbrus.proto.CommonProto.ProductVersionMessage.getDefaultInstance();
     }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, versionAllowed_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, couldUpdate_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, shouldUpdate_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, checkedVersion_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, updatedVersion_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, versionAllowed_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, couldUpdate_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, shouldUpdate_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, checkedVersion_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, updatedVersion_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
     public static loader.elbrus.proto.CommonProto.ProductVersionInfoMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11839,6 +18809,57 @@ public final class CommonProto {
         return result;
       }
 
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.ProductVersionInfoMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.ProductVersionInfoMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.ProductVersionInfoMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.ProductVersionInfoMessage.getDefaultInstance()) return this;
+        if (other.hasVersionAllowed()) {
+          setVersionAllowed(other.getVersionAllowed());
+        }
+        if (other.hasCouldUpdate()) {
+          setCouldUpdate(other.getCouldUpdate());
+        }
+        if (other.hasShouldUpdate()) {
+          setShouldUpdate(other.getShouldUpdate());
+        }
+        if (other.hasCheckedVersion()) {
+          mergeCheckedVersion(other.getCheckedVersion());
+        }
+        if (other.hasUpdatedVersion()) {
+          mergeUpdatedVersion(other.getUpdatedVersion());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.ProductVersionInfoMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.ProductVersionInfoMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
 
       // optional bool version_allowed = 1;
@@ -12185,6 +19206,5713 @@ public final class CommonProto {
     // @@protoc_insertion_point(class_scope:proto.ProductVersionInfoMessage)
   }
 
+  public interface KeyFileDataMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string private_key_file = 1;
+    /**
+     * <code>optional string private_key_file = 1;</code>
+     */
+    boolean hasPrivateKeyFile();
+    /**
+     * <code>optional string private_key_file = 1;</code>
+     */
+    java.lang.String getPrivateKeyFile();
+    /**
+     * <code>optional string private_key_file = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getPrivateKeyFileBytes();
+
+    // optional string public_key_file = 2;
+    /**
+     * <code>optional string public_key_file = 2;</code>
+     */
+    boolean hasPublicKeyFile();
+    /**
+     * <code>optional string public_key_file = 2;</code>
+     */
+    java.lang.String getPublicKeyFile();
+    /**
+     * <code>optional string public_key_file = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPublicKeyFileBytes();
+
+    // optional string password = 3;
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+  }
+  /**
+   * Protobuf type {@code proto.KeyFileDataMessage}
+   *
+   * <pre>
+   *========================================
+   * type-id = key_file_data_message
+   * </pre>
+   */
+  public static final class KeyFileDataMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements KeyFileDataMessageOrBuilder {
+    // Use KeyFileDataMessage.newBuilder() to construct.
+    private KeyFileDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private KeyFileDataMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final KeyFileDataMessage defaultInstance;
+    public static KeyFileDataMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public KeyFileDataMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private KeyFileDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              privateKeyFile_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              publicKeyFile_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              password_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KeyFileDataMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KeyFileDataMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.KeyFileDataMessage.class, loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<KeyFileDataMessage> PARSER =
+        new com.google.protobuf.AbstractParser<KeyFileDataMessage>() {
+      public KeyFileDataMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new KeyFileDataMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeyFileDataMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string private_key_file = 1;
+    public static final int PRIVATE_KEY_FILE_FIELD_NUMBER = 1;
+    private java.lang.Object privateKeyFile_;
+    /**
+     * <code>optional string private_key_file = 1;</code>
+     */
+    public boolean hasPrivateKeyFile() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string private_key_file = 1;</code>
+     */
+    public java.lang.String getPrivateKeyFile() {
+      java.lang.Object ref = privateKeyFile_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          privateKeyFile_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string private_key_file = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPrivateKeyFileBytes() {
+      java.lang.Object ref = privateKeyFile_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        privateKeyFile_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string public_key_file = 2;
+    public static final int PUBLIC_KEY_FILE_FIELD_NUMBER = 2;
+    private java.lang.Object publicKeyFile_;
+    /**
+     * <code>optional string public_key_file = 2;</code>
+     */
+    public boolean hasPublicKeyFile() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string public_key_file = 2;</code>
+     */
+    public java.lang.String getPublicKeyFile() {
+      java.lang.Object ref = publicKeyFile_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          publicKeyFile_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string public_key_file = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPublicKeyFileBytes() {
+      java.lang.Object ref = publicKeyFile_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        publicKeyFile_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string password = 3;
+    public static final int PASSWORD_FIELD_NUMBER = 3;
+    private java.lang.Object password_;
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      privateKeyFile_ = "";
+      publicKeyFile_ = "";
+      password_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getPrivateKeyFileBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getPublicKeyFileBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getPasswordBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getPrivateKeyFileBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getPublicKeyFileBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getPasswordBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyFileDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.KeyFileDataMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.KeyFileDataMessage}
+     *
+     * <pre>
+     *========================================
+     * type-id = key_file_data_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.KeyFileDataMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyFileDataMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyFileDataMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.KeyFileDataMessage.class, loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.KeyFileDataMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        privateKeyFile_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        publicKeyFile_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyFileDataMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyFileDataMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.KeyFileDataMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyFileDataMessage build() {
+        loader.elbrus.proto.CommonProto.KeyFileDataMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyFileDataMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.KeyFileDataMessage result = new loader.elbrus.proto.CommonProto.KeyFileDataMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.privateKeyFile_ = privateKeyFile_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.publicKeyFile_ = publicKeyFile_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.password_ = password_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.KeyFileDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.KeyFileDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.KeyFileDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.KeyFileDataMessage.getDefaultInstance()) return this;
+        if (other.hasPrivateKeyFile()) {
+          bitField0_ |= 0x00000001;
+          privateKeyFile_ = other.privateKeyFile_;
+          onChanged();
+        }
+        if (other.hasPublicKeyFile()) {
+          bitField0_ |= 0x00000002;
+          publicKeyFile_ = other.publicKeyFile_;
+          onChanged();
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000004;
+          password_ = other.password_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.KeyFileDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.KeyFileDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string private_key_file = 1;
+      private java.lang.Object privateKeyFile_ = "";
+      /**
+       * <code>optional string private_key_file = 1;</code>
+       */
+      public boolean hasPrivateKeyFile() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string private_key_file = 1;</code>
+       */
+      public java.lang.String getPrivateKeyFile() {
+        java.lang.Object ref = privateKeyFile_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          privateKeyFile_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string private_key_file = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPrivateKeyFileBytes() {
+        java.lang.Object ref = privateKeyFile_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          privateKeyFile_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string private_key_file = 1;</code>
+       */
+      public Builder setPrivateKeyFile(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        privateKeyFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string private_key_file = 1;</code>
+       */
+      public Builder clearPrivateKeyFile() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        privateKeyFile_ = getDefaultInstance().getPrivateKeyFile();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string private_key_file = 1;</code>
+       */
+      public Builder setPrivateKeyFileBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        privateKeyFile_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string public_key_file = 2;
+      private java.lang.Object publicKeyFile_ = "";
+      /**
+       * <code>optional string public_key_file = 2;</code>
+       */
+      public boolean hasPublicKeyFile() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string public_key_file = 2;</code>
+       */
+      public java.lang.String getPublicKeyFile() {
+        java.lang.Object ref = publicKeyFile_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          publicKeyFile_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string public_key_file = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPublicKeyFileBytes() {
+        java.lang.Object ref = publicKeyFile_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          publicKeyFile_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string public_key_file = 2;</code>
+       */
+      public Builder setPublicKeyFile(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        publicKeyFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string public_key_file = 2;</code>
+       */
+      public Builder clearPublicKeyFile() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        publicKeyFile_ = getDefaultInstance().getPublicKeyFile();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string public_key_file = 2;</code>
+       */
+      public Builder setPublicKeyFileBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        publicKeyFile_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string password = 3;
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 3;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.KeyFileDataMessage)
+    }
+
+    static {
+      defaultInstance = new KeyFileDataMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.KeyFileDataMessage)
+  }
+
+  public interface KeyContentDataMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string key_name = 1;
+    /**
+     * <code>optional string key_name = 1;</code>
+     */
+    boolean hasKeyName();
+    /**
+     * <code>optional string key_name = 1;</code>
+     */
+    java.lang.String getKeyName();
+    /**
+     * <code>optional string key_name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKeyNameBytes();
+
+    // optional bytes private_key = 2;
+    /**
+     * <code>optional bytes private_key = 2;</code>
+     */
+    boolean hasPrivateKey();
+    /**
+     * <code>optional bytes private_key = 2;</code>
+     */
+    com.google.protobuf.ByteString getPrivateKey();
+
+    // optional bytes public_key = 3;
+    /**
+     * <code>optional bytes public_key = 3;</code>
+     */
+    boolean hasPublicKey();
+    /**
+     * <code>optional bytes public_key = 3;</code>
+     */
+    com.google.protobuf.ByteString getPublicKey();
+
+    // optional string password = 4;
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+  }
+  /**
+   * Protobuf type {@code proto.KeyContentDataMessage}
+   *
+   * <pre>
+   * type-id = key_content_data_message
+   * </pre>
+   */
+  public static final class KeyContentDataMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements KeyContentDataMessageOrBuilder {
+    // Use KeyContentDataMessage.newBuilder() to construct.
+    private KeyContentDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private KeyContentDataMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final KeyContentDataMessage defaultInstance;
+    public static KeyContentDataMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public KeyContentDataMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private KeyContentDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              keyName_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              privateKey_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              publicKey_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              password_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KeyContentDataMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KeyContentDataMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.KeyContentDataMessage.class, loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<KeyContentDataMessage> PARSER =
+        new com.google.protobuf.AbstractParser<KeyContentDataMessage>() {
+      public KeyContentDataMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new KeyContentDataMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeyContentDataMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string key_name = 1;
+    public static final int KEY_NAME_FIELD_NUMBER = 1;
+    private java.lang.Object keyName_;
+    /**
+     * <code>optional string key_name = 1;</code>
+     */
+    public boolean hasKeyName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string key_name = 1;</code>
+     */
+    public java.lang.String getKeyName() {
+      java.lang.Object ref = keyName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          keyName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string key_name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKeyNameBytes() {
+      java.lang.Object ref = keyName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional bytes private_key = 2;
+    public static final int PRIVATE_KEY_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString privateKey_;
+    /**
+     * <code>optional bytes private_key = 2;</code>
+     */
+    public boolean hasPrivateKey() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional bytes private_key = 2;</code>
+     */
+    public com.google.protobuf.ByteString getPrivateKey() {
+      return privateKey_;
+    }
+
+    // optional bytes public_key = 3;
+    public static final int PUBLIC_KEY_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString publicKey_;
+    /**
+     * <code>optional bytes public_key = 3;</code>
+     */
+    public boolean hasPublicKey() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bytes public_key = 3;</code>
+     */
+    public com.google.protobuf.ByteString getPublicKey() {
+      return publicKey_;
+    }
+
+    // optional string password = 4;
+    public static final int PASSWORD_FIELD_NUMBER = 4;
+    private java.lang.Object password_;
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      keyName_ = "";
+      privateKey_ = com.google.protobuf.ByteString.EMPTY;
+      publicKey_ = com.google.protobuf.ByteString.EMPTY;
+      password_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getKeyNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, privateKey_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, publicKey_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getPasswordBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getKeyNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, privateKey_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, publicKey_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getPasswordBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyContentDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.KeyContentDataMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.KeyContentDataMessage}
+     *
+     * <pre>
+     * type-id = key_content_data_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.KeyContentDataMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyContentDataMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyContentDataMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.KeyContentDataMessage.class, loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.KeyContentDataMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        keyName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        privateKey_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        publicKey_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyContentDataMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyContentDataMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.KeyContentDataMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyContentDataMessage build() {
+        loader.elbrus.proto.CommonProto.KeyContentDataMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyContentDataMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.KeyContentDataMessage result = new loader.elbrus.proto.CommonProto.KeyContentDataMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.keyName_ = keyName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.privateKey_ = privateKey_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.publicKey_ = publicKey_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.password_ = password_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.KeyContentDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.KeyContentDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.KeyContentDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.KeyContentDataMessage.getDefaultInstance()) return this;
+        if (other.hasKeyName()) {
+          bitField0_ |= 0x00000001;
+          keyName_ = other.keyName_;
+          onChanged();
+        }
+        if (other.hasPrivateKey()) {
+          setPrivateKey(other.getPrivateKey());
+        }
+        if (other.hasPublicKey()) {
+          setPublicKey(other.getPublicKey());
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000008;
+          password_ = other.password_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.KeyContentDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.KeyContentDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string key_name = 1;
+      private java.lang.Object keyName_ = "";
+      /**
+       * <code>optional string key_name = 1;</code>
+       */
+      public boolean hasKeyName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string key_name = 1;</code>
+       */
+      public java.lang.String getKeyName() {
+        java.lang.Object ref = keyName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          keyName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string key_name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKeyNameBytes() {
+        java.lang.Object ref = keyName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string key_name = 1;</code>
+       */
+      public Builder setKeyName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        keyName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string key_name = 1;</code>
+       */
+      public Builder clearKeyName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        keyName_ = getDefaultInstance().getKeyName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string key_name = 1;</code>
+       */
+      public Builder setKeyNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        keyName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional bytes private_key = 2;
+      private com.google.protobuf.ByteString privateKey_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes private_key = 2;</code>
+       */
+      public boolean hasPrivateKey() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional bytes private_key = 2;</code>
+       */
+      public com.google.protobuf.ByteString getPrivateKey() {
+        return privateKey_;
+      }
+      /**
+       * <code>optional bytes private_key = 2;</code>
+       */
+      public Builder setPrivateKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        privateKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes private_key = 2;</code>
+       */
+      public Builder clearPrivateKey() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        privateKey_ = getDefaultInstance().getPrivateKey();
+        onChanged();
+        return this;
+      }
+
+      // optional bytes public_key = 3;
+      private com.google.protobuf.ByteString publicKey_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes public_key = 3;</code>
+       */
+      public boolean hasPublicKey() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bytes public_key = 3;</code>
+       */
+      public com.google.protobuf.ByteString getPublicKey() {
+        return publicKey_;
+      }
+      /**
+       * <code>optional bytes public_key = 3;</code>
+       */
+      public Builder setPublicKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        publicKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes public_key = 3;</code>
+       */
+      public Builder clearPublicKey() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        publicKey_ = getDefaultInstance().getPublicKey();
+        onChanged();
+        return this;
+      }
+
+      // optional string password = 4;
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.KeyContentDataMessage)
+    }
+
+    static {
+      defaultInstance = new KeyContentDataMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.KeyContentDataMessage)
+  }
+
+  public interface KeyDataMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional .proto.KeyFileDataMessage key_file_data = 1;
+    /**
+     * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+     */
+    boolean hasKeyFileData();
+    /**
+     * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+     */
+    loader.elbrus.proto.CommonProto.KeyFileDataMessage getKeyFileData();
+    /**
+     * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+     */
+    loader.elbrus.proto.CommonProto.KeyFileDataMessageOrBuilder getKeyFileDataOrBuilder();
+
+    // optional .proto.KeyContentDataMessage key_content_data = 2;
+    /**
+     * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+     */
+    boolean hasKeyContentData();
+    /**
+     * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+     */
+    loader.elbrus.proto.CommonProto.KeyContentDataMessage getKeyContentData();
+    /**
+     * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+     */
+    loader.elbrus.proto.CommonProto.KeyContentDataMessageOrBuilder getKeyContentDataOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proto.KeyDataMessage}
+   *
+   * <pre>
+   * type-id = key_data_message
+   * </pre>
+   */
+  public static final class KeyDataMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements KeyDataMessageOrBuilder {
+    // Use KeyDataMessage.newBuilder() to construct.
+    private KeyDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private KeyDataMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final KeyDataMessage defaultInstance;
+    public static KeyDataMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public KeyDataMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private KeyDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = keyFileData_.toBuilder();
+              }
+              keyFileData_ = input.readMessage(loader.elbrus.proto.CommonProto.KeyFileDataMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(keyFileData_);
+                keyFileData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = keyContentData_.toBuilder();
+              }
+              keyContentData_ = input.readMessage(loader.elbrus.proto.CommonProto.KeyContentDataMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(keyContentData_);
+                keyContentData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KeyDataMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KeyDataMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.KeyDataMessage.class, loader.elbrus.proto.CommonProto.KeyDataMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<KeyDataMessage> PARSER =
+        new com.google.protobuf.AbstractParser<KeyDataMessage>() {
+      public KeyDataMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new KeyDataMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeyDataMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional .proto.KeyFileDataMessage key_file_data = 1;
+    public static final int KEY_FILE_DATA_FIELD_NUMBER = 1;
+    private loader.elbrus.proto.CommonProto.KeyFileDataMessage keyFileData_;
+    /**
+     * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+     */
+    public boolean hasKeyFileData() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KeyFileDataMessage getKeyFileData() {
+      return keyFileData_;
+    }
+    /**
+     * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KeyFileDataMessageOrBuilder getKeyFileDataOrBuilder() {
+      return keyFileData_;
+    }
+
+    // optional .proto.KeyContentDataMessage key_content_data = 2;
+    public static final int KEY_CONTENT_DATA_FIELD_NUMBER = 2;
+    private loader.elbrus.proto.CommonProto.KeyContentDataMessage keyContentData_;
+    /**
+     * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+     */
+    public boolean hasKeyContentData() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KeyContentDataMessage getKeyContentData() {
+      return keyContentData_;
+    }
+    /**
+     * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KeyContentDataMessageOrBuilder getKeyContentDataOrBuilder() {
+      return keyContentData_;
+    }
+
+    private void initFields() {
+      keyFileData_ = loader.elbrus.proto.CommonProto.KeyFileDataMessage.getDefaultInstance();
+      keyContentData_ = loader.elbrus.proto.CommonProto.KeyContentDataMessage.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, keyFileData_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, keyContentData_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, keyFileData_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, keyContentData_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KeyDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.KeyDataMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.KeyDataMessage}
+     *
+     * <pre>
+     * type-id = key_data_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.KeyDataMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyDataMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyDataMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.KeyDataMessage.class, loader.elbrus.proto.CommonProto.KeyDataMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.KeyDataMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getKeyFileDataFieldBuilder();
+          getKeyContentDataFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (keyFileDataBuilder_ == null) {
+          keyFileData_ = loader.elbrus.proto.CommonProto.KeyFileDataMessage.getDefaultInstance();
+        } else {
+          keyFileDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (keyContentDataBuilder_ == null) {
+          keyContentData_ = loader.elbrus.proto.CommonProto.KeyContentDataMessage.getDefaultInstance();
+        } else {
+          keyContentDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KeyDataMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyDataMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.KeyDataMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyDataMessage build() {
+        loader.elbrus.proto.CommonProto.KeyDataMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.KeyDataMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.KeyDataMessage result = new loader.elbrus.proto.CommonProto.KeyDataMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (keyFileDataBuilder_ == null) {
+          result.keyFileData_ = keyFileData_;
+        } else {
+          result.keyFileData_ = keyFileDataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (keyContentDataBuilder_ == null) {
+          result.keyContentData_ = keyContentData_;
+        } else {
+          result.keyContentData_ = keyContentDataBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.KeyDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.KeyDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.KeyDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.KeyDataMessage.getDefaultInstance()) return this;
+        if (other.hasKeyFileData()) {
+          mergeKeyFileData(other.getKeyFileData());
+        }
+        if (other.hasKeyContentData()) {
+          mergeKeyContentData(other.getKeyContentData());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.KeyDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.KeyDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional .proto.KeyFileDataMessage key_file_data = 1;
+      private loader.elbrus.proto.CommonProto.KeyFileDataMessage keyFileData_ = loader.elbrus.proto.CommonProto.KeyFileDataMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KeyFileDataMessage, loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyFileDataMessageOrBuilder> keyFileDataBuilder_;
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public boolean hasKeyFileData() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyFileDataMessage getKeyFileData() {
+        if (keyFileDataBuilder_ == null) {
+          return keyFileData_;
+        } else {
+          return keyFileDataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public Builder setKeyFileData(loader.elbrus.proto.CommonProto.KeyFileDataMessage value) {
+        if (keyFileDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          keyFileData_ = value;
+          onChanged();
+        } else {
+          keyFileDataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public Builder setKeyFileData(
+          loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder builderForValue) {
+        if (keyFileDataBuilder_ == null) {
+          keyFileData_ = builderForValue.build();
+          onChanged();
+        } else {
+          keyFileDataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public Builder mergeKeyFileData(loader.elbrus.proto.CommonProto.KeyFileDataMessage value) {
+        if (keyFileDataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              keyFileData_ != loader.elbrus.proto.CommonProto.KeyFileDataMessage.getDefaultInstance()) {
+            keyFileData_ =
+              loader.elbrus.proto.CommonProto.KeyFileDataMessage.newBuilder(keyFileData_).mergeFrom(value).buildPartial();
+          } else {
+            keyFileData_ = value;
+          }
+          onChanged();
+        } else {
+          keyFileDataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public Builder clearKeyFileData() {
+        if (keyFileDataBuilder_ == null) {
+          keyFileData_ = loader.elbrus.proto.CommonProto.KeyFileDataMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          keyFileDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder getKeyFileDataBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getKeyFileDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyFileDataMessageOrBuilder getKeyFileDataOrBuilder() {
+        if (keyFileDataBuilder_ != null) {
+          return keyFileDataBuilder_.getMessageOrBuilder();
+        } else {
+          return keyFileData_;
+        }
+      }
+      /**
+       * <code>optional .proto.KeyFileDataMessage key_file_data = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KeyFileDataMessage, loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyFileDataMessageOrBuilder> 
+          getKeyFileDataFieldBuilder() {
+        if (keyFileDataBuilder_ == null) {
+          keyFileDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.KeyFileDataMessage, loader.elbrus.proto.CommonProto.KeyFileDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyFileDataMessageOrBuilder>(
+                  keyFileData_,
+                  getParentForChildren(),
+                  isClean());
+          keyFileData_ = null;
+        }
+        return keyFileDataBuilder_;
+      }
+
+      // optional .proto.KeyContentDataMessage key_content_data = 2;
+      private loader.elbrus.proto.CommonProto.KeyContentDataMessage keyContentData_ = loader.elbrus.proto.CommonProto.KeyContentDataMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KeyContentDataMessage, loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyContentDataMessageOrBuilder> keyContentDataBuilder_;
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public boolean hasKeyContentData() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyContentDataMessage getKeyContentData() {
+        if (keyContentDataBuilder_ == null) {
+          return keyContentData_;
+        } else {
+          return keyContentDataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public Builder setKeyContentData(loader.elbrus.proto.CommonProto.KeyContentDataMessage value) {
+        if (keyContentDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          keyContentData_ = value;
+          onChanged();
+        } else {
+          keyContentDataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public Builder setKeyContentData(
+          loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder builderForValue) {
+        if (keyContentDataBuilder_ == null) {
+          keyContentData_ = builderForValue.build();
+          onChanged();
+        } else {
+          keyContentDataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public Builder mergeKeyContentData(loader.elbrus.proto.CommonProto.KeyContentDataMessage value) {
+        if (keyContentDataBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              keyContentData_ != loader.elbrus.proto.CommonProto.KeyContentDataMessage.getDefaultInstance()) {
+            keyContentData_ =
+              loader.elbrus.proto.CommonProto.KeyContentDataMessage.newBuilder(keyContentData_).mergeFrom(value).buildPartial();
+          } else {
+            keyContentData_ = value;
+          }
+          onChanged();
+        } else {
+          keyContentDataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public Builder clearKeyContentData() {
+        if (keyContentDataBuilder_ == null) {
+          keyContentData_ = loader.elbrus.proto.CommonProto.KeyContentDataMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          keyContentDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder getKeyContentDataBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getKeyContentDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyContentDataMessageOrBuilder getKeyContentDataOrBuilder() {
+        if (keyContentDataBuilder_ != null) {
+          return keyContentDataBuilder_.getMessageOrBuilder();
+        } else {
+          return keyContentData_;
+        }
+      }
+      /**
+       * <code>optional .proto.KeyContentDataMessage key_content_data = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KeyContentDataMessage, loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyContentDataMessageOrBuilder> 
+          getKeyContentDataFieldBuilder() {
+        if (keyContentDataBuilder_ == null) {
+          keyContentDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.KeyContentDataMessage, loader.elbrus.proto.CommonProto.KeyContentDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyContentDataMessageOrBuilder>(
+                  keyContentData_,
+                  getParentForChildren(),
+                  isClean());
+          keyContentData_ = null;
+        }
+        return keyContentDataBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.KeyDataMessage)
+    }
+
+    static {
+      defaultInstance = new KeyDataMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.KeyDataMessage)
+  }
+
+  public interface KnownHostsDataMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string known_hosts_file = 1;
+    /**
+     * <code>optional string known_hosts_file = 1;</code>
+     */
+    boolean hasKnownHostsFile();
+    /**
+     * <code>optional string known_hosts_file = 1;</code>
+     */
+    java.lang.String getKnownHostsFile();
+    /**
+     * <code>optional string known_hosts_file = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getKnownHostsFileBytes();
+
+    // optional bytes known_hosts_content = 2;
+    /**
+     * <code>optional bytes known_hosts_content = 2;</code>
+     */
+    boolean hasKnownHostsContent();
+    /**
+     * <code>optional bytes known_hosts_content = 2;</code>
+     */
+    com.google.protobuf.ByteString getKnownHostsContent();
+  }
+  /**
+   * Protobuf type {@code proto.KnownHostsDataMessage}
+   *
+   * <pre>
+   * type-id = known_hosts_data_message
+   * </pre>
+   */
+  public static final class KnownHostsDataMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements KnownHostsDataMessageOrBuilder {
+    // Use KnownHostsDataMessage.newBuilder() to construct.
+    private KnownHostsDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private KnownHostsDataMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final KnownHostsDataMessage defaultInstance;
+    public static KnownHostsDataMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public KnownHostsDataMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private KnownHostsDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              knownHostsFile_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              knownHostsContent_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KnownHostsDataMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_KnownHostsDataMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.KnownHostsDataMessage.class, loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<KnownHostsDataMessage> PARSER =
+        new com.google.protobuf.AbstractParser<KnownHostsDataMessage>() {
+      public KnownHostsDataMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new KnownHostsDataMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KnownHostsDataMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string known_hosts_file = 1;
+    public static final int KNOWN_HOSTS_FILE_FIELD_NUMBER = 1;
+    private java.lang.Object knownHostsFile_;
+    /**
+     * <code>optional string known_hosts_file = 1;</code>
+     */
+    public boolean hasKnownHostsFile() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string known_hosts_file = 1;</code>
+     */
+    public java.lang.String getKnownHostsFile() {
+      java.lang.Object ref = knownHostsFile_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          knownHostsFile_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string known_hosts_file = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getKnownHostsFileBytes() {
+      java.lang.Object ref = knownHostsFile_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        knownHostsFile_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional bytes known_hosts_content = 2;
+    public static final int KNOWN_HOSTS_CONTENT_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString knownHostsContent_;
+    /**
+     * <code>optional bytes known_hosts_content = 2;</code>
+     */
+    public boolean hasKnownHostsContent() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional bytes known_hosts_content = 2;</code>
+     */
+    public com.google.protobuf.ByteString getKnownHostsContent() {
+      return knownHostsContent_;
+    }
+
+    private void initFields() {
+      knownHostsFile_ = "";
+      knownHostsContent_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getKnownHostsFileBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, knownHostsContent_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getKnownHostsFileBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, knownHostsContent_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.KnownHostsDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.KnownHostsDataMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.KnownHostsDataMessage}
+     *
+     * <pre>
+     * type-id = known_hosts_data_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.KnownHostsDataMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KnownHostsDataMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KnownHostsDataMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.KnownHostsDataMessage.class, loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.KnownHostsDataMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        knownHostsFile_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        knownHostsContent_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_KnownHostsDataMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.KnownHostsDataMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.KnownHostsDataMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.KnownHostsDataMessage build() {
+        loader.elbrus.proto.CommonProto.KnownHostsDataMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.KnownHostsDataMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.KnownHostsDataMessage result = new loader.elbrus.proto.CommonProto.KnownHostsDataMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.knownHostsFile_ = knownHostsFile_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.knownHostsContent_ = knownHostsContent_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.KnownHostsDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.KnownHostsDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.KnownHostsDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.KnownHostsDataMessage.getDefaultInstance()) return this;
+        if (other.hasKnownHostsFile()) {
+          bitField0_ |= 0x00000001;
+          knownHostsFile_ = other.knownHostsFile_;
+          onChanged();
+        }
+        if (other.hasKnownHostsContent()) {
+          setKnownHostsContent(other.getKnownHostsContent());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.KnownHostsDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.KnownHostsDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string known_hosts_file = 1;
+      private java.lang.Object knownHostsFile_ = "";
+      /**
+       * <code>optional string known_hosts_file = 1;</code>
+       */
+      public boolean hasKnownHostsFile() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string known_hosts_file = 1;</code>
+       */
+      public java.lang.String getKnownHostsFile() {
+        java.lang.Object ref = knownHostsFile_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          knownHostsFile_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string known_hosts_file = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getKnownHostsFileBytes() {
+        java.lang.Object ref = knownHostsFile_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          knownHostsFile_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string known_hosts_file = 1;</code>
+       */
+      public Builder setKnownHostsFile(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        knownHostsFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string known_hosts_file = 1;</code>
+       */
+      public Builder clearKnownHostsFile() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        knownHostsFile_ = getDefaultInstance().getKnownHostsFile();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string known_hosts_file = 1;</code>
+       */
+      public Builder setKnownHostsFileBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        knownHostsFile_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional bytes known_hosts_content = 2;
+      private com.google.protobuf.ByteString knownHostsContent_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes known_hosts_content = 2;</code>
+       */
+      public boolean hasKnownHostsContent() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional bytes known_hosts_content = 2;</code>
+       */
+      public com.google.protobuf.ByteString getKnownHostsContent() {
+        return knownHostsContent_;
+      }
+      /**
+       * <code>optional bytes known_hosts_content = 2;</code>
+       */
+      public Builder setKnownHostsContent(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        knownHostsContent_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes known_hosts_content = 2;</code>
+       */
+      public Builder clearKnownHostsContent() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        knownHostsContent_ = getDefaultInstance().getKnownHostsContent();
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.KnownHostsDataMessage)
+    }
+
+    static {
+      defaultInstance = new KnownHostsDataMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.KnownHostsDataMessage)
+  }
+
+  public interface NetConnectionDataMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string username = 1;
+    /**
+     * <code>optional string username = 1;</code>
+     */
+    boolean hasUsername();
+    /**
+     * <code>optional string username = 1;</code>
+     */
+    java.lang.String getUsername();
+    /**
+     * <code>optional string username = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUsernameBytes();
+
+    // optional string host = 2;
+    /**
+     * <code>optional string host = 2;</code>
+     */
+    boolean hasHost();
+    /**
+     * <code>optional string host = 2;</code>
+     */
+    java.lang.String getHost();
+    /**
+     * <code>optional string host = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getHostBytes();
+
+    // optional int32 port = 3;
+    /**
+     * <code>optional int32 port = 3;</code>
+     */
+    boolean hasPort();
+    /**
+     * <code>optional int32 port = 3;</code>
+     */
+    int getPort();
+
+    // optional string password = 4;
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    // optional .proto.KeyDataMessage key_data = 5;
+    /**
+     * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+     */
+    boolean hasKeyData();
+    /**
+     * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+     */
+    loader.elbrus.proto.CommonProto.KeyDataMessage getKeyData();
+    /**
+     * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+     */
+    loader.elbrus.proto.CommonProto.KeyDataMessageOrBuilder getKeyDataOrBuilder();
+
+    // optional .proto.KnownHostsDataMessage known_hosts_data = 6;
+    /**
+     * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+     */
+    boolean hasKnownHostsData();
+    /**
+     * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+     */
+    loader.elbrus.proto.CommonProto.KnownHostsDataMessage getKnownHostsData();
+    /**
+     * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+     */
+    loader.elbrus.proto.CommonProto.KnownHostsDataMessageOrBuilder getKnownHostsDataOrBuilder();
+
+    // optional bool check_known_hosts = 7;
+    /**
+     * <code>optional bool check_known_hosts = 7;</code>
+     */
+    boolean hasCheckKnownHosts();
+    /**
+     * <code>optional bool check_known_hosts = 7;</code>
+     */
+    boolean getCheckKnownHosts();
+
+    // optional int32 timeout = 8;
+    /**
+     * <code>optional int32 timeout = 8;</code>
+     */
+    boolean hasTimeout();
+    /**
+     * <code>optional int32 timeout = 8;</code>
+     */
+    int getTimeout();
+
+    // optional int32 timeout_connect = 9;
+    /**
+     * <code>optional int32 timeout_connect = 9;</code>
+     */
+    boolean hasTimeoutConnect();
+    /**
+     * <code>optional int32 timeout_connect = 9;</code>
+     */
+    int getTimeoutConnect();
+  }
+  /**
+   * Protobuf type {@code proto.NetConnectionDataMessage}
+   *
+   * <pre>
+   * type-id = net_connection_data_message
+   * </pre>
+   */
+  public static final class NetConnectionDataMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements NetConnectionDataMessageOrBuilder {
+    // Use NetConnectionDataMessage.newBuilder() to construct.
+    private NetConnectionDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NetConnectionDataMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final NetConnectionDataMessage defaultInstance;
+    public static NetConnectionDataMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NetConnectionDataMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private NetConnectionDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              username_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              host_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              port_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              password_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              loader.elbrus.proto.CommonProto.KeyDataMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = keyData_.toBuilder();
+              }
+              keyData_ = input.readMessage(loader.elbrus.proto.CommonProto.KeyDataMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(keyData_);
+                keyData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                subBuilder = knownHostsData_.toBuilder();
+              }
+              knownHostsData_ = input.readMessage(loader.elbrus.proto.CommonProto.KnownHostsDataMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(knownHostsData_);
+                knownHostsData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              checkKnownHosts_ = input.readBool();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              timeout_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              timeoutConnect_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_NetConnectionDataMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_NetConnectionDataMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.NetConnectionDataMessage.class, loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<NetConnectionDataMessage> PARSER =
+        new com.google.protobuf.AbstractParser<NetConnectionDataMessage>() {
+      public NetConnectionDataMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NetConnectionDataMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NetConnectionDataMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string username = 1;
+    public static final int USERNAME_FIELD_NUMBER = 1;
+    private java.lang.Object username_;
+    /**
+     * <code>optional string username = 1;</code>
+     */
+    public boolean hasUsername() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string username = 1;</code>
+     */
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          username_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string username = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        username_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string host = 2;
+    public static final int HOST_FIELD_NUMBER = 2;
+    private java.lang.Object host_;
+    /**
+     * <code>optional string host = 2;</code>
+     */
+    public boolean hasHost() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string host = 2;</code>
+     */
+    public java.lang.String getHost() {
+      java.lang.Object ref = host_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          host_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string host = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHostBytes() {
+      java.lang.Object ref = host_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        host_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int32 port = 3;
+    public static final int PORT_FIELD_NUMBER = 3;
+    private int port_;
+    /**
+     * <code>optional int32 port = 3;</code>
+     */
+    public boolean hasPort() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 port = 3;</code>
+     */
+    public int getPort() {
+      return port_;
+    }
+
+    // optional string password = 4;
+    public static final int PASSWORD_FIELD_NUMBER = 4;
+    private java.lang.Object password_;
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional .proto.KeyDataMessage key_data = 5;
+    public static final int KEY_DATA_FIELD_NUMBER = 5;
+    private loader.elbrus.proto.CommonProto.KeyDataMessage keyData_;
+    /**
+     * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+     */
+    public boolean hasKeyData() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KeyDataMessage getKeyData() {
+      return keyData_;
+    }
+    /**
+     * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KeyDataMessageOrBuilder getKeyDataOrBuilder() {
+      return keyData_;
+    }
+
+    // optional .proto.KnownHostsDataMessage known_hosts_data = 6;
+    public static final int KNOWN_HOSTS_DATA_FIELD_NUMBER = 6;
+    private loader.elbrus.proto.CommonProto.KnownHostsDataMessage knownHostsData_;
+    /**
+     * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+     */
+    public boolean hasKnownHostsData() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KnownHostsDataMessage getKnownHostsData() {
+      return knownHostsData_;
+    }
+    /**
+     * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+     */
+    public loader.elbrus.proto.CommonProto.KnownHostsDataMessageOrBuilder getKnownHostsDataOrBuilder() {
+      return knownHostsData_;
+    }
+
+    // optional bool check_known_hosts = 7;
+    public static final int CHECK_KNOWN_HOSTS_FIELD_NUMBER = 7;
+    private boolean checkKnownHosts_;
+    /**
+     * <code>optional bool check_known_hosts = 7;</code>
+     */
+    public boolean hasCheckKnownHosts() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional bool check_known_hosts = 7;</code>
+     */
+    public boolean getCheckKnownHosts() {
+      return checkKnownHosts_;
+    }
+
+    // optional int32 timeout = 8;
+    public static final int TIMEOUT_FIELD_NUMBER = 8;
+    private int timeout_;
+    /**
+     * <code>optional int32 timeout = 8;</code>
+     */
+    public boolean hasTimeout() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional int32 timeout = 8;</code>
+     */
+    public int getTimeout() {
+      return timeout_;
+    }
+
+    // optional int32 timeout_connect = 9;
+    public static final int TIMEOUT_CONNECT_FIELD_NUMBER = 9;
+    private int timeoutConnect_;
+    /**
+     * <code>optional int32 timeout_connect = 9;</code>
+     */
+    public boolean hasTimeoutConnect() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional int32 timeout_connect = 9;</code>
+     */
+    public int getTimeoutConnect() {
+      return timeoutConnect_;
+    }
+
+    private void initFields() {
+      username_ = "";
+      host_ = "";
+      port_ = 0;
+      password_ = "";
+      keyData_ = loader.elbrus.proto.CommonProto.KeyDataMessage.getDefaultInstance();
+      knownHostsData_ = loader.elbrus.proto.CommonProto.KnownHostsDataMessage.getDefaultInstance();
+      checkKnownHosts_ = false;
+      timeout_ = 0;
+      timeoutConnect_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getUsernameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getHostBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, port_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, keyData_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(6, knownHostsData_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBool(7, checkKnownHosts_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(8, timeout_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt32(9, timeoutConnect_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getUsernameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getHostBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, port_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, keyData_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, knownHostsData_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, checkKnownHosts_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, timeout_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, timeoutConnect_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.NetConnectionDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.NetConnectionDataMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.NetConnectionDataMessage}
+     *
+     * <pre>
+     * type-id = net_connection_data_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.NetConnectionDataMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_NetConnectionDataMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_NetConnectionDataMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.NetConnectionDataMessage.class, loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.NetConnectionDataMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getKeyDataFieldBuilder();
+          getKnownHostsDataFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        username_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        host_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        port_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (keyDataBuilder_ == null) {
+          keyData_ = loader.elbrus.proto.CommonProto.KeyDataMessage.getDefaultInstance();
+        } else {
+          keyDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        if (knownHostsDataBuilder_ == null) {
+          knownHostsData_ = loader.elbrus.proto.CommonProto.KnownHostsDataMessage.getDefaultInstance();
+        } else {
+          knownHostsDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        checkKnownHosts_ = false;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        timeout_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        timeoutConnect_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_NetConnectionDataMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.NetConnectionDataMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.NetConnectionDataMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.NetConnectionDataMessage build() {
+        loader.elbrus.proto.CommonProto.NetConnectionDataMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.NetConnectionDataMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.NetConnectionDataMessage result = new loader.elbrus.proto.CommonProto.NetConnectionDataMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.username_ = username_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.host_ = host_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.port_ = port_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.password_ = password_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (keyDataBuilder_ == null) {
+          result.keyData_ = keyData_;
+        } else {
+          result.keyData_ = keyDataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        if (knownHostsDataBuilder_ == null) {
+          result.knownHostsData_ = knownHostsData_;
+        } else {
+          result.knownHostsData_ = knownHostsDataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.checkKnownHosts_ = checkKnownHosts_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.timeout_ = timeout_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.timeoutConnect_ = timeoutConnect_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.NetConnectionDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.NetConnectionDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.NetConnectionDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.NetConnectionDataMessage.getDefaultInstance()) return this;
+        if (other.hasUsername()) {
+          bitField0_ |= 0x00000001;
+          username_ = other.username_;
+          onChanged();
+        }
+        if (other.hasHost()) {
+          bitField0_ |= 0x00000002;
+          host_ = other.host_;
+          onChanged();
+        }
+        if (other.hasPort()) {
+          setPort(other.getPort());
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000008;
+          password_ = other.password_;
+          onChanged();
+        }
+        if (other.hasKeyData()) {
+          mergeKeyData(other.getKeyData());
+        }
+        if (other.hasKnownHostsData()) {
+          mergeKnownHostsData(other.getKnownHostsData());
+        }
+        if (other.hasCheckKnownHosts()) {
+          setCheckKnownHosts(other.getCheckKnownHosts());
+        }
+        if (other.hasTimeout()) {
+          setTimeout(other.getTimeout());
+        }
+        if (other.hasTimeoutConnect()) {
+          setTimeoutConnect(other.getTimeoutConnect());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.NetConnectionDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.NetConnectionDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string username = 1;
+      private java.lang.Object username_ = "";
+      /**
+       * <code>optional string username = 1;</code>
+       */
+      public boolean hasUsername() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string username = 1;</code>
+       */
+      public java.lang.String getUsername() {
+        java.lang.Object ref = username_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          username_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string username = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUsernameBytes() {
+        java.lang.Object ref = username_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          username_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string username = 1;</code>
+       */
+      public Builder setUsername(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        username_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string username = 1;</code>
+       */
+      public Builder clearUsername() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        username_ = getDefaultInstance().getUsername();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string username = 1;</code>
+       */
+      public Builder setUsernameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        username_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string host = 2;
+      private java.lang.Object host_ = "";
+      /**
+       * <code>optional string host = 2;</code>
+       */
+      public boolean hasHost() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string host = 2;</code>
+       */
+      public java.lang.String getHost() {
+        java.lang.Object ref = host_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          host_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string host = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHostBytes() {
+        java.lang.Object ref = host_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          host_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string host = 2;</code>
+       */
+      public Builder setHost(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        host_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string host = 2;</code>
+       */
+      public Builder clearHost() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        host_ = getDefaultInstance().getHost();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string host = 2;</code>
+       */
+      public Builder setHostBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        host_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 port = 3;
+      private int port_ ;
+      /**
+       * <code>optional int32 port = 3;</code>
+       */
+      public boolean hasPort() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 port = 3;</code>
+       */
+      public int getPort() {
+        return port_;
+      }
+      /**
+       * <code>optional int32 port = 3;</code>
+       */
+      public Builder setPort(int value) {
+        bitField0_ |= 0x00000004;
+        port_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 port = 3;</code>
+       */
+      public Builder clearPort() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        port_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional string password = 4;
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 4;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional .proto.KeyDataMessage key_data = 5;
+      private loader.elbrus.proto.CommonProto.KeyDataMessage keyData_ = loader.elbrus.proto.CommonProto.KeyDataMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KeyDataMessage, loader.elbrus.proto.CommonProto.KeyDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyDataMessageOrBuilder> keyDataBuilder_;
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public boolean hasKeyData() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyDataMessage getKeyData() {
+        if (keyDataBuilder_ == null) {
+          return keyData_;
+        } else {
+          return keyDataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public Builder setKeyData(loader.elbrus.proto.CommonProto.KeyDataMessage value) {
+        if (keyDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          keyData_ = value;
+          onChanged();
+        } else {
+          keyDataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public Builder setKeyData(
+          loader.elbrus.proto.CommonProto.KeyDataMessage.Builder builderForValue) {
+        if (keyDataBuilder_ == null) {
+          keyData_ = builderForValue.build();
+          onChanged();
+        } else {
+          keyDataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public Builder mergeKeyData(loader.elbrus.proto.CommonProto.KeyDataMessage value) {
+        if (keyDataBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              keyData_ != loader.elbrus.proto.CommonProto.KeyDataMessage.getDefaultInstance()) {
+            keyData_ =
+              loader.elbrus.proto.CommonProto.KeyDataMessage.newBuilder(keyData_).mergeFrom(value).buildPartial();
+          } else {
+            keyData_ = value;
+          }
+          onChanged();
+        } else {
+          keyDataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public Builder clearKeyData() {
+        if (keyDataBuilder_ == null) {
+          keyData_ = loader.elbrus.proto.CommonProto.KeyDataMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          keyDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyDataMessage.Builder getKeyDataBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getKeyDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KeyDataMessageOrBuilder getKeyDataOrBuilder() {
+        if (keyDataBuilder_ != null) {
+          return keyDataBuilder_.getMessageOrBuilder();
+        } else {
+          return keyData_;
+        }
+      }
+      /**
+       * <code>optional .proto.KeyDataMessage key_data = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KeyDataMessage, loader.elbrus.proto.CommonProto.KeyDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyDataMessageOrBuilder> 
+          getKeyDataFieldBuilder() {
+        if (keyDataBuilder_ == null) {
+          keyDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.KeyDataMessage, loader.elbrus.proto.CommonProto.KeyDataMessage.Builder, loader.elbrus.proto.CommonProto.KeyDataMessageOrBuilder>(
+                  keyData_,
+                  getParentForChildren(),
+                  isClean());
+          keyData_ = null;
+        }
+        return keyDataBuilder_;
+      }
+
+      // optional .proto.KnownHostsDataMessage known_hosts_data = 6;
+      private loader.elbrus.proto.CommonProto.KnownHostsDataMessage knownHostsData_ = loader.elbrus.proto.CommonProto.KnownHostsDataMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KnownHostsDataMessage, loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder, loader.elbrus.proto.CommonProto.KnownHostsDataMessageOrBuilder> knownHostsDataBuilder_;
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public boolean hasKnownHostsData() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KnownHostsDataMessage getKnownHostsData() {
+        if (knownHostsDataBuilder_ == null) {
+          return knownHostsData_;
+        } else {
+          return knownHostsDataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public Builder setKnownHostsData(loader.elbrus.proto.CommonProto.KnownHostsDataMessage value) {
+        if (knownHostsDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          knownHostsData_ = value;
+          onChanged();
+        } else {
+          knownHostsDataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public Builder setKnownHostsData(
+          loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder builderForValue) {
+        if (knownHostsDataBuilder_ == null) {
+          knownHostsData_ = builderForValue.build();
+          onChanged();
+        } else {
+          knownHostsDataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public Builder mergeKnownHostsData(loader.elbrus.proto.CommonProto.KnownHostsDataMessage value) {
+        if (knownHostsDataBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              knownHostsData_ != loader.elbrus.proto.CommonProto.KnownHostsDataMessage.getDefaultInstance()) {
+            knownHostsData_ =
+              loader.elbrus.proto.CommonProto.KnownHostsDataMessage.newBuilder(knownHostsData_).mergeFrom(value).buildPartial();
+          } else {
+            knownHostsData_ = value;
+          }
+          onChanged();
+        } else {
+          knownHostsDataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public Builder clearKnownHostsData() {
+        if (knownHostsDataBuilder_ == null) {
+          knownHostsData_ = loader.elbrus.proto.CommonProto.KnownHostsDataMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          knownHostsDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder getKnownHostsDataBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getKnownHostsDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      public loader.elbrus.proto.CommonProto.KnownHostsDataMessageOrBuilder getKnownHostsDataOrBuilder() {
+        if (knownHostsDataBuilder_ != null) {
+          return knownHostsDataBuilder_.getMessageOrBuilder();
+        } else {
+          return knownHostsData_;
+        }
+      }
+      /**
+       * <code>optional .proto.KnownHostsDataMessage known_hosts_data = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.KnownHostsDataMessage, loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder, loader.elbrus.proto.CommonProto.KnownHostsDataMessageOrBuilder> 
+          getKnownHostsDataFieldBuilder() {
+        if (knownHostsDataBuilder_ == null) {
+          knownHostsDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.KnownHostsDataMessage, loader.elbrus.proto.CommonProto.KnownHostsDataMessage.Builder, loader.elbrus.proto.CommonProto.KnownHostsDataMessageOrBuilder>(
+                  knownHostsData_,
+                  getParentForChildren(),
+                  isClean());
+          knownHostsData_ = null;
+        }
+        return knownHostsDataBuilder_;
+      }
+
+      // optional bool check_known_hosts = 7;
+      private boolean checkKnownHosts_ ;
+      /**
+       * <code>optional bool check_known_hosts = 7;</code>
+       */
+      public boolean hasCheckKnownHosts() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional bool check_known_hosts = 7;</code>
+       */
+      public boolean getCheckKnownHosts() {
+        return checkKnownHosts_;
+      }
+      /**
+       * <code>optional bool check_known_hosts = 7;</code>
+       */
+      public Builder setCheckKnownHosts(boolean value) {
+        bitField0_ |= 0x00000040;
+        checkKnownHosts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool check_known_hosts = 7;</code>
+       */
+      public Builder clearCheckKnownHosts() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        checkKnownHosts_ = false;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 timeout = 8;
+      private int timeout_ ;
+      /**
+       * <code>optional int32 timeout = 8;</code>
+       */
+      public boolean hasTimeout() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional int32 timeout = 8;</code>
+       */
+      public int getTimeout() {
+        return timeout_;
+      }
+      /**
+       * <code>optional int32 timeout = 8;</code>
+       */
+      public Builder setTimeout(int value) {
+        bitField0_ |= 0x00000080;
+        timeout_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 timeout = 8;</code>
+       */
+      public Builder clearTimeout() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        timeout_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 timeout_connect = 9;
+      private int timeoutConnect_ ;
+      /**
+       * <code>optional int32 timeout_connect = 9;</code>
+       */
+      public boolean hasTimeoutConnect() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional int32 timeout_connect = 9;</code>
+       */
+      public int getTimeoutConnect() {
+        return timeoutConnect_;
+      }
+      /**
+       * <code>optional int32 timeout_connect = 9;</code>
+       */
+      public Builder setTimeoutConnect(int value) {
+        bitField0_ |= 0x00000100;
+        timeoutConnect_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 timeout_connect = 9;</code>
+       */
+      public Builder clearTimeoutConnect() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        timeoutConnect_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.NetConnectionDataMessage)
+    }
+
+    static {
+      defaultInstance = new NetConnectionDataMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.NetConnectionDataMessage)
+  }
+
+  public interface CommandDataMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string command = 1;
+    /**
+     * <code>optional string command = 1;</code>
+     */
+    boolean hasCommand();
+    /**
+     * <code>optional string command = 1;</code>
+     */
+    java.lang.String getCommand();
+    /**
+     * <code>optional string command = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getCommandBytes();
+
+    // optional string password = 2;
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+  }
+  /**
+   * Protobuf type {@code proto.CommandDataMessage}
+   *
+   * <pre>
+   * type-id = command_data_message
+   * </pre>
+   */
+  public static final class CommandDataMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements CommandDataMessageOrBuilder {
+    // Use CommandDataMessage.newBuilder() to construct.
+    private CommandDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private CommandDataMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final CommandDataMessage defaultInstance;
+    public static CommandDataMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public CommandDataMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CommandDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              command_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              password_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_CommandDataMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_CommandDataMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.CommandDataMessage.class, loader.elbrus.proto.CommonProto.CommandDataMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<CommandDataMessage> PARSER =
+        new com.google.protobuf.AbstractParser<CommandDataMessage>() {
+      public CommandDataMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CommandDataMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CommandDataMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string command = 1;
+    public static final int COMMAND_FIELD_NUMBER = 1;
+    private java.lang.Object command_;
+    /**
+     * <code>optional string command = 1;</code>
+     */
+    public boolean hasCommand() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string command = 1;</code>
+     */
+    public java.lang.String getCommand() {
+      java.lang.Object ref = command_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          command_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string command = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCommandBytes() {
+      java.lang.Object ref = command_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        command_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string password = 2;
+    public static final int PASSWORD_FIELD_NUMBER = 2;
+    private java.lang.Object password_;
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      command_ = "";
+      password_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getCommandBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getPasswordBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getCommandBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getPasswordBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.CommandDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.CommandDataMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.CommandDataMessage}
+     *
+     * <pre>
+     * type-id = command_data_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.CommandDataMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_CommandDataMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_CommandDataMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.CommandDataMessage.class, loader.elbrus.proto.CommonProto.CommandDataMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.CommandDataMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        command_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_CommandDataMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.CommandDataMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.CommandDataMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.CommandDataMessage build() {
+        loader.elbrus.proto.CommonProto.CommandDataMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.CommandDataMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.CommandDataMessage result = new loader.elbrus.proto.CommonProto.CommandDataMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.command_ = command_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.password_ = password_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.CommandDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.CommandDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.CommandDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.CommandDataMessage.getDefaultInstance()) return this;
+        if (other.hasCommand()) {
+          bitField0_ |= 0x00000001;
+          command_ = other.command_;
+          onChanged();
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000002;
+          password_ = other.password_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.CommandDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.CommandDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string command = 1;
+      private java.lang.Object command_ = "";
+      /**
+       * <code>optional string command = 1;</code>
+       */
+      public boolean hasCommand() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string command = 1;</code>
+       */
+      public java.lang.String getCommand() {
+        java.lang.Object ref = command_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          command_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string command = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCommandBytes() {
+        java.lang.Object ref = command_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          command_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string command = 1;</code>
+       */
+      public Builder setCommand(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        command_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string command = 1;</code>
+       */
+      public Builder clearCommand() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        command_ = getDefaultInstance().getCommand();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string command = 1;</code>
+       */
+      public Builder setCommandBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        command_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string password = 2;
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 2;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.CommandDataMessage)
+    }
+
+    static {
+      defaultInstance = new CommandDataMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.CommandDataMessage)
+  }
+
+  public interface NetCommandDataMessageOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional .proto.NetConnectionDataMessage net_connection_data = 1;
+    /**
+     * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+     */
+    boolean hasNetConnectionData();
+    /**
+     * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+     */
+    loader.elbrus.proto.CommonProto.NetConnectionDataMessage getNetConnectionData();
+    /**
+     * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+     */
+    loader.elbrus.proto.CommonProto.NetConnectionDataMessageOrBuilder getNetConnectionDataOrBuilder();
+
+    // optional .proto.CommandDataMessage command_data = 2;
+    /**
+     * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+     */
+    boolean hasCommandData();
+    /**
+     * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+     */
+    loader.elbrus.proto.CommonProto.CommandDataMessage getCommandData();
+    /**
+     * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+     */
+    loader.elbrus.proto.CommonProto.CommandDataMessageOrBuilder getCommandDataOrBuilder();
+  }
+  /**
+   * Protobuf type {@code proto.NetCommandDataMessage}
+   *
+   * <pre>
+   * type-id = net_command_data_message
+   * </pre>
+   */
+  public static final class NetCommandDataMessage extends
+      com.google.protobuf.GeneratedMessage
+      implements NetCommandDataMessageOrBuilder {
+    // Use NetCommandDataMessage.newBuilder() to construct.
+    private NetCommandDataMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private NetCommandDataMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final NetCommandDataMessage defaultInstance;
+    public static NetCommandDataMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public NetCommandDataMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private NetCommandDataMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = netConnectionData_.toBuilder();
+              }
+              netConnectionData_ = input.readMessage(loader.elbrus.proto.CommonProto.NetConnectionDataMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(netConnectionData_);
+                netConnectionData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              loader.elbrus.proto.CommonProto.CommandDataMessage.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = commandData_.toBuilder();
+              }
+              commandData_ = input.readMessage(loader.elbrus.proto.CommonProto.CommandDataMessage.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(commandData_);
+                commandData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_NetCommandDataMessage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return loader.elbrus.proto.CommonProto.internal_static_proto_NetCommandDataMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              loader.elbrus.proto.CommonProto.NetCommandDataMessage.class, loader.elbrus.proto.CommonProto.NetCommandDataMessage.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<NetCommandDataMessage> PARSER =
+        new com.google.protobuf.AbstractParser<NetCommandDataMessage>() {
+      public NetCommandDataMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NetCommandDataMessage(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NetCommandDataMessage> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional .proto.NetConnectionDataMessage net_connection_data = 1;
+    public static final int NET_CONNECTION_DATA_FIELD_NUMBER = 1;
+    private loader.elbrus.proto.CommonProto.NetConnectionDataMessage netConnectionData_;
+    /**
+     * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+     */
+    public boolean hasNetConnectionData() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+     */
+    public loader.elbrus.proto.CommonProto.NetConnectionDataMessage getNetConnectionData() {
+      return netConnectionData_;
+    }
+    /**
+     * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+     */
+    public loader.elbrus.proto.CommonProto.NetConnectionDataMessageOrBuilder getNetConnectionDataOrBuilder() {
+      return netConnectionData_;
+    }
+
+    // optional .proto.CommandDataMessage command_data = 2;
+    public static final int COMMAND_DATA_FIELD_NUMBER = 2;
+    private loader.elbrus.proto.CommonProto.CommandDataMessage commandData_;
+    /**
+     * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+     */
+    public boolean hasCommandData() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+     */
+    public loader.elbrus.proto.CommonProto.CommandDataMessage getCommandData() {
+      return commandData_;
+    }
+    /**
+     * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+     */
+    public loader.elbrus.proto.CommonProto.CommandDataMessageOrBuilder getCommandDataOrBuilder() {
+      return commandData_;
+    }
+
+    private void initFields() {
+      netConnectionData_ = loader.elbrus.proto.CommonProto.NetConnectionDataMessage.getDefaultInstance();
+      commandData_ = loader.elbrus.proto.CommonProto.CommandDataMessage.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, netConnectionData_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, commandData_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, netConnectionData_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, commandData_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static loader.elbrus.proto.CommonProto.NetCommandDataMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(loader.elbrus.proto.CommonProto.NetCommandDataMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code proto.NetCommandDataMessage}
+     *
+     * <pre>
+     * type-id = net_command_data_message
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements loader.elbrus.proto.CommonProto.NetCommandDataMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_NetCommandDataMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_NetCommandDataMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                loader.elbrus.proto.CommonProto.NetCommandDataMessage.class, loader.elbrus.proto.CommonProto.NetCommandDataMessage.Builder.class);
+      }
+
+      // Construct using loader.elbrus.proto.CommonProto.NetCommandDataMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getNetConnectionDataFieldBuilder();
+          getCommandDataFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (netConnectionDataBuilder_ == null) {
+          netConnectionData_ = loader.elbrus.proto.CommonProto.NetConnectionDataMessage.getDefaultInstance();
+        } else {
+          netConnectionDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (commandDataBuilder_ == null) {
+          commandData_ = loader.elbrus.proto.CommonProto.CommandDataMessage.getDefaultInstance();
+        } else {
+          commandDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return loader.elbrus.proto.CommonProto.internal_static_proto_NetCommandDataMessage_descriptor;
+      }
+
+      public loader.elbrus.proto.CommonProto.NetCommandDataMessage getDefaultInstanceForType() {
+        return loader.elbrus.proto.CommonProto.NetCommandDataMessage.getDefaultInstance();
+      }
+
+      public loader.elbrus.proto.CommonProto.NetCommandDataMessage build() {
+        loader.elbrus.proto.CommonProto.NetCommandDataMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public loader.elbrus.proto.CommonProto.NetCommandDataMessage buildPartial() {
+        loader.elbrus.proto.CommonProto.NetCommandDataMessage result = new loader.elbrus.proto.CommonProto.NetCommandDataMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (netConnectionDataBuilder_ == null) {
+          result.netConnectionData_ = netConnectionData_;
+        } else {
+          result.netConnectionData_ = netConnectionDataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (commandDataBuilder_ == null) {
+          result.commandData_ = commandData_;
+        } else {
+          result.commandData_ = commandDataBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof loader.elbrus.proto.CommonProto.NetCommandDataMessage) {
+          return mergeFrom((loader.elbrus.proto.CommonProto.NetCommandDataMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(loader.elbrus.proto.CommonProto.NetCommandDataMessage other) {
+        if (other == loader.elbrus.proto.CommonProto.NetCommandDataMessage.getDefaultInstance()) return this;
+        if (other.hasNetConnectionData()) {
+          mergeNetConnectionData(other.getNetConnectionData());
+        }
+        if (other.hasCommandData()) {
+          mergeCommandData(other.getCommandData());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        loader.elbrus.proto.CommonProto.NetCommandDataMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (loader.elbrus.proto.CommonProto.NetCommandDataMessage) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional .proto.NetConnectionDataMessage net_connection_data = 1;
+      private loader.elbrus.proto.CommonProto.NetConnectionDataMessage netConnectionData_ = loader.elbrus.proto.CommonProto.NetConnectionDataMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.NetConnectionDataMessage, loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder, loader.elbrus.proto.CommonProto.NetConnectionDataMessageOrBuilder> netConnectionDataBuilder_;
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public boolean hasNetConnectionData() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public loader.elbrus.proto.CommonProto.NetConnectionDataMessage getNetConnectionData() {
+        if (netConnectionDataBuilder_ == null) {
+          return netConnectionData_;
+        } else {
+          return netConnectionDataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public Builder setNetConnectionData(loader.elbrus.proto.CommonProto.NetConnectionDataMessage value) {
+        if (netConnectionDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          netConnectionData_ = value;
+          onChanged();
+        } else {
+          netConnectionDataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public Builder setNetConnectionData(
+          loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder builderForValue) {
+        if (netConnectionDataBuilder_ == null) {
+          netConnectionData_ = builderForValue.build();
+          onChanged();
+        } else {
+          netConnectionDataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public Builder mergeNetConnectionData(loader.elbrus.proto.CommonProto.NetConnectionDataMessage value) {
+        if (netConnectionDataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              netConnectionData_ != loader.elbrus.proto.CommonProto.NetConnectionDataMessage.getDefaultInstance()) {
+            netConnectionData_ =
+              loader.elbrus.proto.CommonProto.NetConnectionDataMessage.newBuilder(netConnectionData_).mergeFrom(value).buildPartial();
+          } else {
+            netConnectionData_ = value;
+          }
+          onChanged();
+        } else {
+          netConnectionDataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public Builder clearNetConnectionData() {
+        if (netConnectionDataBuilder_ == null) {
+          netConnectionData_ = loader.elbrus.proto.CommonProto.NetConnectionDataMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          netConnectionDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder getNetConnectionDataBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getNetConnectionDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      public loader.elbrus.proto.CommonProto.NetConnectionDataMessageOrBuilder getNetConnectionDataOrBuilder() {
+        if (netConnectionDataBuilder_ != null) {
+          return netConnectionDataBuilder_.getMessageOrBuilder();
+        } else {
+          return netConnectionData_;
+        }
+      }
+      /**
+       * <code>optional .proto.NetConnectionDataMessage net_connection_data = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.NetConnectionDataMessage, loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder, loader.elbrus.proto.CommonProto.NetConnectionDataMessageOrBuilder> 
+          getNetConnectionDataFieldBuilder() {
+        if (netConnectionDataBuilder_ == null) {
+          netConnectionDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.NetConnectionDataMessage, loader.elbrus.proto.CommonProto.NetConnectionDataMessage.Builder, loader.elbrus.proto.CommonProto.NetConnectionDataMessageOrBuilder>(
+                  netConnectionData_,
+                  getParentForChildren(),
+                  isClean());
+          netConnectionData_ = null;
+        }
+        return netConnectionDataBuilder_;
+      }
+
+      // optional .proto.CommandDataMessage command_data = 2;
+      private loader.elbrus.proto.CommonProto.CommandDataMessage commandData_ = loader.elbrus.proto.CommonProto.CommandDataMessage.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.CommandDataMessage, loader.elbrus.proto.CommonProto.CommandDataMessage.Builder, loader.elbrus.proto.CommonProto.CommandDataMessageOrBuilder> commandDataBuilder_;
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public boolean hasCommandData() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public loader.elbrus.proto.CommonProto.CommandDataMessage getCommandData() {
+        if (commandDataBuilder_ == null) {
+          return commandData_;
+        } else {
+          return commandDataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public Builder setCommandData(loader.elbrus.proto.CommonProto.CommandDataMessage value) {
+        if (commandDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          commandData_ = value;
+          onChanged();
+        } else {
+          commandDataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public Builder setCommandData(
+          loader.elbrus.proto.CommonProto.CommandDataMessage.Builder builderForValue) {
+        if (commandDataBuilder_ == null) {
+          commandData_ = builderForValue.build();
+          onChanged();
+        } else {
+          commandDataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public Builder mergeCommandData(loader.elbrus.proto.CommonProto.CommandDataMessage value) {
+        if (commandDataBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              commandData_ != loader.elbrus.proto.CommonProto.CommandDataMessage.getDefaultInstance()) {
+            commandData_ =
+              loader.elbrus.proto.CommonProto.CommandDataMessage.newBuilder(commandData_).mergeFrom(value).buildPartial();
+          } else {
+            commandData_ = value;
+          }
+          onChanged();
+        } else {
+          commandDataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public Builder clearCommandData() {
+        if (commandDataBuilder_ == null) {
+          commandData_ = loader.elbrus.proto.CommonProto.CommandDataMessage.getDefaultInstance();
+          onChanged();
+        } else {
+          commandDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public loader.elbrus.proto.CommonProto.CommandDataMessage.Builder getCommandDataBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getCommandDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      public loader.elbrus.proto.CommonProto.CommandDataMessageOrBuilder getCommandDataOrBuilder() {
+        if (commandDataBuilder_ != null) {
+          return commandDataBuilder_.getMessageOrBuilder();
+        } else {
+          return commandData_;
+        }
+      }
+      /**
+       * <code>optional .proto.CommandDataMessage command_data = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          loader.elbrus.proto.CommonProto.CommandDataMessage, loader.elbrus.proto.CommonProto.CommandDataMessage.Builder, loader.elbrus.proto.CommonProto.CommandDataMessageOrBuilder> 
+          getCommandDataFieldBuilder() {
+        if (commandDataBuilder_ == null) {
+          commandDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              loader.elbrus.proto.CommonProto.CommandDataMessage, loader.elbrus.proto.CommonProto.CommandDataMessage.Builder, loader.elbrus.proto.CommonProto.CommandDataMessageOrBuilder>(
+                  commandData_,
+                  getParentForChildren(),
+                  isClean());
+          commandData_ = null;
+        }
+        return commandDataBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:proto.NetCommandDataMessage)
+    }
+
+    static {
+      defaultInstance = new NetCommandDataMessage(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:proto.NetCommandDataMessage)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_BooleanMessage_descriptor;
   private static
@@ -12226,10 +24954,30 @@ public final class CommonProto {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_proto_Base64StringMessage_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_PointIntMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_PointIntMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_PenMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_PenMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_BinaryDataMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_proto_BinaryDataMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_DigestInfoMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_DigestInfoMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_LabelDigestInfoMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_LabelDigestInfoMessage_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_StringMapMessage_descriptor;
   private static
@@ -12276,6 +25024,11 @@ public final class CommonProto {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_proto_IntSetMessage_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_StringListMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_StringListMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_AppVersionMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -12305,6 +25058,41 @@ public final class CommonProto {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_proto_ProductVersionInfoMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_KeyFileDataMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_KeyFileDataMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_KeyContentDataMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_KeyContentDataMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_KeyDataMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_KeyDataMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_KnownHostsDataMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_KnownHostsDataMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_NetConnectionDataMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_NetConnectionDataMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_CommandDataMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_CommandDataMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_NetCommandDataMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_proto_NetCommandDataMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -12321,46 +25109,77 @@ public final class CommonProto {
       "essage\022\r\n\005value\030\001 \001(\001\" \n\020TimestampMessag" +
       "e\022\014\n\004time\030\001 \001(\003\"\'\n\021TimeStringMessage\022\022\n\n" +
       "time_value\030\001 \001(\t\"$\n\023Base64StringMessage\022" +
-      "\r\n\005value\030\001 \001(\t\"D\n\021BinaryDataMessage\022\014\n\004d" +
-      "ata\030\001 \001(\014\022\016\n\006digest\030\002 \001(\t\022\021\n\talgorithm\030\003" +
-      " \001(\t\"g\n\020StringMapMessage\022.\n\007entries\030\001 \003(",
-      "\0132\035.proto.StringMapMessage.Entry\032#\n\005Entr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"N\n\021TimeFil" +
-      "terMessage\022&\n\004time\030\001 \001(\0132\030.proto.TimeStr" +
-      "ingMessage\022\021\n\toperation\030\002 \001(\t\"G\n\030Protobu" +
-      "fExceptionMessage\022\014\n\004code\030\001 \001(\005\022\017\n\007messa" +
-      "ge\030\002 \001(\t\022\014\n\004type\030\003 \001(\t\"4\n\026StringParamete" +
-      "rMessage\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"1\n\023" +
-      "IntParameterMessage\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\005\"4\n\026DoubleParameterMessage\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"@\n\022IntIntervalMess",
-      "age\022\r\n\005lower\030\001 \001(\005\022\r\n\005upper\030\002 \001(\005\022\014\n\004eve" +
-      "n\030\003 \001(\010\"K\n\rIntSetMessage\022\014\n\004nums\030\001 \003(\005\022," +
-      "\n\tintervals\030\002 \003(\0132\031.proto.IntIntervalMes" +
-      "sage\"8\n\021AppVersionMessage\022\025\n\rversion_par" +
-      "ts\030\001 \003(\005\022\014\n\004info\030\002 \001(\t\"k\n\025ProductVersion" +
-      "Message\022\024\n\014product_name\030\001 \001(\t\022\021\n\tapi_lev" +
-      "el\030\002 \001(\005\022)\n\007version\030\003 \001(\0132\030.proto.AppVer" +
-      "sionMessage\"~\n\024ProductUpdateMessage\022\024\n\014p" +
-      "roduct_name\030\001 \001(\t\022\021\n\tapi_level\030\002 \001(\005\022)\n\007" +
-      "version\030\003 \001(\0132\030.proto.AppVersionMessage\022",
-      "\022\n\nupdate_url\030\004 \001(\t\"\364\001\n\024VersionPolicyMes" +
-      "sage\0224\n\016server_version\030\001 \001(\0132\034.proto.Pro" +
-      "ductVersionMessage\0228\n\022client_min_version" +
-      "\030\002 \001(\0132\034.proto.ProductVersionMessage\0228\n\022" +
-      "client_max_version\030\003 \001(\0132\034.proto.Product" +
-      "VersionMessage\0222\n\rclient_update\030\004 \001(\0132\033." +
-      "proto.ProductUpdateMessage\"\226\001\n\033ProductVe" +
-      "rsionUpdateMessage\0225\n\017updated_version\030\001 " +
-      "\001(\0132\034.proto.ProductVersionMessage\022-\n\013bin" +
-      "ary_data\030\002 \001(\0132\030.proto.BinaryDataMessage",
-      "\022\021\n\tfile_name\030\003 \001(\t\"\317\001\n\031ProductVersionIn" +
-      "foMessage\022\027\n\017version_allowed\030\001 \001(\010\022\024\n\014co" +
-      "uld_update\030\002 \001(\010\022\025\n\rshould_update\030\003 \001(\010\022" +
-      "5\n\017checked_version\030\004 \001(\0132\034.proto.Product" +
-      "VersionMessage\0225\n\017updated_version\030\005 \001(\0132" +
-      "\034.proto.ProductVersionMessageB$\n\023loader." +
-      "elbrus.protoB\013CommonProtoH\002"
+      "\r\n\005value\030\001 \001(\t\"\'\n\017PointIntMessage\022\t\n\001x\030\001" +
+      " \001(\005\022\t\n\001y\030\002 \001(\005\"9\n\nPenMessage\022\r\n\005color\030\001" +
+      " \001(\005\022\r\n\005width\030\002 \001(\005\022\r\n\005style\030\003 \001(\005\"D\n\021Bi",
+      "naryDataMessage\022\014\n\004data\030\001 \001(\014\022\016\n\006digest\030" +
+      "\002 \001(\t\022\021\n\talgorithm\030\003 \001(\t\"6\n\021DigestInfoMe" +
+      "ssage\022\016\n\006digest\030\001 \001(\t\022\021\n\talgorithm\030\002 \001(\t" +
+      "\"d\n\026LabelDigestInfoMessage\022\r\n\005label\030\001 \001(" +
+      "\t\022\016\n\006digest\030\002 \001(\t\022\030\n\020transient_digest\030\003 " +
+      "\001(\t\022\021\n\talgorithm\030\004 \001(\t\"g\n\020StringMapMessa" +
+      "ge\022.\n\007entries\030\001 \003(\0132\035.proto.StringMapMes" +
+      "sage.Entry\032#\n\005Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
+      "e\030\002 \001(\t\"N\n\021TimeFilterMessage\022&\n\004time\030\001 \001" +
+      "(\0132\030.proto.TimeStringMessage\022\021\n\toperatio",
+      "n\030\002 \001(\t\"G\n\030ProtobufExceptionMessage\022\014\n\004c" +
+      "ode\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\014\n\004type\030\003 \001(\t" +
+      "\"4\n\026StringParameterMessage\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t\"1\n\023IntParameterMessage\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\005\"4\n\026DoubleParam" +
+      "eterMessage\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\"" +
+      "@\n\022IntIntervalMessage\022\r\n\005lower\030\001 \001(\005\022\r\n\005" +
+      "upper\030\002 \001(\005\022\014\n\004even\030\003 \001(\010\"K\n\rIntSetMessa" +
+      "ge\022\014\n\004nums\030\001 \003(\005\022,\n\tintervals\030\002 \003(\0132\031.pr" +
+      "oto.IntIntervalMessage\"#\n\021StringListMess",
+      "age\022\016\n\006values\030\001 \003(\t\"h\n\021AppVersionMessage" +
+      "\022\025\n\rversion_parts\030\001 \003(\005\022\014\n\004info\030\002 \001(\t\022.\n" +
+      "\014version_date\030\003 \001(\0132\030.proto.TimeStringMe" +
+      "ssage\"}\n\025ProductVersionMessage\022\024\n\014produc" +
+      "t_name\030\001 \001(\t\022\021\n\tapi_level\030\002 \001(\005\022)\n\007versi" +
+      "on\030\003 \001(\0132\030.proto.AppVersionMessage\022\020\n\010lo" +
+      "cation\030\004 \001(\t\"\220\001\n\024ProductUpdateMessage\022\022\n" +
+      "\nupdate_url\030\001 \001(\t\022\024\n\014product_name\030\002 \001(\t\022" +
+      "\021\n\tapi_level\030\003 \001(\005\022)\n\007version\030\004 \001(\0132\030.pr" +
+      "oto.AppVersionMessage\022\020\n\010location\030\005 \001(\t\"",
+      "\364\001\n\024VersionPolicyMessage\0224\n\016server_versi" +
+      "on\030\001 \001(\0132\034.proto.ProductVersionMessage\0228" +
+      "\n\022client_min_version\030\002 \001(\0132\034.proto.Produ" +
+      "ctVersionMessage\0228\n\022client_max_version\030\003" +
+      " \001(\0132\034.proto.ProductVersionMessage\0222\n\rcl" +
+      "ient_update\030\004 \001(\0132\033.proto.ProductUpdateM" +
+      "essage\"\226\001\n\033ProductVersionUpdateMessage\0225" +
+      "\n\017updated_version\030\001 \001(\0132\034.proto.ProductV" +
+      "ersionMessage\022-\n\013binary_data\030\002 \001(\0132\030.pro" +
+      "to.BinaryDataMessage\022\021\n\tfile_name\030\003 \001(\t\"",
+      "\317\001\n\031ProductVersionInfoMessage\022\027\n\017version" +
+      "_allowed\030\001 \001(\010\022\024\n\014could_update\030\002 \001(\010\022\025\n\r" +
+      "should_update\030\003 \001(\010\0225\n\017checked_version\030\004" +
+      " \001(\0132\034.proto.ProductVersionMessage\0225\n\017up" +
+      "dated_version\030\005 \001(\0132\034.proto.ProductVersi" +
+      "onMessage\"Y\n\022KeyFileDataMessage\022\030\n\020priva" +
+      "te_key_file\030\001 \001(\t\022\027\n\017public_key_file\030\002 \001" +
+      "(\t\022\020\n\010password\030\003 \001(\t\"d\n\025KeyContentDataMe" +
+      "ssage\022\020\n\010key_name\030\001 \001(\t\022\023\n\013private_key\030\002" +
+      " \001(\014\022\022\n\npublic_key\030\003 \001(\014\022\020\n\010password\030\004 \001",
+      "(\t\"z\n\016KeyDataMessage\0220\n\rkey_file_data\030\001 " +
+      "\001(\0132\031.proto.KeyFileDataMessage\0226\n\020key_co" +
+      "ntent_data\030\002 \001(\0132\034.proto.KeyContentDataM" +
+      "essage\"N\n\025KnownHostsDataMessage\022\030\n\020known" +
+      "_hosts_file\030\001 \001(\t\022\033\n\023known_hosts_content" +
+      "\030\002 \001(\014\"\200\002\n\030NetConnectionDataMessage\022\020\n\010u" +
+      "sername\030\001 \001(\t\022\014\n\004host\030\002 \001(\t\022\014\n\004port\030\003 \001(" +
+      "\005\022\020\n\010password\030\004 \001(\t\022\'\n\010key_data\030\005 \001(\0132\025." +
+      "proto.KeyDataMessage\0226\n\020known_hosts_data" +
+      "\030\006 \001(\0132\034.proto.KnownHostsDataMessage\022\031\n\021",
+      "check_known_hosts\030\007 \001(\010\022\017\n\007timeout\030\010 \001(\005" +
+      "\022\027\n\017timeout_connect\030\t \001(\005\"7\n\022CommandData" +
+      "Message\022\017\n\007command\030\001 \001(\t\022\020\n\010password\030\002 \001" +
+      "(\t\"\206\001\n\025NetCommandDataMessage\022<\n\023net_conn" +
+      "ection_data\030\001 \001(\0132\037.proto.NetConnectionD" +
+      "ataMessage\022/\n\014command_data\030\002 \001(\0132\031.proto" +
+      ".CommandDataMessageB\"\n\023loader.elbrus.pro" +
+      "toB\013CommonProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -12415,14 +25234,38 @@ public final class CommonProto {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_Base64StringMessage_descriptor,
               new java.lang.String[] { "Value", });
-          internal_static_proto_BinaryDataMessage_descriptor =
+          internal_static_proto_PointIntMessage_descriptor =
             getDescriptor().getMessageTypes().get(8);
+          internal_static_proto_PointIntMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_PointIntMessage_descriptor,
+              new java.lang.String[] { "X", "Y", });
+          internal_static_proto_PenMessage_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_proto_PenMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_PenMessage_descriptor,
+              new java.lang.String[] { "Color", "Width", "Style", });
+          internal_static_proto_BinaryDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(10);
           internal_static_proto_BinaryDataMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_BinaryDataMessage_descriptor,
               new java.lang.String[] { "Data", "Digest", "Algorithm", });
+          internal_static_proto_DigestInfoMessage_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_proto_DigestInfoMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_DigestInfoMessage_descriptor,
+              new java.lang.String[] { "Digest", "Algorithm", });
+          internal_static_proto_LabelDigestInfoMessage_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_proto_LabelDigestInfoMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_LabelDigestInfoMessage_descriptor,
+              new java.lang.String[] { "Label", "Digest", "TransientDigest", "Algorithm", });
           internal_static_proto_StringMapMessage_descriptor =
-            getDescriptor().getMessageTypes().get(9);
+            getDescriptor().getMessageTypes().get(13);
           internal_static_proto_StringMapMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_StringMapMessage_descriptor,
@@ -12434,83 +25277,131 @@ public final class CommonProto {
               internal_static_proto_StringMapMessage_Entry_descriptor,
               new java.lang.String[] { "Key", "Value", });
           internal_static_proto_TimeFilterMessage_descriptor =
-            getDescriptor().getMessageTypes().get(10);
+            getDescriptor().getMessageTypes().get(14);
           internal_static_proto_TimeFilterMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_TimeFilterMessage_descriptor,
               new java.lang.String[] { "Time", "Operation", });
           internal_static_proto_ProtobufExceptionMessage_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(15);
           internal_static_proto_ProtobufExceptionMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_ProtobufExceptionMessage_descriptor,
               new java.lang.String[] { "Code", "Message", "Type", });
           internal_static_proto_StringParameterMessage_descriptor =
-            getDescriptor().getMessageTypes().get(12);
+            getDescriptor().getMessageTypes().get(16);
           internal_static_proto_StringParameterMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_StringParameterMessage_descriptor,
               new java.lang.String[] { "Key", "Value", });
           internal_static_proto_IntParameterMessage_descriptor =
-            getDescriptor().getMessageTypes().get(13);
+            getDescriptor().getMessageTypes().get(17);
           internal_static_proto_IntParameterMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_IntParameterMessage_descriptor,
               new java.lang.String[] { "Key", "Value", });
           internal_static_proto_DoubleParameterMessage_descriptor =
-            getDescriptor().getMessageTypes().get(14);
+            getDescriptor().getMessageTypes().get(18);
           internal_static_proto_DoubleParameterMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_DoubleParameterMessage_descriptor,
               new java.lang.String[] { "Key", "Value", });
           internal_static_proto_IntIntervalMessage_descriptor =
-            getDescriptor().getMessageTypes().get(15);
+            getDescriptor().getMessageTypes().get(19);
           internal_static_proto_IntIntervalMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_IntIntervalMessage_descriptor,
               new java.lang.String[] { "Lower", "Upper", "Even", });
           internal_static_proto_IntSetMessage_descriptor =
-            getDescriptor().getMessageTypes().get(16);
+            getDescriptor().getMessageTypes().get(20);
           internal_static_proto_IntSetMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_IntSetMessage_descriptor,
               new java.lang.String[] { "Nums", "Intervals", });
+          internal_static_proto_StringListMessage_descriptor =
+            getDescriptor().getMessageTypes().get(21);
+          internal_static_proto_StringListMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_StringListMessage_descriptor,
+              new java.lang.String[] { "Values", });
           internal_static_proto_AppVersionMessage_descriptor =
-            getDescriptor().getMessageTypes().get(17);
+            getDescriptor().getMessageTypes().get(22);
           internal_static_proto_AppVersionMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_AppVersionMessage_descriptor,
-              new java.lang.String[] { "VersionParts", "Info", });
+              new java.lang.String[] { "VersionParts", "Info", "VersionDate", });
           internal_static_proto_ProductVersionMessage_descriptor =
-            getDescriptor().getMessageTypes().get(18);
+            getDescriptor().getMessageTypes().get(23);
           internal_static_proto_ProductVersionMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_ProductVersionMessage_descriptor,
-              new java.lang.String[] { "ProductName", "ApiLevel", "Version", });
+              new java.lang.String[] { "ProductName", "ApiLevel", "Version", "Location", });
           internal_static_proto_ProductUpdateMessage_descriptor =
-            getDescriptor().getMessageTypes().get(19);
+            getDescriptor().getMessageTypes().get(24);
           internal_static_proto_ProductUpdateMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_ProductUpdateMessage_descriptor,
-              new java.lang.String[] { "ProductName", "ApiLevel", "Version", "UpdateUrl", });
+              new java.lang.String[] { "UpdateUrl", "ProductName", "ApiLevel", "Version", "Location", });
           internal_static_proto_VersionPolicyMessage_descriptor =
-            getDescriptor().getMessageTypes().get(20);
+            getDescriptor().getMessageTypes().get(25);
           internal_static_proto_VersionPolicyMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_VersionPolicyMessage_descriptor,
               new java.lang.String[] { "ServerVersion", "ClientMinVersion", "ClientMaxVersion", "ClientUpdate", });
           internal_static_proto_ProductVersionUpdateMessage_descriptor =
-            getDescriptor().getMessageTypes().get(21);
+            getDescriptor().getMessageTypes().get(26);
           internal_static_proto_ProductVersionUpdateMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_ProductVersionUpdateMessage_descriptor,
               new java.lang.String[] { "UpdatedVersion", "BinaryData", "FileName", });
           internal_static_proto_ProductVersionInfoMessage_descriptor =
-            getDescriptor().getMessageTypes().get(22);
+            getDescriptor().getMessageTypes().get(27);
           internal_static_proto_ProductVersionInfoMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_ProductVersionInfoMessage_descriptor,
               new java.lang.String[] { "VersionAllowed", "CouldUpdate", "ShouldUpdate", "CheckedVersion", "UpdatedVersion", });
+          internal_static_proto_KeyFileDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(28);
+          internal_static_proto_KeyFileDataMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_KeyFileDataMessage_descriptor,
+              new java.lang.String[] { "PrivateKeyFile", "PublicKeyFile", "Password", });
+          internal_static_proto_KeyContentDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(29);
+          internal_static_proto_KeyContentDataMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_KeyContentDataMessage_descriptor,
+              new java.lang.String[] { "KeyName", "PrivateKey", "PublicKey", "Password", });
+          internal_static_proto_KeyDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(30);
+          internal_static_proto_KeyDataMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_KeyDataMessage_descriptor,
+              new java.lang.String[] { "KeyFileData", "KeyContentData", });
+          internal_static_proto_KnownHostsDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(31);
+          internal_static_proto_KnownHostsDataMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_KnownHostsDataMessage_descriptor,
+              new java.lang.String[] { "KnownHostsFile", "KnownHostsContent", });
+          internal_static_proto_NetConnectionDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(32);
+          internal_static_proto_NetConnectionDataMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_NetConnectionDataMessage_descriptor,
+              new java.lang.String[] { "Username", "Host", "Port", "Password", "KeyData", "KnownHostsData", "CheckKnownHosts", "Timeout", "TimeoutConnect", });
+          internal_static_proto_CommandDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(33);
+          internal_static_proto_CommandDataMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_CommandDataMessage_descriptor,
+              new java.lang.String[] { "Command", "Password", });
+          internal_static_proto_NetCommandDataMessage_descriptor =
+            getDescriptor().getMessageTypes().get(34);
+          internal_static_proto_NetCommandDataMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_proto_NetCommandDataMessage_descriptor,
+              new java.lang.String[] { "NetConnectionData", "CommandData", });
           return null;
         }
       };

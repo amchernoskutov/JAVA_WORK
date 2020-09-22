@@ -5,8 +5,6 @@ import org.apache.activemq.command.ActiveMQBytesMessage;
 import org.apache.activemq.command.ActiveMQDestination;
 import org.apache.activemq.util.ByteArrayInputStream;
 import org.apache.commons.lang3.time.DateUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,10 +17,12 @@ import javax.jms.MessageConsumer;
 import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
+import org.jdom.Document;
+import loader.elbrus.LoaderelbrusApplication;
+import loader.elbrus.config.data.GeneralData;
+import loader.elbrus.config.data.LBData;
 import loader.elbrus.config.xml.LAConfig;
 import loader.elbrus.form.MainForm;
-import loader.elbrus.log.LALog;
-import loader.elbrus.log.LBData;
 import loader.elbrus.model.xml.MRequest;
 import loader.elbrus.mqsender.MQSender;
 import loader.elbrus.proto.CommonProto.TimeStringMessage;
@@ -30,7 +30,6 @@ import loader.elbrus.proto.ElbrusProto.GetTimetableRequestMessage;
 import loader.elbrus.proto.ElbrusProto.TimetableMessage;
 import loader.elbrus.proto.ElbrusProto.TimetableTurMessage;
 import loader.elbrus.xml.XMLGraphsInfo;
-import org.jdom.Document;
 
 /**
  * ActiveMQGraphsInfo
@@ -41,22 +40,12 @@ import org.jdom.Document;
  *
  */
 
-@Service
 public class ActiveMQGraphsInfo {
   public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd HH:mm");
   public static final SimpleDateFormat FORMAT_DATE_MARSHRUT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
   
-  @Autowired
   private LBData lbData; 
-
-  @Autowired
-  XMLGraphsInfo xmlGraphsInfo;
-
-  @Autowired
   private LAConfig laConfig;
-
-  @Autowired
-  private MQSender mqSender;
 
   public boolean onMessageRequest;
   public boolean onMessageRequestWrite;
@@ -65,10 +54,11 @@ public class ActiveMQGraphsInfo {
   public MainForm mainForm;
   public String filePathRespond;
 
-  public ActiveMQGraphsInfo() {
-   //  
+  public ActiveMQGraphsInfo(LAConfig laConfig, LBData lbData) {
+    this.laConfig=laConfig;
+    this.lbData=lbData;
   }
-  
+
   /**
    * sendMessage
    * Направление сообщения - запроса в ActiveMQ Эльбрус для получения данных
@@ -80,9 +70,11 @@ public class ActiveMQGraphsInfo {
    * @throws Exception - все возможные ошибки
    */
   
-  public synchronized boolean sendMessage(MRequest mRequest, int requestIntervalTimeMinute, 
-      String reference, Date dateStart, Date dateFinish) throws Exception {
+//  public synchronized boolean sendMessage(MRequest mRequest, int codeRoad, int requestIntervalTimeMinute, 
+  public boolean sendMessage(MRequest mRequest, int codeRoad, int requestIntervalTimeMinute, 
+      String reference, Date dateStart, Date dateFinish, String url, String queueName) throws Exception {
     onMessageRequest = false;
+    onMessageRequestWrite = false;
     mainForm = new MainForm();
     mainForm.setDateCreate(new Date());
     message = "ID request-" + mRequest.getId() + ";Name request-" + mRequest.getName() + "_" + reference;
@@ -90,13 +82,13 @@ public class ActiveMQGraphsInfo {
     messageTemporary = "";
     filePathRespond = "";
    
-    ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(laConfig.getConfig().getActiveMQRequestParam().getUrl());    
+    ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);    
     Connection connection = connectionFactory.createConnection();
     connection.start();
 
     Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-    Destination destRequest = session.createQueue(laConfig.getConfig().getActiveMQRequestParam().getQueueName());
+    Destination destRequest = session.createQueue(queueName);
     Destination destResponce = session.createTemporaryQueue();
 
     MessageProducer producer = session.createProducer(destRequest);
@@ -108,16 +100,19 @@ public class ActiveMQGraphsInfo {
       @Override
       public void onMessage(Message bytesMessage) {
         try {
+          messageTemporary = GeneralData.FORMAT_DATE.format(new Date()) + " Successfully recive ActiveMQ;"; 
+          
           ByteArrayInputStream inputStream = new ByteArrayInputStream(((ActiveMQBytesMessage) bytesMessage).getContent().getData());
           TimetableMessage timetableMessage = TimetableMessage.parseFrom(inputStream);
           
           // Формируем XML документ
-          Document document = xmlGraphsInfo.createXMLFile(timetableMessage, mRequest, reference, dateStart, dateFinish);
+          XMLGraphsInfo xmlGraphsInfo = new XMLGraphsInfo();
+          Document document = xmlGraphsInfo.createXMLFile(timetableMessage, mRequest, reference, dateStart, dateFinish, url);
 
           // Выводим документ в файл
-          filePathRespond = lbData.writeXMLFile(mRequest, document, requestIntervalTimeMinute, 0, 0, "_" + reference);
+          filePathRespond = lbData.writeXMLFile(mRequest, document, requestIntervalTimeMinute, codeRoad, dateStart, 0, "_" + reference);
 
-          messageTemporary = "Successfully create XML file and write respond to file:" + filePathRespond;
+          messageTemporary = messageTemporary + " Successfully create XML file and write respond to file:" + filePathRespond;
           onMessageRequestWrite = true;
         } catch (Exception e) {
           messageTemporary = "ERROR create XML file and write respond to file:" + e.getMessage();
@@ -141,7 +136,19 @@ public class ActiveMQGraphsInfo {
       expandValue = "expand";  
     }
 
-    bytesMessage.writeBytes(GetTimetableRequestMessage.newBuilder()
+    if ("GIDEXPORT".equals(mRequest.getTypeParam())) {
+      bytesMessage.writeBytes(GetTimetableRequestMessage.newBuilder()
+          .setTimetableTur(TimetableTurMessage.newBuilder()
+              .setType(mRequest.getTypeParam())
+              .setUser(mRequest.getUserParam())
+              .setReference(reference).build()
+              )
+          .setCalendarHandling(expandValue)   
+          .setKeepTailsBefore(true)
+          .setKeepTailsAfter(true)
+          .build().toByteArray());
+    } else {
+      bytesMessage.writeBytes(GetTimetableRequestMessage.newBuilder()
         .setTimetableTur(TimetableTurMessage.newBuilder()
             .setType(mRequest.getTypeParam())
             .setUser(mRequest.getUserParam())
@@ -159,10 +166,10 @@ public class ActiveMQGraphsInfo {
             .build()
             )
         .build().toByteArray());
-      
+    }  
     producer.send(bytesMessage);
 
-    messageTemporary = "Successfully sent ActiveMQ request on date:" + LALog.FORMAT_DATE.format(mRequest.getDataStartTime()); 
+    messageTemporary = GeneralData.FORMAT_DATE.format(new Date()) + " Successfully sent ActiveMQ request on date:" + GeneralData.FORMAT_DATE.format(dateStart); 
     message = message + ";" + messageTemporary;
     mainForm.setRequest(messageTemporary);
     messageTemporary = "";
@@ -177,9 +184,7 @@ public class ActiveMQGraphsInfo {
     connection.close();
 
     // Добавление в log-файл  информации о получении ответа из ActiveMQ данных  
-    if (onMessageRequest) {
-      messageTemporary = "Successfully recive ActiveMQ " + messageTemporary; 
-    } else {
+    if (!onMessageRequest) {
       messageTemporary = "ERROR recive ActiveMQ request - timeout > " + mRequest.getTimeout()*60*1000; 
     }
     message = message + ";" + messageTemporary;
@@ -189,7 +194,7 @@ public class ActiveMQGraphsInfo {
     // Добавление в log-файл  информации об направлении в MQ сообщения с именем файла с данными  
     if (onMessageRequest) {
       try {
-        createMQSender(filePathRespond, mRequest, requestIntervalTimeMinute);
+        createMQSender(filePathRespond, mRequest, codeRoad, requestIntervalTimeMinute, dateStart);
         messageTemporary = "Successfully create MQ Sender"; 
       } catch (Exception e) {
         messageTemporary = "ERROR create MQ Sender";
@@ -203,20 +208,22 @@ public class ActiveMQGraphsInfo {
       mainForm.setMqSender(messageTemporary);
     }
 
-    LALog.mainForms.add(mainForm);
-    if (onMessageRequest) LALog.Info(message); else LALog.Severe(message);
-    if (LALog.mainForms.size() > LALog.MAX_MAINFORMS_SHOW) LALog.mainForms.remove(0);
+    GeneralData.mainForms.add(mainForm);
+    if (onMessageRequest) LoaderelbrusApplication.logger.fatal(message); else LoaderelbrusApplication.logger.fatal(message);
+    if (GeneralData.mainForms.size() > GeneralData.MAX_MAINFORMS_SHOW) GeneralData.mainForms.remove(0);
 
     return onMessageRequest;
   }
 
   // Формирование MQ сообщения
-  private void createMQSender(String filePathRespond, MRequest mRequest, int requestIntervalTimeMinute) throws Exception { 
+  private void createMQSender(String filePathRespond, MRequest mRequest, int codeRoad, int requestIntervalTimeMinute, Date dateStart) throws Exception {
+    MQSender mqSender = new MQSender(laConfig);
     mqSender.setId(mRequest.getId());
-    mqSender.setDate1(new Timestamp(mRequest.getDataStartTime().getTime()));
-    mqSender.setDate2(new Timestamp(DateUtils.addMinutes(mRequest.getDataStartTime(), requestIntervalTimeMinute).getTime()));
+    mqSender.setCodeRoad(codeRoad);
+    mqSender.setDate1(new Timestamp(dateStart.getTime()));
+    mqSender.setDate2(new Timestamp(DateUtils.addMinutes(dateStart, requestIntervalTimeMinute).getTime()));
     mqSender.setData_name(mRequest.getName());
-    mqSender.setSystem_name(LALog.SHORT_LOADERCOMM_NAME);
+    mqSender.setSystem_name(GeneralData.SHORT_LOADERCOMM_NAME);
     mqSender.setXML_name("/" + filePathRespond.replace("\\", "/"));
     mqSender.send("");
   }

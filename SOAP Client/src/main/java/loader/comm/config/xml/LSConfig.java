@@ -2,13 +2,15 @@ package loader.comm.config.xml;
 
 import java.io.File;
 import java.io.StringWriter;
+import java.util.Date;
 import org.apache.commons.lang3.time.DateUtils;
 import org.simpleframework.xml.core.Persister;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
-import loader.comm.log.LSLog;
+import loader.comm.LoadercommApplication;
 import loader.comm.model.xml.ConfigurationCOMM;
 import loader.comm.model.xml.MRequest;
+import loader.comm.model.xml.RoadAndTime;
 import lombok.Data;
 
 /**
@@ -34,9 +36,10 @@ public class LSConfig {
   }
   
   // Получение времени с которого должен будет сформирован следующий SOAP запрос
-  public synchronized void addDataStartTime(MRequest mRequest, Integer requestIntervalTimeMinute) {
-    mRequest.setDataStartTime(
-        DateUtils.addMinutes(mRequest.getDataStartTime(), requestIntervalTimeMinute));
+  public synchronized void addDataStartTime(MRequest mRequest, int codeRoad, Date dataStartTime, Integer requestIntervalTimeMinute) {
+    RoadAndTime roadAndTime=mRequest.getRoadsAndTime().stream().filter(item -> item.getCodeRoad()==codeRoad).findFirst().orElse(null);
+    roadAndTime.setDataStartTime(
+        DateUtils.addMinutes(dataStartTime, requestIntervalTimeMinute));
   }
 
   // Чтение конфигурационного файла configloadercomm.xml в классы XML
@@ -44,7 +47,7 @@ public class LSConfig {
     try {
       this.config = persister.read(ConfigurationCOMM.class, this.file);
     } catch (Exception e) {
-      LSLog.Severe("ERROR read configurational file:" + this.file + ";" + e.getMessage());
+      LoadercommApplication.logger.fatal("ERROR read configurational file:" + this.file + ";" + e.getMessage());
     } 
   }
   
@@ -53,7 +56,7 @@ public class LSConfig {
     try {
       this.persister.write(this.config, file);
     } catch (Exception e) {
-      LSLog.Severe("ERROR write configurational file:" + this.file + "::" + e.getMessage());
+      LoadercommApplication.logger.fatal("ERROR write configurational file:" + this.file + "::" + e.getMessage());
     } 
   }
   
@@ -64,7 +67,7 @@ public class LSConfig {
     try {
       this.persister.write(this.config, writer);
     } catch (Exception e) {
-      LSLog.Severe("ERROR write to string configurational file:" + this.file + ";" + e.getMessage());
+      LoadercommApplication.logger.fatal("ERROR write to string configurational file:" + this.file + ";" + e.getMessage());
     }  
     
     String rezult = writer.toString().replaceAll("\n","").replaceAll(" <","<").replaceAll(" >",">");

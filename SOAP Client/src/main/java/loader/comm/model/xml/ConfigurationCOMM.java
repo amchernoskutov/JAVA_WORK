@@ -10,9 +10,6 @@ public class ConfigurationCOMM {
   @Element(name = "logAndDataServer")
   private logAndDataServer logAndDataServer;
   
-  @Element(name = "logPaths")
-  private LogPaths logPath;
-
   @Element(name = "SOAPRequestParam")
   private SOAPRequestParam SOAPRequestParam;
 

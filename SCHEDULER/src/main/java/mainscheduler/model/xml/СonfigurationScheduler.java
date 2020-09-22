@@ -10,9 +10,6 @@ public class СonfigurationScheduler {
   @Element(name = "logServer")
   private LogServer logServer;
   
-  @Element(name = "logPaths")
-  private LogPaths logPath;
-  
   @Element(name = "systemInformations")
   private SystemInformations systemInformation;
   

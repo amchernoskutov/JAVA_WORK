@@ -2,19 +2,15 @@
    <logAndDataServer>
       <name>c:/</name>
    </logAndDataServer>
-   <logPaths>
-      <logPath>logs/log1/</logPath>
-      <logPath>logs/log2/</logPath>
-   </logPaths>
    <RestRequestParam>
-      <url>local.trans-ip.ru</url>
-      <urlapi>ter/api/login</urlapi>
+      <url>10.248.11.3</url>
+      <urlapi>terdataservice/api/login</urlapi>
       <username>TERServiceBHbas2</username>
       <password>JWNjgb3672bwVf!!m9</password>
    </RestRequestParam>
    <MQSenderParam>
-      <name>q-test</name>
-      <host>172.31.54.130</host>
+      <name>q-asuter</name>
+      <host>172.31.54.133</host>
       <port>61613</port>
       <login>admin</login>
       <password>admin</password>
@@ -22,66 +18,122 @@
    <requests>
       <request>
          <id>201</id>
-         <name>SPEED_HISTORY</name>
-         <urlapi>ter/api/speed_history</urlapi>
-         <dataStartTime>2020-02-17 01:10:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <name>COORD_SPEED_HISTORY</name>
+         <urlapi>terdataservice/api/coord_speed_history</urlapi>
+         <dataStartTime>2020-09-07 13:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>202</id>
-         <name>COORD_HISTORY</name>
-         <urlapi>ter/api/coord_history</urlapi>
-         <dataStartTime>2020-03-03 14:10:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <name>ELECTRIC_DATA</name>
+         <urlapi>terdataservice/api/electric_data</urlapi>
+         <dataStartTime>2020-09-07 13:05:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>203</id>
          <name>TRAFFIC_LIGHT_HISTORY</name>
-         <urlapi>ter/api/traffic_light_history</urlapi>
-         <dataStartTime>2020-02-17 00:55:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <urlapi>terdataservice/api/traffic_light_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>204</id>
          <name>MEK_HISTORY</name>
-         <urlapi>ter/api/mek_history</urlapi>
-         <dataStartTime>2020-02-17 00:50:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <urlapi>terdataservice/api/mek_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>205</id>
          <name>FUEL</name>
-         <urlapi>ter/api/fuel</urlapi>
-         <dataStartTime>2018-04-10 14:55:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <urlapi>terdataservice/api/fuel</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>206</id>
          <name>DIESEL_RUN_HISTORY</name>
-         <urlapi>ter/api/diesel_run_history</urlapi>
-         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <urlapi>terdataservice/api/diesel_run_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>207</id>
-         <name>ELECTRIC_DATA</name>
-         <urlapi>ter/api/electric_data</urlapi>
-         <dataStartTime>2020-02-17 00:40:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <name>VAGONS_DATA</name>
+         <urlapi>terdataservice/api/vagons_data</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>208</id>
-         <name>VAGONS_DATA</name>
-         <urlapi>ter/api/vagons_data</urlapi>
-         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <name>ASOUP_DATA</name>
+         <urlapi>terdataservice/api/asoup_data</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
       <request>
          <id>209</id>
-         <name>ASOUP_DATA</name>
-         <urlapi>ter/api/asoup_data</urlapi>
-         <dataStartTime>2020-02-17 00:35:00.0 MSK</dataStartTime>
-         <destPath>logs/data/</destPath>
+         <name>ASSIGMENT_DATA</name>
+         <urlapi>terdataservice/api/assigment_data</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>210</id>
+         <name>TRACTION_GENERATOR_HISTORY</name>
+         <urlapi>terdataservice/api/traction_generator_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>211</id>
+         <name>TEMPERATURES_HISTORY</name>
+         <urlapi>terdataservice/api/temperatures_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>212</id>
+         <name>CONTROLLER_POSITION_HISTORY</name>
+         <urlapi>terdataservice/api/controller_position_history</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>213</id>
+         <name>NSI_DEPOTS</name>
+         <urlapi>terdataservice/api/nsi_depots</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>214</id>
+         <name>NSI_OPERATIONS</name>
+         <urlapi>terdataservice/api/nsi_operations</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>215</id>
+         <name>NSI_RAILWAYS</name>
+         <urlapi>terdataservice/api/nsi_railways</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>216</id>
+         <name>NSI_STATES</name>
+         <urlapi>terdataservice/api/nsi_states</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
+      </request>
+      <request>
+         <id>217</id>
+         <name>NSI_STATIONS</name>
+         <urlapi>terdataservice/api/nsi_stations</urlapi>
+         <dataStartTime>2021-08-31 10:00:00.0 MSK</dataStartTime>
+         <destPath>dt/data/</destPath>
       </request>
    </requests>
 </configurationSVLTR>

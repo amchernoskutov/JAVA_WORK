@@ -2,13 +2,10 @@ package loader.elbrus.xml;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import loader.elbrus.config.xml.LAConfig;
 import loader.elbrus.model.xml.MRequest;
 import loader.elbrus.proto.ElbrusProto.TimetableInfosMessage;
 import org.jdom.Document;
 import org.jdom.Element;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * XMLGraphsAvailable 
@@ -21,12 +18,8 @@ import org.springframework.stereotype.Service;
  * ACTUAL (Прочие графики)
  */
 
-@Service
 public class XMLGraphsAvailable {
   public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-
-  @Autowired
-  private LAConfig laConfig;
 
   /**
    * createXMLFile
@@ -40,7 +33,7 @@ public class XMLGraphsAvailable {
    */
   
   public Document createXMLFile(TimetableInfosMessage timetableInfosMessage, MRequest mRequest,
-      Date dateStart, Date dateFinish) throws Exception {
+      Date dateStart, Date dateFinish, String url) throws Exception {
     Document document = new Document();
     Element root = new Element("GraficsInfo");
     root.setAttribute("dtRequest", FORMAT_DATE.format(new Date()));
@@ -49,7 +42,7 @@ public class XMLGraphsAvailable {
     root.setAttribute("Reference", "");
     root.setAttribute("dtStart", FORMAT_DATE.format(dateStart));
     root.setAttribute("dtFinish", FORMAT_DATE.format(dateFinish));
-    root.setAttribute("mq", "activemq:" + laConfig.getConfig().getActiveMQRequestParam().getUrl());
+    root.setAttribute("mq", "activemq:" + url);
     document.setRootElement(root);
     
     timetableInfosMessage.getTimetableInfosList().forEach(item -> {

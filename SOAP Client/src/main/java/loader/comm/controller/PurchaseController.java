@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import loader.comm.log.LSLog;
+import loader.comm.config.data.GeneralData;
+import loader.comm.config.xml.LSConfig;
 import loader.comm.manager.ManagerSoapClient;
 
 
@@ -29,10 +30,10 @@ public class PurchaseController {
   private ArrayList<HashSet<String>> requestsValidator = new ArrayList<HashSet<String>>();
   
   @Autowired
-  private ManagerSoapClient managerSoapClient;
+  private LSConfig lsConfig;
 
   @Autowired
-  private LSLog lsLog;
+  private ManagerSoapClient managerSoapClient;
 
   @GetMapping
   @ResponseBody
@@ -47,24 +48,25 @@ public class PurchaseController {
     
     String request;
     HashSet<String> requests = new HashSet<String>();
-    
-    if (!LSLog.oldDate.equals(LSLog.FORMAT_DATE_FILE.format(new Date()))) {
-      lsLog.initHandlers();
-    }
 
     if (requestsValidator.size() > MAX_REQUEST_SHOW) {
       requestsValidator.remove(0).clear(); 
     }
 
-    request = LSLog.FORMAT_DATE.format(new Date()) + " Request accepted: idReqest=" + idRequest + " intervalTimeMinute=" + intervalTimeMinute;
-    
-    Thread thread = new Thread(new Runnable() {
-      @Override
-      public void run() {
-        managerSoapClient.exec(Integer.parseInt(idRequest), Integer.parseInt(intervalTimeMinute));
-      }
+    request = GeneralData.FORMAT_DATE.format(new Date()) + " Request accepted: idReqest=" + idRequest + 
+        " intervalTimeMinute=" + intervalTimeMinute; 
+
+    lsConfig.getConfig().getRequest().getRequests().stream().filter(f -> f.getId() == Integer.parseInt(idRequest)).forEach(item -> {
+      item.getRoadsAndTime().forEach(road -> {
+        Thread thread = new Thread(new Runnable() {
+          @Override
+          public void run() {
+            managerSoapClient.exec(Integer.parseInt(idRequest), road.getCodeRoad(), road.getDataStartTime(), Integer.parseInt(intervalTimeMinute));
+          }
+        });
+        thread.start();
+      });
     });
-    thread.start();
     
     requests.add(request);
     requestsValidator.add(requests);

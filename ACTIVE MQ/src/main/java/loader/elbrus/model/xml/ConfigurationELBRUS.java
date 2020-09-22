@@ -10,12 +10,6 @@ public class ConfigurationELBRUS {
   @Element(name = "logAndDataServer")
   private logAndDataServer logAndDataServer;
   
-  @Element(name = "logPaths")
-  private LogPaths logPath;
-
-  @Element(name = "ActiveMQRequestParam")
-  private ActiveMQRequestParam activeMQRequestParam;
-
   @Element(name = "MQSenderParam")
   private MQSenderParam MQSenderParam;
 

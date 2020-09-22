@@ -14,7 +14,7 @@ public class SystemInformation {
   @Element(name = "name")
   private String name;
   
-  @Element(name = "StartTime")
+  @Element(name = "startTime")
   private Date startTime;
   
   @Element(name = "URLRESTService")

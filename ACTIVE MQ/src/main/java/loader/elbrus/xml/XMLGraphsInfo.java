@@ -5,13 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import loader.elbrus.config.xml.LAConfig;
 import loader.elbrus.model.xml.MRequest;
 import loader.elbrus.proto.ElbrusProto.TimetableMessage;
 import org.jdom.Document;
 import org.jdom.Element;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * XMLGraphsInfo 
@@ -25,14 +22,10 @@ import org.springframework.stereotype.Service;
  *  
  */
 
-@Service
 public class XMLGraphsInfo {
-  public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+  public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
   public static final SimpleDateFormat FORMAT_DATE_YYYYMMDD = new SimpleDateFormat("yyyy-MM-dd");
   public static final SimpleDateFormat FORMAT_DATE_MARSHRUT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-
-  @Autowired
-  private LAConfig laConfig;
 
   /**
    * createXMLFile
@@ -47,7 +40,7 @@ public class XMLGraphsInfo {
    */
 
   public Document createXMLFile(TimetableMessage timetableMessage, MRequest mRequest, 
-      String reference, Date dateStart, Date dateFinish) throws Exception {
+      String reference, Date dateStart, Date dateFinish, String url) throws Exception {
 
     Document document = new Document();
     Element root = new Element("DataMarshrut")
@@ -57,7 +50,7 @@ public class XMLGraphsInfo {
         .setAttribute("Reference", reference)
         .setAttribute("dtStart", FORMAT_DATE.format(dateStart))
         .setAttribute("dtFinish", FORMAT_DATE.format(dateFinish))
-        .setAttribute("mq", "activemq:" + laConfig.getConfig().getActiveMQRequestParam().getUrl());
+        .setAttribute("mq", "activemq:" + url);
     document.setRootElement(root);
 
     timetableMessage.getTrainThreadsList().stream().filter(f -> (f.getTrainPointsCount() >= 3))
@@ -116,7 +109,19 @@ public class XMLGraphsInfo {
                 .setAttribute("comment", item.getComment())
                 .setAttribute("calendar_label", item.getCalendarLabel())
                 .setAttribute("fixed_thread", item.getFixedThread())
-                .setAttribute("overlay_thread", Boolean.toString(item.getOverlayThread()));
+                .setAttribute("overlay_thread", Boolean.toString(item.getOverlayThread()))
+                .setAttribute("normative_thread", Boolean.toString(item.getNormativeThread()))
+                .setAttribute("gid_thread_type_id", Integer.toString(item.getGidThreadType().getTypeId()))
+                .setAttribute("gid_thread_source_id", Integer.toString(item.getGidThreadType().getSourceId()))
+                .setAttribute("inactive_thread", Boolean.toString(item.getInactiveThread()))
+                .setAttribute("user_priority", Boolean.toString(item.getUserPriority()))
+                .setAttribute("fixed_stop_time", Boolean.toString(item.getFixedStopTime()))
+                .setAttribute("is_tail", Boolean.toString(item.getIsTail()))
+                .setAttribute("speed_limit_enabled", Boolean.toString(item.getSpeedLimitEnabled()))
+                .setAttribute("speed_limit", Integer.toString(item.getSpeedLimit()))
+                .setAttribute("is_joined", Boolean.toString(item.getIsJoined()))
+                .setAttribute("is_route_changed", Boolean.toString(item.getIsRouteChanged()))
+                .setAttribute("parent_guid", item.getParentGuid());
 
             Element trainAttributes = new Element("train_attributes")
                 .setAttribute("explosives", Boolean.toString(item.getTrainAttributes().getExplosives()));

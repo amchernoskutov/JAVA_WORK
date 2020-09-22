@@ -6,7 +6,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.simpleframework.xml.core.Persister;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
-import loader.svltr.log.LSLog;
+import loader.svltr.LoadersvltrApplication;
 import loader.svltr.model.xml.ConfigurationSVLTR;
 import loader.svltr.model.xml.MRequest;
 import lombok.Data;
@@ -44,7 +44,7 @@ public class LSConfig {
     try {
       this.config = persister.read(ConfigurationSVLTR.class, this.file);
     } catch (Exception e) {
-      LSLog.Severe("ERROR read configurational file:" + this.file + ";" + e.getMessage());
+      LoadersvltrApplication.logger.fatal("ERROR read configurational file:" + this.file + ";" + e.getMessage());
     } 
   }
   
@@ -53,7 +53,7 @@ public class LSConfig {
     try {
       this.persister.write(this.config, file);
     } catch (Exception e) {
-      LSLog.Severe("ERROR write configurational file:" + this.file + "::" + e.getMessage());
+      LoadersvltrApplication.logger.fatal("ERROR write configurational file:" + this.file + "::" + e.getMessage());
     } 
   }
   
@@ -64,7 +64,7 @@ public class LSConfig {
     try {
       this.persister.write(this.config, writer);
     } catch (Exception e) {
-      LSLog.Severe("ERROR write to string configurational file:" + this.file + ";" + e.getMessage());
+      LoadersvltrApplication.logger.fatal("ERROR write to string configurational file:" + this.file + ";" + e.getMessage());
     }  
     
     String rezult = writer.toString().replaceAll("\n","").replaceAll(" <","<").replaceAll(" >",">");
